@@ -1,0 +1,1217 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\custom\\custom.css",
+      "PackagePath": "staticwebassets\\assets\\css\\custom\\custom.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\advance-ui-media.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\advance-ui-media.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-calendar.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-calendar.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-chat.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-chat.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-contacts.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-contacts.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-email.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-email.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-file-manager.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-file-manager.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-invoice.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-invoice.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-kanban.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-kanban.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-sidebar.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-sidebar.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\app-todo.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\app-todo.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\badges.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\badges.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\cards-basic.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\cards-basic.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\charts-chartist.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\charts-chartist.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\charts-sparkline.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\charts-sparkline.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\component-navbar.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\component-navbar.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\css-media.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\css-media.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\dashboard-modern.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\dashboard-modern.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\dashboard.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\dashboard.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\data-tables.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\data-tables.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\eCommerce-products-page.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\eCommerce-products-page.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\extra-components-tour.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\extra-components-tour.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\forgot.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\forgot.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\form-select2.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\form-select2.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\form-wizard.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\form-wizard.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\icon.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\icon.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\intro.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\intro.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\lock.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\lock.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\login.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\login.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-404.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-404.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-500.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-500.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-account-settings.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-account-settings.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-blog.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-blog.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-contact.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-contact.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-faq.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-faq.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-knowledge.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-knowledge.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-maintenance.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-maintenance.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-search.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-search.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-timeline.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-timeline.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\page-users.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\page-users.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\pricing.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\pricing.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\register.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\register.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\pages\\widget-timeline.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\pages\\widget-timeline.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\themes\\vertical-modern-menu-template\\materialize.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\themes\\vertical-modern-menu-template\\materialize.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\themes\\vertical-modern-menu-template\\style.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\themes\\vertical-modern-menu-template\\style.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\fonts\\fontawesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome\\css\\all.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\fonts\\fontawesome\\js\\all.min.js",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome\\js\\all.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\fonts\\material-design-icons\\css",
+      "PackagePath": "staticwebassets\\assets\\fonts\\material-design-icons"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\fonts\\material-design-icons\\icon",
+      "PackagePath": "staticwebassets\\assets\\fonts\\material-design-icons"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-1.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-10.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-10.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-11.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-11.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-12.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-12.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-13.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-13.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-14.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-14.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-15.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-15.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-16.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-16.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-17.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-17.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-2.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-3.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-4.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-5.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-6.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-7.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-7.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-8.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-8.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-9.png",
+      "PackagePath": "staticwebassets\\assets\\images\\avatar\\avatar-9.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\camara.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\camara.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\cameras.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\cameras.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\headphone.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\headphone.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\headphones-2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\headphones-2.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\headphones.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\headphones.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\horizontal-news-1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\horizontal-news-1.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\horizontal-news-2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\horizontal-news-2.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\ipad.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\ipad.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\iphone-x.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\iphone-x.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\iphonec.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\iphonec.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\magic-mouse.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\magic-mouse.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\news-apple.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\news-apple.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\news-fashion.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\news-fashion.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\news-twitter.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\news-twitter.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\nike.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\nike.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\oneplus-6t.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\oneplus-6t.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\powerbank.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\powerbank.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\puma.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\puma.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\reebok.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\reebok.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\remote.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\remote.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\shoes.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\shoes.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\smartspeakers.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\smartspeakers.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\speakers.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\speakers.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\watch-2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\watch-2.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\cards\\watch.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cards\\watch.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\favicon\\apple-touch-icon-152x152.png",
+      "PackagePath": "staticwebassets\\assets\\images\\favicon\\apple-touch-icon-152x152.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\favicon\\favicon-32x32.png",
+      "PackagePath": "staticwebassets\\assets\\images\\favicon\\favicon-32x32.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\favicon\\ptc-computer-logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\favicon\\ptc-computer-logo.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\1.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\10.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\10.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\11.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\11.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\12.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\12.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\13.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\13.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\14.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\14.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\15.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\15.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\16.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\16.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\17.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\17.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\18.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\18.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\19.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\19.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\2.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\20.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\20.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\21.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\21.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\22.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\22.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\23.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\23.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\24.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\24.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\25.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\25.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\26.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\26.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\28.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\28.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\29.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\29.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\3.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\30.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\30.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\31.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\31.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\33.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\33.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\34.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\34.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\35.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\35.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\36.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\36.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\37.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\37.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\38.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\38.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\39.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\39.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\4.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\40.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\40.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\41.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\41.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\42.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\42.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\43.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\43.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\44.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\44.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\46.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\46.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\47.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\47.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\48.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\48.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\5.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\6.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\7.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\7.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\8.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\8.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\9.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\9.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\breadcrumb-bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\breadcrumb-bg.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\error-2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\error-2.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\intro-app.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\intro-app.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\intro-features.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\intro-features.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\intro-slide-1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\intro-slide-1.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\maintenance.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\maintenance.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\pixinvent-logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\pixinvent-logo.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\post-1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\post-1.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\post-2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\post-2.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\post-3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\post-3.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\gallery\\profile-bg.png",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery\\profile-bg.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\apple-watch.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\apple-watch.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\bowling.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\bowling.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\doc-image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\doc-image.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\doc.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\doc.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\jpg-image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\jpg-image.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\laptop.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\laptop.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\pdf-image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\pdf-image.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\pdf.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\pdf.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\printer.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\printer.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\psd.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\psd.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\sketch.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\sketch.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\icon\\xls-image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\xls-image.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\logo\\login-logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\login-logo.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\logo\\materialize-logo-color.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\materialize-logo-color.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\logo\\materialize-logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\materialize-logo.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\1.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\10.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\10.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\11.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\11.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\12.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\12.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\2.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\3.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\4.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\5.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\6.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\7.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\7.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\8.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\8.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\9.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\user\\9.jpg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\custom\\custom-script.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\custom\\custom-script.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\plugins.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugins.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\advance-ui-carousel.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\advance-ui-carousel.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\advance-ui-feature-discovery.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\advance-ui-feature-discovery.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\advance-ui-media.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\advance-ui-media.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\advance-ui-modals.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\advance-ui-modals.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\advance-ui-scrollspy.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\advance-ui-scrollspy.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\advance-ui-toasts.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\advance-ui-toasts.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\app-calendar.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\app-calendar.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\app-chat.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\app-chat.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\app-contacts.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\app-contacts.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\app-email.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\app-email.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\app-file-manager.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\app-file-manager.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\app-invoice.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\app-invoice.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\app-kanban.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\app-kanban.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\app-todo.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\app-todo.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\card-advanced.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\card-advanced.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\cards-extended.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\cards-extended.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\charts-chartist.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\charts-chartist.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\charts-chartjs.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\charts-chartjs.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\charts-sparklines.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\charts-sparklines.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\css-animation.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\css-animation.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\css-grid.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\css-grid.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\css-typography.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\css-typography.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\customizer.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\customizer.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\dashboard-analytics.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\dashboard-analytics.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\dashboard-ecommerce.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\dashboard-ecommerce.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\dashboard-modern.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\dashboard-modern.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\data-tables.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\data-tables.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\eCommerce-products-page.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\eCommerce-products-page.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\extra-components-i18n.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\extra-components-i18n.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\extra-components-nestable.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\extra-components-nestable.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\extra-components-range-slider.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\extra-components-range-slider.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\extra-components-ratings.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\extra-components-ratings.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\extra-components-sweetalert.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\extra-components-sweetalert.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\extra-components-tour.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\extra-components-tour.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\form-editor.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\form-editor.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\form-file-uploads.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\form-file-uploads.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\form-masks.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\form-masks.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\form-select2.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\form-select2.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\form-validation.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\form-validation.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\form-wizard.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\form-wizard.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\intro.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\intro.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\media-gallery-page.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\media-gallery-page.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\page-account-settings.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\page-account-settings.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\page-contact.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\page-contact.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\page-users.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\page-users.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\ui-alerts.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\ui-alerts.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\scripts\\ui-chips.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts\\ui-chips.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\search.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\search.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\js\\vendors.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\vendors.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\animate-css\\animate.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\animate-css\\animate.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\chartist-js\\chartist-plugin-fill-donut.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\chartist-js\\chartist-plugin-fill-donut.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\chartist-js\\chartist-plugin-tooltip.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\chartist-js\\chartist-plugin-tooltip.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\chartist-js\\chartist-plugin-tooltip.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\chartist-js\\chartist-plugin-tooltip.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\chartist-js\\chartist.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\chartist-js\\chartist.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\chartist-js\\chartist.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\chartist-js\\chartist.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\chartist-js\\chartist.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\chartist-js\\chartist.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\chartjs\\chart.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\chartjs\\chart.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\dataTables.checkboxes.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\dataTables.checkboxes.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\jquery.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\jquery.dataTables.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\select.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\select.dataTables.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\extensions\\responsive\\css\\responsive.dataTables.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\extensions\\responsive\\css\\responsive.dataTables.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\extensions\\responsive\\js\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\extensions\\responsive\\js\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\images\\sort_asc.png",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\images\\sort_asc.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\images\\sort_both.png",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\images\\sort_both.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\js\\dataTables.select.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\js\\dataTables.select.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\js\\datatables.checkboxes.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\js\\datatables.checkboxes.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\dropify\\css\\dropify.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\dropify\\css\\dropify.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\dropify\\fonts\\dropify.woff",
+      "PackagePath": "staticwebassets\\assets\\vendors\\dropify\\fonts\\dropify.woff"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\dropify\\js\\dropify.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\dropify\\js\\dropify.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\flag-icon\\css\\flag-icon.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\flag-icon\\css\\flag-icon.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\flag-icon\\flags\\4x3\\gb.svg",
+      "PackagePath": "staticwebassets\\assets\\vendors\\flag-icon\\flags\\4x3\\gb.svg"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\form_repeater\\jquery.repeater.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\form_repeater\\jquery.repeater.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\formatter\\jquery.formatter.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\formatter\\jquery.formatter.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\fullcalendar\\css\\fullcalendar.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\fullcalendar\\css\\fullcalendar.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\fullcalendar\\daygrid\\daygrid.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\fullcalendar\\daygrid\\daygrid.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\fullcalendar\\daygrid\\daygrid.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\fullcalendar\\daygrid\\daygrid.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\fullcalendar\\interaction\\interaction.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\fullcalendar\\interaction\\interaction.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\fullcalendar\\js\\fullcalendar.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\fullcalendar\\js\\fullcalendar.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\fullcalendar\\lib\\moment.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\fullcalendar\\lib\\moment.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\fullcalendar\\timegrid\\timegrid.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\fullcalendar\\timegrid\\timegrid.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\fullcalendar\\timegrid\\timegrid.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\fullcalendar\\timegrid\\timegrid.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\ionRangeSlider\\css\\ion.rangeSlider.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\ionRangeSlider\\css\\ion.rangeSlider.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\ionRangeSlider\\css\\ion.rangeSlider.skinFlat.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\ionRangeSlider\\css\\ion.rangeSlider.skinFlat.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\ionRangeSlider\\img\\sprite-skin-flat.png",
+      "PackagePath": "staticwebassets\\assets\\vendors\\ionRangeSlider\\img\\sprite-skin-flat.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\ionRangeSlider\\js\\ion.rangeSlider.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\ionRangeSlider\\js\\ion.rangeSlider.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jkanban\\jkanban.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jkanban\\jkanban.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jkanban\\jkanban.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jkanban\\jkanban.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jquery-validation\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jquery-validation\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jquery.nestable\\jquery.nestable.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jquery.nestable\\jquery.nestable.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jquery.nestable\\nestable.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jquery.nestable\\nestable.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jstree\\jstree.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jstree\\jstree.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jstree\\themes\\default\\32px.png",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jstree\\themes\\default\\32px.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jstree\\themes\\default\\style.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jstree\\themes\\default\\style.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jstree\\themes\\default\\throbber.gif",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jstree\\themes\\default\\throbber.gif"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\materialize-stepper\\materialize-stepper.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\materialize-stepper\\materialize-stepper.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\materialize-stepper\\materialize-stepper.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\materialize-stepper\\materialize-stepper.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\noUiSlider\\nouislider.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\noUiSlider\\nouislider.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\noUiSlider\\nouislider.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\noUiSlider\\nouislider.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\fonts\\KaTeX_Main-Regular.woff2",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\fonts\\KaTeX_Main-Regular.woff2"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\fonts\\KaTeX_Math-Italic.woff2",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\fonts\\KaTeX_Math-Italic.woff2"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\highlight.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\highlight.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\katex.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\katex.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\katex.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\katex.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\monokai-sublime.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\monokai-sublime.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\quill.bubble.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\quill.bubble.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\quill.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\quill.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\quill\\quill.snow.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\quill\\quill.snow.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\rateYo\\jquery.rateyo.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\rateYo\\jquery.rateyo.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\rateYo\\jquery.rateyo.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\rateYo\\jquery.rateyo.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\select2\\select2-materialize.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\select2\\select2-materialize.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\select2\\select2.full.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\select2\\select2.full.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\select2\\select2.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\select2\\select2.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\shepherd-js\\shepherd-theme-default.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\shepherd-js\\shepherd-theme-default.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\shepherd-js\\shepherd.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\shepherd-js\\shepherd.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\sortable\\jquery-sortable-min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\sortable\\jquery-sortable-min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\sparkline\\jquery.sparkline.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\sparkline\\jquery.sparkline.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\sweetalert\\sweetalert.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\sweetalert\\sweetalert.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\sweetalert\\sweetalert.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\sweetalert\\sweetalert.min.js"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\vendors.min.css",
+      "PackagePath": "staticwebassets\\assets\\vendors\\vendors.min.css"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.PtcServiceApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.PtcServiceApp.props",
+      "PackagePath": "build\\PtcServiceApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.PtcServiceApp.props",
+      "PackagePath": "buildMultiTargeting\\PtcServiceApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.PtcServiceApp.props",
+      "PackagePath": "buildTransitive\\PtcServiceApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
