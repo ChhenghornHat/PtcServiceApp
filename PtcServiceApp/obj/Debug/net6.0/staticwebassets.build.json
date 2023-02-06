@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LaxKXqSP825xCFPvfW4blmjOvVI02dd2u8FgBTrTvE0=",
+  "Hash": "HPD6Fmt1N7bEvmirSsTlFbbXU5Aig4bp8386UupQ+N0=",
   "Source": "PtcServiceApp",
   "BasePath": "_content/PtcServiceApp",
   "Mode": "Default",
@@ -746,6 +746,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\pages\\widget-timeline.min.css"
+    },
+    {
+      "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\themes\\vertical-menu-nav-dark-template\\materialize.min.css",
+      "SourceId": "PtcServiceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\",
+      "BasePath": "_content/PtcServiceApp",
+      "RelativePath": "assets/css/themes/vertical-menu-nav-dark-template/materialize.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\themes\\vertical-menu-nav-dark-template\\materialize.min.css"
+    },
+    {
+      "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\themes\\vertical-menu-nav-dark-template\\style.min.css",
+      "SourceId": "PtcServiceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\",
+      "BasePath": "_content/PtcServiceApp",
+      "RelativePath": "assets/css/themes/vertical-menu-nav-dark-template/style.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\themes\\vertical-menu-nav-dark-template\\style.min.css"
     },
     {
       "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\themes\\vertical-modern-menu-template\\materialize.min.css",
@@ -2822,6 +2856,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\logo\\materialize-logo.png"
     },
     {
+      "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\logo\\ptc-computer-logo.png",
+      "SourceId": "PtcServiceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\",
+      "BasePath": "_content/PtcServiceApp",
+      "RelativePath": "assets/images/logo/ptc-computer-logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\logo\\ptc-computer-logo.png"
+    },
+    {
       "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\1.jpg",
       "SourceId": "PtcServiceApp",
       "SourceType": "Discovered",
@@ -4605,6 +4656,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendors\\jquery.nestable\\nestable.css"
+    },
+    {
+      "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jquery\\jquery-3.6.3.min.js",
+      "SourceId": "PtcServiceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\",
+      "BasePath": "_content/PtcServiceApp",
+      "RelativePath": "assets/vendors/jquery/jquery-3.6.3.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendors\\jquery\\jquery-3.6.3.min.js"
     },
     {
       "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jstree\\jstree.min.js",

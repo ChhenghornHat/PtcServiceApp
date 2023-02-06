@@ -173,6 +173,14 @@
       "PackagePath": "staticwebassets\\assets\\css\\pages\\widget-timeline.min.css"
     },
     {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\themes\\vertical-menu-nav-dark-template\\materialize.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\themes\\vertical-menu-nav-dark-template\\materialize.min.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\themes\\vertical-menu-nav-dark-template\\style.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\themes\\vertical-menu-nav-dark-template\\style.min.css"
+    },
+    {
       "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\css\\themes\\vertical-modern-menu-template\\materialize.min.css",
       "PackagePath": "staticwebassets\\assets\\css\\themes\\vertical-modern-menu-template\\materialize.min.css"
     },
@@ -661,6 +669,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\logo\\materialize-logo.png"
     },
     {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\logo\\ptc-computer-logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo\\ptc-computer-logo.png"
+    },
+    {
       "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\user\\1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\user\\1.jpg"
     },
@@ -1079,6 +1091,10 @@
     {
       "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jquery.nestable\\nestable.css",
       "PackagePath": "staticwebassets\\assets\\vendors\\jquery.nestable\\nestable.css"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jquery\\jquery-3.6.3.min.js",
+      "PackagePath": "staticwebassets\\assets\\vendors\\jquery\\jquery-3.6.3.min.js"
     },
     {
       "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\jstree\\jstree.min.js",

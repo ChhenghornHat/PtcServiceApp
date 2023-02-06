@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using PtcServiceApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<PtcServiceDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PtcServiceConnection")));
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
@@ -25,5 +29,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Dashboard}/{action=AdminDashboard}/{id?}");
+    // pattern: "{controller=LiveTicket}/{action=Index}/{id?}");
 
 app.Run();
