@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PtcServiceApp.Data;
+using PtcServiceApp.Models;
 
 namespace PtcServiceApp.Controllers;
 
@@ -24,4 +25,15 @@ public class StatusController : Controller
         var status = _ptcServiceDbContext.Statuses.FromSqlRaw("EXEC GetStatuses").ToList();
         return Ok(status);
     }
+
+    public IActionResult AddStatus(string statusName, int sapId, int closed,int active, int objectId, int customerStatus)
+    {
+        _ptcServiceDbContext.Database.ExecuteSqlRaw($"AddStatus {statusName}, {sapId}, {closed}, {active}, {objectId}, {customerStatus}");
+        return Ok(1);
+    }
+
+    // public IActionResult EditStatus(int statusId)
+    // {
+    //     var status = _ptcServiceDbContext.Statuses.FromSqlRaw("")
+    // }
 }

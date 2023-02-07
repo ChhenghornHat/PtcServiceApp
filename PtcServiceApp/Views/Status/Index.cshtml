@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<PtcServiceApp.Models.Status>*@
-@{
+﻿@{
     ViewBag.Title = "Status";
 }
 
@@ -105,18 +104,20 @@
                     </div>
                 </div>
             </div>
-        <div class="content-overlay"></div>
+        @* <div class="content-overlay show"></div> *@
     </div>
 </div>
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal width-40">
     <div class="modal-content">
-        <h5>Add New Status</h5>
         
+        <h5>Add New Status</h5>
+
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" class="validate" id="status_name" required>
+                <input type="hidden" class="validate" id="object" value="1">
                 <label for="status_name">Status Name *</label>
             </div>
             <div class="input-field col s6">
@@ -127,7 +128,7 @@
                 <div class="switch">
                     Closed Status
                     <label class="float-right">
-                        <input class="" type="checkbox">
+                        <input class="closed" type="checkbox" id="closed" value="0">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -137,7 +138,7 @@
                 <div class="switch">
                     Active Status
                     <label class="float-right">
-                        <input class="" type="checkbox">
+                        <input class="active" type="checkbox" id="active" value="0">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -147,7 +148,7 @@
                 <div class="switch">
                     Customer Status
                     <label class="float-right">
-                        <input class="" type="checkbox">
+                        <input class="customer" type="checkbox" id="customer" value="0">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -155,13 +156,16 @@
             </div>
         </div>
     </div>
+    <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
     <div class="modal-footer">
         <div class="row">
             <div class="col s12">
                 <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
                     <i class="material-icons left">close</i>
                   </button>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Save
+                <button class="btn waves-effect waves-light" type="submit" id="save_btn" name="action">Save
                     <i class="material-icons right">send</i>
                   </button>
             </div>
@@ -171,7 +175,7 @@
 
 <script src="~/assets/vendors/jquery/jquery-3.6.3.min.js"></script>
 <script type="text/javascript">
-    let status = [];
+
     let statusSubNav = document.querySelectorAll('.status-sub-nav');
     let addStatusBtn = document.querySelector('.add-status-btn');
     
@@ -180,69 +184,136 @@
         item.classList.add('active');
     });
     
-    // addStatusBtn.addEventListener('click', function() {
-    //     alert(0)
-    // });
     
-    // Fetch All Status
-    $.ajax({
-        url: '@Url.Action("GetStatuses", "Status")',
-        type: 'GET',
-        dataType: 'JSON',
-        beforeSend: function() {
-            console.log("Loading...");
-        },
-        success: function(data) {
-            console.table(data);
-            
-            let number = 0;
-            for (let i = 0;i < data.length;i++) {
-                $(`<tr>
-                    <td>${++number}</td>
-                    <td>${data[i].statusName}</td>
-                    <td>${data[i].sapId}</td>
-                    <td>
-                        <div class="switch">
-                            <label class="float-left ml-3">
-                                <input class="" type="checkbox" ${data[i].isClosed === 1 ? 'checked' : ''}>
-                                <span class="lever ml-0">
-                                </span>
-                            </label>
-                       </div>
-                    </td>
-                    <td>
-                    <div class="switch">
-                       <label class="float-left ml-3">
-                           <input class="" type="checkbox" ${data[i].isActive === 1 ? 'checked' : ''}>
-                           <span class="lever ml-0">
-                           </span>
-                       </label>
-                    </div>
-                    </td>
-                    <td>
-                    <div class="switch">
-                       <label class="float-left ml-3">
-                           <input class="" type="checkbox" ${data[i].customerStatus === 1 ? 'checked' : ''}>
-                           <span class="lever ml-0">
-                           </span>
-                       </label>
-                    </div>
-                    </td>
-                    <td>
-                        <a class="mb-6 btn-floating waves-effect waves-light cyan btn-edit" id="${data[i].statusId}">
-                           <i class="material-icons">edit</i>
-                        </a>
-                    </td>
-               </tr>`).appendTo('tbody');
-            }
-            
-            $(document).on('click', '.btn-edit', function() {
-                let statusId = $(this).attr('id');
-                
-                alert(statusId);
-            });
+    // Handle Add Status
+    $('#save_btn').click(function() {
+        addStatus();
+    });
+    
+    // let isClosed = 0;
+    // $('').change()
+    
+    // $("#closed").on("click", function () { 
+    //        var $checkbox = $(this).find(':checkbox');
+    //        alert($checkbox.attr('checked', !$checkbox.attr('checked')));
+    //  });
+    
+    let isClosed = 0;
+    let isActive = 0;
+    let customer = 0;
+    
+    $("input[type='checkbox'].closed").click(function () {
+        if ($("input[type='checkbox'].closed").is(':checked')) {
+            //isClosed = $("input[type='checkbox'].checkboxBtnClass:checked").val();
+            isClosed = 1;
+        } else {
+            isClosed = 0;
         }
     });
+    
+    $("input[type='checkbox'].active").click(function () {
+        if ($("input[type='checkbox'].active").is(':checked')) {
+            //isClosed = $("input[type='checkbox'].checkboxBtnClass:checked").val();
+            isActive = 1;
+        } else {
+            isActive = 0;
+        }
+    });
+    
+    $("input[type='checkbox'].customer").click(function () {
+        if ($("input[type='checkbox'].customer").is(':checked')) {
+            //isClosed = $("input[type='checkbox'].checkboxBtnClass:checked").val();
+            customer = 1;
+        } else {
+            customer = 0;
+        }
+    });
+    
+    // Add status into database
+    function addStatus() {
+        
+        $.ajax({
+            url: '@Url.Action("AddStatus", "Status")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {statusName: $('#status_name').val(), sapId: $('#sap_id').val(), closed: isClosed, active: isActive, objectId: $('#object').val(), customerStatus: customer},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                if (data === 1) {
+                    alert("Successfully added!");
+                    getAllStatus();
+                } else {
+                    alert("Failed!");
+                }
+            }
+        });
+    }
+    
+    // Fetch All Status
+    getAllStatus();
+    function getAllStatus() {
+        
+        $.ajax({
+            url: '@Url.Action("GetStatuses", "Status")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                //console.table(data);
+                
+                let number = 0;
+                for (let i = 0;i < data.length;i++) {
+                    $(`<tr>
+                        <td>${++number}</td>
+                        <td>${data[i].statusName}</td>
+                        <td>${data[i].sapId}</td>
+                        <td>
+                            <div class="switch">
+                                <label class="float-left ml-3">
+                                    <input class="" type="checkbox" ${data[i].isClosed === 1 ? 'checked' : ''}>
+                                    <span class="lever ml-0">
+                                    </span>
+                                </label>
+                           </div>
+                        </td>
+                        <td>
+                        <div class="switch">
+                           <label class="float-left ml-3">
+                               <input class="" type="checkbox" ${data[i].isActive === 1 ? 'checked' : ''}>
+                               <span class="lever ml-0">
+                               </span>
+                           </label>
+                        </div>
+                        </td>
+                        <td>
+                        <div class="switch">
+                           <label class="float-left ml-3">
+                               <input class="" type="checkbox" ${data[i].customerStatus === 1 ? 'checked' : ''}>
+                               <span class="lever ml-0">
+                               </span>
+                           </label>
+                        </div>
+                        </td>
+                        <td>
+                            <a class="mb-6 btn-floating waves-effect waves-light cyan btn-edit" id="${data[i].statusId}">
+                               <i class="material-icons">edit</i>
+                            </a>
+                        </td>
+                   </tr>`).appendTo('tbody');
+                }
+                
+                $(document).on('click', '.btn-edit', function() {
+                    let statusId = $(this).attr('id');
+                    
+                    //alert(statusId);
+                });
+            }
+        });
+    }
     
     
 </script>
