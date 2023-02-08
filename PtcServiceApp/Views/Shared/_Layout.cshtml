@@ -41,11 +41,6 @@
                     <ul class="search-list collection display-none"></ul>
                 </div>
                 <ul class="navbar-list right">
-                    <li class="dropdown-language">
-                        <a class="waves-effect waves-block waves-light translation-button" href="#" data-target="translation-dropdown">
-                            <span class="flag-icon flag-icon-gb"></span>
-                        </a>
-                    </li>
                     <li class="hide-on-med-and-down">
                         <a class="waves-effect waves-block waves-light toggle-fullscreen" href="javascript:void(0);">
                             <i class="material-icons">settings_overscan</i>
@@ -67,21 +62,6 @@
                                 <img src="~/assets/images/avatar/avatar-7.png" alt="avatar"><i></i>
                             </span>
                         </a>
-                    </li>
-                </ul>
-                <!-- translation-button-->
-                <ul class="dropdown-content" id="translation-dropdown">
-                    <li class="dropdown-item">
-                        <a class="grey-text text-darken-1" href="#!" data-language="en"><i class="flag-icon flag-icon-gb"></i> English</a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a class="grey-text text-darken-1" href="#!" data-language="fr"><i class="flag-icon flag-icon-fr"></i> French</a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a class="grey-text text-darken-1" href="#!" data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a class="grey-text text-darken-1" href="#!" data-language="de"><i class="flag-icon flag-icon-de"></i> German</a>
                     </li>
                 </ul>
                 <!-- notifications-dropdown-->
@@ -114,20 +94,20 @@
                 <!-- profile-dropdown-->
                 <ul class="dropdown-content" id="profile-dropdown">
                     <li>
-                        <a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a>
+                        <a class="grey-text text-darken-1" href="#"><i class="material-icons">person_outline</i> Profile</a>
                     </li>
                     <li>
-                        <a class="grey-text text-darken-1" href="app-chat.html"><i class="material-icons">chat_bubble_outline</i> Chat</a>
+                        <a class="grey-text text-darken-1" href="#"><i class="material-icons">chat_bubble_outline</i> Chat</a>
                     </li>
                     <li>
-                        <a class="grey-text text-darken-1" href="page-faq.html"><i class="material-icons">help_outline</i> Help</a>
+                        <a class="grey-text text-darken-1" href="#"><i class="material-icons">help_outline</i> Help</a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a class="grey-text text-darken-1" href="user-lock-screen.html"><i class="material-icons">lock_outline</i> Lock</a>
+                        <a class="grey-text text-darken-1" href="#"><i class="material-icons">lock_outline</i> Lock</a>
                     </li>
                     <li>
-                        <a class="grey-text text-darken-1" href="user-login.html"><i class="material-icons">keyboard_tab</i> Logout</a>
+                        <a class="grey-text text-darken-1" href="#"><i class="material-icons">keyboard_tab</i> Logout</a>
                     </li>
                 </ul>
             </div>
@@ -305,7 +285,7 @@
 <div class="brand-sidebar">
     <h1 class="logo-wrapper">
         <a class="brand-logo darken-1" href="#">
-            <img class="hide-on-med-and-down" src="~/assets/images/logo/materialize-logo-color.png" alt="materialize logo"/><img class="show-on-medium-and-down hide-on-med-and-up" src="~/assets/images/logo/materialize-logo.png" alt="materialize logo"/><span class="logo-text hide-on-med-and-down">Ptc Service</span>
+            <img class="hide-on-med-and-down" src="~/assets/images/logo/ptc-computer-logo.png" alt="materialize logo"/><img class="show-on-medium-and-down hide-on-med-and-up" src="~/assets/images/logo/ptc-computer-logo.png" alt="materialize logo"/><span class="logo-text hide-on-med-and-down">Ptc Service</span>
         </a>
         <a class="navbar-toggler" href="#">
             <i class="material-icons">radio_button_checked</i>
@@ -329,8 +309,8 @@
                     <i class="material-icons">radio_button_unchecked</i><span data-i18n="Status">Status</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="department-sub-nav">
+                <a class="department-sub-nav" asp-controller="Department" asp-action="Index">
                     <i class="material-icons">radio_button_unchecked</i><span data-i18n="Department">Department</span>
                 </a>
             </li>
@@ -663,6 +643,7 @@
 <!-- BEGIN PAGE LEVEL JS-->
 @* <script src="~/assets/js/scripts/dashboard-ecommerce.min.js"></script> *@
 <script src="~/assets/js/scripts/advance-ui-modals.min.js"></script>
+@* <script src="~/assets/js/scripts/advance-ui-toasts.min.js"></script> *@
 <script src="~/assets/js/scripts/data-tables.min.js"></script>
 <!-- END PAGE LEVEL JS-->
 @await RenderSectionAsync("Scripts", required: false)

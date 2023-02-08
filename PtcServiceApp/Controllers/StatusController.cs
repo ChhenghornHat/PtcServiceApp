@@ -22,7 +22,7 @@ public class StatusController : Controller
     [HttpGet]
     public IActionResult GetStatuses()
     {
-        var status = _ptcServiceDbContext.Statuses.FromSqlRaw("EXEC GetStatuses").ToList();
+        var status = _ptcServiceDbContext.Statuses.FromSqlRaw("EXEC GetStates").ToList();
         return Ok(status);
     }
 
