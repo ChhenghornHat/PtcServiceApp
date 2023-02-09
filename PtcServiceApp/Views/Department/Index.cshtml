@@ -4,65 +4,65 @@
 
 <div class="row">
     <div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
-        <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
-            <!-- Search for small screen-->
-            <div class="container">
-                <div class="row">
-                    <div class="col s10 m6 l6">
-                        <h5 class="breadcrumbs-title mt-0 mb-0"><span>Manage Department</span></h5>
-                        <ol class="breadcrumbs mb-0">
-                            <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="AdminDashboard">Home</a>
-                            </li>
-                            <li class="breadcrumb-item active">Manage Department</li>
-                        </ol>
-                    </div>
-                    <div class="col s2 m6 l6">
-                        <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger add-status-btn" href="#modal1"><i class="material-icons left">add</i> Add New</a>
-                    </div>
+    <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
+        <!-- Search for small screen-->
+        <div class="container">
+            <div class="row">
+                <div class="col s10 m6 l6">
+                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Manage Department</span></h5>
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="AdminDashboard">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Manage Department</li>
+                    </ol>
+                </div>
+                <div class="col s2 m6 l6">
+                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger add-status-btn" href="#modal1"><i class="material-icons left">add</i> Add New</a>
                 </div>
             </div>
         </div>
-        <div class="col s12">
-            <div class="container">
-                <div class="section section-data-tables">
-                    <!-- Page Length Options -->
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="card">
-                                <div class="progress hide">
-                                    <div class="indeterminate"></div>
-                                </div>
-                                <div class="card-content">
-                                    <h4 class="card-title">Department Data</h4>
-                                    <div class="row">
-                                        <div class="col s12">
-                                            @* <table id="page-length-option" class="display"> *@
-                                            <table id="tblDepartment" class="display">
+    </div>
+    <div class="col s12">
+        <div class="container">
+            <div class="section section-data-tables">
+                <!-- Page Length Options -->
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="progress datable-loading hide">
+                                <div class="indeterminate"></div>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">Department Data</h4>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <table id="tblDepartment" class="display">
                                             <thead>
-                                                <tr>
-                                                    <th style="width: 20px">#</th>
-                                                    <th>Department Name</th>
-                                                    <th>Status</th>
-                                                    <th>Created Date</th>
-                                                    <th>Last Updated</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
+                                            <tr>
+                                                <th style="width: 20px">#</th>
+                                                <th>Department Name</th>
+                                                <th>Parent</th>
+                                                <th>Status</th>
+                                                <th>Created Date</th>
+                                                <th>Updated Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
                                                 
-                                                </tbody>
-                                                <tfoot>
-                                                <tr>
-                                                    <th style="width: 20px">#</th>
-                                                    <th>Department Name</th>
-                                                    <th>Status</th>
-                                                    <th>Created Date</th>
-                                                    <th>Last Updated</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                                </tfoot>
-                                            </table>
-                                        </div>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th style="width: 20px">#</th>
+                                                <th>Department Name</th>
+                                                <th>Parent</th>
+                                                <th>Status</th>
+                                                <th>Created Date</th>
+                                                <th>Updated Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -70,20 +70,39 @@
                     </div>
                 </div>
             </div>
+        </div>
         @* <div class="content-overlay show"></div> *@
     </div>
 </div>
 
+@* <div class="loading" style="position: fixed; top: 50%; left: 57%; transform: translate(-50%, -50%); z-index: 9999999"> *@
+@*     <div class="preloader-wrapper big active"> *@
+@*         <div class="spinner-layer spinner-blue-only"> *@
+@*               <div class="circle-clipper left"> *@
+@*                 <div class="circle"></div> *@
+@*               </div><div class="gap-patch"> *@
+@*                 <div class="circle"></div> *@
+@*               </div><div class="circle-clipper right"> *@
+@*                 <div class="circle"></div> *@
+@*               </div> *@
+@*             </div> *@
+@*           </div> *@
+@*     </div> *@
+@* </div> *@
+
 <!-- Modal Structure -->
 <div id="modal1" class="modal width-20">
+    <div class="progress ae-loading hide mt-0">
+        <div class="indeterminate"></div>
+    </div>
     <div class="modal-content">
-        
+
         <h5>Add New Department</h5>
 
         <div class="row">
             <div class="input-field col s12">
-                <input type="text" class="validate" id="dpm_name" required>
-                <label for="dpm_name">Name *</label>
+                <input type="text" class="validate" id="department_name" required>
+                <label for="department_name">Name *</label>
             </div>
             <div class="input-field col s12">
                 <div class="switch">
@@ -97,9 +116,6 @@
             </div>
         </div>
     </div>
-    <div class="progress">
-                <div class="indeterminate"></div>
-            </div>
     <div class="modal-footer">
         <div class="row">
             <div class="col s12">
@@ -126,165 +142,136 @@
     });
     
     $(document).ready(function() {
-        
-        function setLoading() {
-            $('.progress').removeClass('hide');
-        }
-        
-        function clearLoading() {
-            $('.progress').addClass('hide');
-        }
-        
-        function resetLoading() {
-            let timer = null;
-            
-            if (timer) { clearTimeout(timer) }
-            timer = setTimeout(function() {
-                clearLoading();
-            }, timer);
-        }
-        
-        $('input[type="text"]').keyup(function() {
-            var value = $(this).val();
-            if (value !== "" && value.length >= 3) {
-                $('#save_btn').prop('disabled', false);
-            } else {
-                $('#save_btn').prop('disabled', true);
-            }
-        });
-        
         // Fetch all department
         getDepartment();
-        function getDepartment() {
-            $.ajax({
-                url: '@Url.Action("GetDepartments", "Department")',
-                type: 'GET',
-                dataType: 'JSON',
-                beforeSend: function() {
-                    setLoading();
-                },
-                success: function(data) {
-                    //console.table(data)
-                    let number = 0;
-                    // $('#page-length-option tbody').empty();
-                    for (let i = 0; i < data.length;i++) {
-                        $('#tblDepartment tbody').append(`<tr>
-                           <td>${++number}</td>
-                           <td>${data[i].departmentName}</td>
-                           <td>
-                               <div class="switch">
-                                   <label class="float-left ml-3">
-                                       <input class="active-btn edit_active" type="checkbox" id="${data[i].departmentId}" ${data[i].status === 1 ? 'checked' : ''}>
-                                       <span class="lever ml-0">
-                                       </span>
-                                   </label>
-                               </div>
-                           </td>
-                           <td>${data[i].createdDate}</td>
-                           <td>${data[i].updatedDate}</td>
-                           <td>
-                               <a class="mb-6 btn-floating waves-effect waves-light cyan edit-btn" id="${data[i].departmentId}">
-                                   <i class="material-icons">edit</i>
-                               </a>
-                           </td>
-                       </tr>`)
-                    }
-                    // $('#page-length-option').DataTable();
-                    $('#tblDepartment').DataTable();
-                    resetLoading();
-                    
-                    // Get id
-                    // $(document).on('click', '.edit-btn', function() {
-                    //     let statusId = $(this).attr('id');
-                    //    
-                    //     //alert(statusId);
-                    // });
-                    // $(document).on('click', '.active-btn', function() {
-                    //     let id = $(this).attr('id');
-                    //    
-                    //     //alert(id);
-                    // });
-                }
-            });
-        }
-       
-        
-        let isActive = 0;
-        let editIsActive = 0;
-        $("input[type='checkbox'].active").click(function () {
-            if ($("input[type='checkbox'].active").is(':checked')) {
-                //isClosed = $("input[type='checkbox'].checkboxBtnClass:checked").val();
-                isActive = 1;
-            } else {
-                isActive = 0;
-            }
-        });
-        
-        $(document).on('click', "input[type='checkbox'].edit_active", function() {
-            if ($(this).is(':checked')) {
-                //isClosed = $("input[type='checkbox'].checkboxBtnClass:checked").val();
-                editIsActive = 1;
-            } else {
-                editIsActive = 0;
-            }
-        });
-        
-        // Handle save btn click
+        // Add New Department
         $('#save_btn').click(function() {
             addDepartment();
         });
-        
-        // Add new department
-        function addDepartment() {
-            let dpm_name = $('#dpm_name').val();
-            
-            $.ajax({
-                url: '@Url.Action("AddDepartment", "Department")',
-                type: 'POST',
-                dataType: 'JSON',
-                data: {dpm_name: dpm_name, dpm_sts: isActive},
-                beforeSend: function() {
-                    setLoading();
-                },
-                success: function(data) {
-                    getDepartment();
-                    //console.table(data)
-                    if (data === 1) {
-                        M.toast({html:"Successfully added!"});
-                    } else {
-                        alert("error")
-                    }
-                    resetLoading();
+    });
+    
+    function getDepartment() {
+        $.ajax({
+            url: '@Url.Action("GetDepartments", "Department")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                setLoading();
+            },
+            success: function(data) {
+                //console.table(data)
+                //let bodyData = '';
+                if (data !== "") {
+                    data.forEach((item, index) => {
+                        $('#tblDepartment tbody').append(`
+                            <tr>
+                                <td style="width: 20px">${index + 1}</td>                  
+                                <td>${item.departmentName}</td>                  
+                                <td>${item.parent}</td>    
+                                <td>
+                                    <div class="switch">
+                                        <label class="float-left">
+                                            <input class="edit-active" type="checkbox" id="${item.departmentId}" ${item.active === 1 ? 'checked' : ''}>
+                                            <span class="lever ml-0">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>${item.createdDate}</td> 
+                                <td>${item.updatedDate}</td>
+                                <td>
+                                   <a class="mb-6 btn-floating waves-effect waves-light cyan edit-btn" id="${item.departmentId}">
+                                       <i class="material-icons">edit</i>
+                                   </a>
+                               </td>
+                            </tr>
+                        `);
+                    });
                 }
-            });
+                $('#tblDepartment').DataTable();
+            },
+            complete: function() {
+                completedLoading();
+            }
+        });
+    }
+    
+    // Update Status
+    $(document).on('click', '.edit-active', function() {
+        let id = $(this).attr('id');
+        let editStatus = 0;
+
+        if ($(this).is(':checked')) {
+            editStatus = 1;
+        } else {
+            editStatus = 0;
         }
         
-        $(document).on('click', '.edit-btn', function() {
-            let statusId = $(this).attr('id');
-            
-            //alert(statusId);
-        });
-        $(document).on('click', '.active-btn', function() {
-            let id = $(this).attr('id');
-            
-            $.ajax({
-                url: '@Url.Action("UpdateStatus", "Department")',
-                type: 'POST',
-                dataType: 'JSON',
-                data: {status: editIsActive, id: id},
-                beforeSend: function() {
-                    console.log("Loading...");
-                },
-                success: function(data) {
-                    if (data === 1) {
-                        M.toast({html:"Successfully updated!"});
-                    } else {
-                        alert("Error");
-                    }
+        $.ajax({
+            url: '@Url.Action("UpdateStatus","Department")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {id: id, active: editStatus},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Active updated!"});
+                } else {
+                    alert("Can't update!");
                 }
-            });
+            },
         });
-       
     });
+    
+    // Check is not input
+    $(':input[type="text"]').keyup(function() {
+        let value = $(this).val();
+        
+        if (value !== "" && value.length >=3) {
+            $('#save_btn').prop('disabled', false);
+        } else {
+            $('#save_btn').prop('disabled', true);
+        }
+    });
+    let isActive = 0;
+    $("input[type='checkbox'].active").click(function () {
+        if ($("input[type='checkbox'].active").is(':checked')) {
+            isActive = 1;
+        } else {
+            isActive = 0;
+        }
+    });
+    function addDepartment() {
+
+        let departmentName = $('#department_name').val();
+        $.ajax({
+            url: '@Url.Action("AddDepartment", "Department")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {departmentName: departmentName, active: isActive},
+            beforeSend: function() {
+                aeSetLoading();
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully added!"});
+                } else {
+                    alert("Your data not add please try again later!");
+                }
+            },
+            complete: function() {
+                aeCompletedLoaind();
+                getDepartment();
+                clearForm();
+            }
+        });
+    }
+    
+    //Clear form
+    function clearForm() {
+        $('#department_name').val('');
+    }
 
 </script>

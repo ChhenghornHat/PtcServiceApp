@@ -961,6 +961,14 @@
       "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\dataTables.checkboxes.css"
     },
     {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\images\\sort_asc.png",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\images\\sort_asc.png"
+    },
+    {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\images\\sort_both.png",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\images\\sort_both.png"
+    },
+    {
       "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\jquery.dataTables.min.css",
       "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\jquery.dataTables.min.css"
     },
@@ -975,14 +983,6 @@
     {
       "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\extensions\\responsive\\js\\dataTables.responsive.min.js",
       "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\extensions\\responsive\\js\\dataTables.responsive.min.js"
-    },
-    {
-      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\images\\sort_asc.png",
-      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\images\\sort_asc.png"
-    },
-    {
-      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\images\\sort_both.png",
-      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\images\\sort_both.png"
     },
     {
       "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\js\\dataTables.select.min.js",

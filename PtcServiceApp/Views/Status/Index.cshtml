@@ -29,69 +29,40 @@
                     <div class="row">
                         <div class="col s12">
                             <div class="card">
+                                <div class="progress datable-loading hide">
+                                    <div class="indeterminate"></div>
+                                </div>
                                 <div class="card-content">
-                                    <h4 class="card-title">Page Length Options</h4>
+                                    <h4 class="card-title">Status Data</h4>
                                     <div class="row">
                                         <div class="col s12">
-                                            <table id="page-length-option" class="display">
+                                            <table id="tblStatus" class="display">
                                                 <thead>
                                                 <tr>
-                                                    <th style="width: 20px">#</th>
-                                                    <th>Status Name</th>
-                                                    <th>Sap Id</th>
-                                                    <th>Closed Status</th>
-                                                    <th>Active Status</th>
-                                                    <th>Costomer Status</th>
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                    <th>SapId</th>
+                                                    <th>IsClosed</th>
+                                                    <th>IsActive</th>
+                                                    <th>CustomerActive</th>
+                                                    <th>CreatedDate</th>
+                                                    <th>UpdatedDate</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @* <tr> *@
-                                                @*     <td>1</td> *@
-                                                @*     <td>Open</td> *@
-                                                @*     <td>001</td> *@
-                                                @*     <td> *@
-                                                @*         <div class="switch"> *@
-                                                @*             <label class="float-left ml-3"> *@
-                                                @*                 <input class="" type="checkbox"> *@
-                                                @*                 <span class="lever ml-0"> *@
-                                                @*                 </span> *@
-                                                @*             </label> *@
-                                                @*         </div> *@
-                                                @*     </td> *@
-                                                @*     <td> *@
-                                                @*         <div class="switch"> *@
-                                                @*             <label class="float-left ml-3"> *@
-                                                @*                 <input class="" type="checkbox"> *@
-                                                @*                 <span class="lever ml-0"> *@
-                                                @*                 </span> *@
-                                                @*             </label> *@
-                                                @*         </div> *@
-                                                @*     </td> *@
-                                                @*     <td> *@
-                                                @*         <div class="switch"> *@
-                                                @*             <label class="float-left ml-3"> *@
-                                                @*                 <input class="" type="checkbox"> *@
-                                                @*                 <span class="lever ml-0"> *@
-                                                @*                 </span> *@
-                                                @*             </label> *@
-                                                @*         </div> *@
-                                                @*     </td> *@
-                                                @*     <td> *@
-                                                @*         <a class="mb-6 btn-floating waves-effect waves-light cyan"> *@
-                                                @*             <i class="material-icons">edit</i> *@
-                                                @*         </a> *@
-                                                @*     </td> *@
-                                                @* </tr> *@
+
                                                 </tbody>
                                                 <tfoot>
                                                 <tr>
-                                                    <th style="width: 20px">#</th>
-                                                    <th>Status Name</th>
-                                                    <th>Sap Id</th>
-                                                    <th>Closed Status</th>
-                                                    <th>Active Status</th>
-                                                    <th>Costomer Status</th>
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                    <th>SapId</th>
+                                                    <th>IsClosed</th>
+                                                    <th>IsActive</th>
+                                                    <th>CustomerActive</th>
+                                                    <th>CreatedDate</th>
+                                                    <th>UpdatedDate</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </tfoot>
@@ -104,31 +75,33 @@
                     </div>
                 </div>
             </div>
-        @* <div class="content-overlay show"></div> *@
-    </div>
+            @* <div class="content-overlay show"></div> *@
+        </div>
 </div>
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal width-40">
+    <div class="progress ae-loading hide mt-0">
+        <div class="indeterminate"></div>
+    </div>
     <div class="modal-content">
-        
+
         <h5>Add New Status</h5>
 
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" class="validate" id="status_name" required>
-                <input type="hidden" class="validate" id="object" value="1">
                 <label for="status_name">Status Name *</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" class="validate" id="sap_id" required>
+                <input type="number" class="validate" id="sap_id" required>
                 <label for="sap_id">Sap Id *</label>
             </div>
             <div class="input-field col s4">
                 <div class="switch">
                     Closed Status
                     <label class="float-right">
-                        <input class="closed" type="checkbox" id="closed" value="0">
+                        <input class="close" type="checkbox" id="close" value="0">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -156,18 +129,15 @@
             </div>
         </div>
     </div>
-    <div class="progress">
-                <div class="indeterminate"></div>
-            </div>
     <div class="modal-footer">
         <div class="row">
             <div class="col s12">
                 <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
                     <i class="material-icons left">close</i>
-                  </button>
-                <button class="btn waves-effect waves-light" type="submit" id="save_btn" name="action">Save
+                </button>
+                <button class="btn waves-effect waves-light" type="submit" id="save_btn" name="action" disabled="disabled">Save
                     <i class="material-icons right">send</i>
-                  </button>
+                </button>
             </div>
         </div>
     </div>
@@ -184,12 +154,6 @@
         item.classList.add('active');
     });
     
-    
-    // Handle Add Status
-    $('#save_btn').click(function() {
-        addStatus();
-    });
-    
     // let isClosed = 0;
     // $('').change()
     
@@ -198,123 +162,255 @@
     //        alert($checkbox.attr('checked', !$checkbox.attr('checked')));
     //  });
     
-    let isClosed = 0;
-    let isActive = 0;
-    let customer = 0;
-    
-    $("input[type='checkbox'].closed").click(function () {
-        if ($("input[type='checkbox'].closed").is(':checked')) {
-            //isClosed = $("input[type='checkbox'].checkboxBtnClass:checked").val();
-            isClosed = 1;
-        } else {
-            isClosed = 0;
-        }
+    // Call All The Function
+    $(document).ready(function() {
+       // Fetch Data
+       fetchAllStatus();
+       
+       $(':input[type="text"]').keyup(function() {
+           let value = $(this).val();
+           
+           if (value !== "" && value.length >=3) {
+               $('#save_btn').prop('disabled', false);
+           } else {
+               $('#save_btn').prop('disabled', true);
+           }
+       });
+       // Add New Data
+       $('#save_btn').click(function() {
+            addStatus();
+       });
     });
     
-    $("input[type='checkbox'].active").click(function () {
-        if ($("input[type='checkbox'].active").is(':checked')) {
-            //isClosed = $("input[type='checkbox'].checkboxBtnClass:checked").val();
-            isActive = 1;
-        } else {
-            isActive = 0;
-        }
-    });
-    
-    $("input[type='checkbox'].customer").click(function () {
-        if ($("input[type='checkbox'].customer").is(':checked')) {
-            //isClosed = $("input[type='checkbox'].checkboxBtnClass:checked").val();
-            customer = 1;
-        } else {
-            customer = 0;
-        }
-    });
-    
-    // Add status into database
-    function addStatus() {
-        
-        $.ajax({
-            url: '@Url.Action("AddStatus", "Status")',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {statusName: $('#status_name').val(), sapId: $('#sap_id').val(), closed: isClosed, active: isActive, objectId: $('#object').val(), customerStatus: customer},
-            beforeSend: function() {
-                console.log("Loading...");
-            },
-            success: function(data) {
-                if (data === 1) {
-                    alert("Successfully added!");
-                    getAllStatus();
-                } else {
-                    alert("Failed!");
-                }
-            }
-        });
-    }
-    
-    // Fetch All Status
-    getAllStatus();
-    function getAllStatus() {
-        
+    //Fetch All Status
+    function fetchAllStatus() {
         $.ajax({
             url: '@Url.Action("GetStatuses", "Status")',
             type: 'GET',
             dataType: 'JSON',
             beforeSend: function() {
-                console.log("Loading...");
+                setLoading();
             },
             success: function(data) {
                 //console.table(data);
-                
-                let number = 0;
-                for (let i = 0;i < data.length;i++) {
-                    $(`<tr>
-                        <td>${++number}</td>
-                        <td>${data[i].statusName}</td>
-                        <td>${data[i].sapId}</td>
-                        <td>
-                            <div class="switch">
-                                <label class="float-left ml-3">
-                                    <input class="" type="checkbox" ${data[i].isClosed === 1 ? 'checked' : ''}>
-                                    <span class="lever ml-0">
-                                    </span>
-                                </label>
-                           </div>
-                        </td>
-                        <td>
-                        <div class="switch">
-                           <label class="float-left ml-3">
-                               <input class="" type="checkbox" ${data[i].isActive === 1 ? 'checked' : ''}>
-                               <span class="lever ml-0">
-                               </span>
-                           </label>
-                        </div>
-                        </td>
-                        <td>
-                        <div class="switch">
-                           <label class="float-left ml-3">
-                               <input class="" type="checkbox" ${data[i].customerStatus === 1 ? 'checked' : ''}>
-                               <span class="lever ml-0">
-                               </span>
-                           </label>
-                        </div>
-                        </td>
-                        <td>
-                            <a class="mb-6 btn-floating waves-effect waves-light cyan btn-edit" id="${data[i].statusId}">
-                               <i class="material-icons">edit</i>
-                            </a>
-                        </td>
-                   </tr>`).appendTo('tbody');
-                }
-                
-                $(document).on('click', '.btn-edit', function() {
-                    let statusId = $(this).attr('id');
-                    
-                    alert(statusId);
+                let tbodyData = '';
+                data.forEach((item, index) => {
+                    tbodyData += `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${item.statusName}</td>
+                            <td>${item.sapId}</td>
+                            <td>
+                                <div class="switch">
+                                    <label class="float-left">
+                                        <input class="edit-close" type="checkbox" id="${item.statusId}" ${item.isClosed === 1 ? 'checked' : ''}>
+                                        <span class="lever ml-0">
+                                        </span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="switch">
+                                    <label class="float-left">
+                                        <input class="edit-active" type="checkbox" id="${item.statusId}" ${item.isActive === 1 ? 'checked' : ''}>
+                                        <span class="lever ml-0">
+                                        </span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="switch">
+                                    <label class="float-left">
+                                        <input class="edit-customer-status" type="checkbox" id="${item.statusId}" ${item.customerStatus === 1 ? 'checked' : ''}>
+                                        <span class="lever ml-0">
+                                        </span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>${item.createdDate}</td>
+                            <td>${item.updatedDate}</td>
+                            <td>
+                               <a class="mb-6 btn-floating waves-effect waves-light cyan edit-btn" id="${item.statusId}">
+                                   <i class="material-icons">edit</i>
+                               </a>
+                           </td>
+                        </tr>
+                    `;
                 });
+                $('#tblStatus tbody').html(tbodyData);
+                $('#tblStatus').DataTable();
+            },
+            complete: function() {
+                completedLoading();
             }
         });
     }
     
+    let isClose = 0;
+    let isActive = 0;
+    let customer = 0;
+    
+    $("input[type='checkbox'].close").click(function () {
+        if ($("input[type='checkbox'].close").is(':checked')) {
+            isClose = 1;
+        } else {
+            isClose = 0;
+        }
+    });
+    $("input[type='checkbox'].active").click(function () {
+        if ($("input[type='checkbox'].active").is(':checked')) {
+            isActive = 1;
+        } else {
+            isActive = 0;
+        }
+    });
+    $("input[type='checkbox'].customer").click(function () {
+        if ($("input[type='checkbox'].customer").is(':checked')) {
+            customer = 1;
+        } else {
+            customer = 0;
+        }
+    });
+
+    //Add New Status
+    function addStatus() {
+        let statusName = $('#status_name').val();
+        let sapId = $('#sap_id').val();
+        
+        $.ajax({
+            url: '@Url.Action("AddStatus", "Status")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {statusName: statusName, sapId: sapId, isClose: isClose, isActive: isActive, customerStatus: customer},
+            beforeSend: function() {
+                aeSetLoading();
+            },
+            success: function(data) {
+                //console.log(data);
+                if (data === 1) {
+                    M.toast({html:"Successfully added!"});
+                } else {
+                    alert("Your data not add please try again later!");
+                }
+            },
+            complete: function() {
+                fetchAllStatus();
+                clearForm();
+                aeCompletedLoading();
+            }
+        });
+    }
+    
+    //Clear Form
+    function clearForm() {
+        $('#status_name').val('');
+        $('#sap_id').val('');
+    }
+    
+    //IsClose Update Status
+    $(document).on('click', '.edit-close', function() {
+        let id = $(this).attr('id');
+        let editIsClosed = 0;
+        
+        if ($(this).is(':checked')) {
+            editIsClosed = 1;
+        } else {
+            editIsClosed = 0;
+        }
+        
+        $.ajax({
+            url: '@Url.Action("UpdateIsClosed","Status")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {id: id, isClosed: editIsClosed},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Close updated!"});
+                } else {
+                    alert("Can't update!");
+                }
+            },
+        });
+    });
+    
+    //IsActive Update Status
+    $(document).on('click', '.edit-active', function() {
+        let id = $(this).attr('id');
+        let editIsActive = 0;
+        
+        if ($(this).is(':checked')) {
+            editIsActive = 1;
+        } else {
+            editIsActive = 0;
+        }
+        
+        $.ajax({
+            url: '@Url.Action("UpdateIsActive","Status")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {id: id, isActive: editIsActive},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Active updated!"});
+                } else {
+                    alert("Can't update!");
+                }
+            },
+        });
+    });
+    
+    //Customer Update Status
+    $(document).on('click', '.edit-customer-status', function() {
+        let id = $(this).attr('id');
+        let editCustomer = 0;
+        
+        if ($(this).is(':checked')) {
+            editCustomer = 1;
+        } else {
+            editCustomer = 0;
+        }
+        
+        $.ajax({
+            url: '@Url.Action("UpdateCustomer","Status")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {id: id, customerStatus: editCustomer},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"CustomerStatus updated!"});
+                } else {
+                    alert("Can't update!");
+                }
+            },
+        });
+    });
+    
+    //Get By Id
+    $(document).on('click', '.edit-btn', function() {
+        let id = $(this).attr('id');
+        
+        $.ajax({
+            url: '@Url.Action("GetById", "Status")',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {id: id},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                
+            }
+        });
+    });
     
 </script>
 

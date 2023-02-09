@@ -10,6 +10,7 @@ public class Status
     public int SapId { get; set; }
     public int IsClosed { get; set; }
     public int IsActive { get; set; }
-    public int Object { get; set; }
     public int CustomerStatus { get; set; }
+    public string CreatedDate { get; set; }
+    public string UpdatedDate { get; set; }
 }

@@ -69,6 +69,8 @@
     <_ContentIncludedByDefault Remove="wwwroot\assets\css\themes\vertical-dark-menu-template\style.min.css" />
     <_ContentIncludedByDefault Remove="wwwroot\assets\css\themes\vertical-menu-nav-dark-template\materialize.min.css" />
     <_ContentIncludedByDefault Remove="wwwroot\assets\css\themes\vertical-menu-nav-dark-template\style.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\data-tables\css\images\sort_asc (1).png" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\data-tables\css\images\sort_asc.png" />
   </ItemGroup>
 
   <ItemGroup>
