@@ -15,6 +15,7 @@
     <!-- BEGIN: VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="~/assets/vendors/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/vendors/flag-icon/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/dropify/css/dropify.min.css">
         <link rel="stylesheet" type="text/css" href="~/assets/vendors/data-tables/css/jquery.dataTables.min.css">
     <!-- END: VENDOR CSS-->
     <!-- BEGIN: Page Level CSS-->
@@ -317,6 +318,11 @@
             <li>
                 <a href="#">
                     <i class="material-icons">radio_button_unchecked</i><span data-i18n="Branch">Branch</span>
+                </a>
+            </li>
+            <li class="event-sub-nav">
+                <a class="event-sub-nav" asp-controller="Event" asp-action="Index">
+                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Event">Event</span>
                 </a>
             </li>
             <li>
@@ -630,6 +636,7 @@
 <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
 <script src="~/assets/vendors/chartjs/chart.min.js"></script>
+<script src="~/assets/vendors/dropify/js/dropify.min.js"></script>
 <script src="~/assets/vendors/data-tables/js/jquery.dataTables.min.js"></script>
 <script src="~/assets/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js"></script>
 <script src="~/assets/vendors/data-tables/js/dataTables.select.min.js"></script>
@@ -643,6 +650,7 @@
 <!-- BEGIN PAGE LEVEL JS-->
 @* <script src="~/assets/js/scripts/dashboard-ecommerce.min.js"></script> *@
 <script src="~/assets/js/scripts/advance-ui-modals.min.js"></script>
+<script src="~/assets/js/scripts/form-file-uploads.min.js"></script>
 @* <script src="~/assets/js/scripts/advance-ui-toasts.min.js"></script> *@
 <script src="~/assets/js/scripts/data-tables.min.js"></script>
 <!-- END PAGE LEVEL JS-->

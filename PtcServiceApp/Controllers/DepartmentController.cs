@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PtcServiceApp.Data;
+using PtcServiceApp.Models;
 
 namespace PtcServiceApp.Controllers;
 
@@ -30,7 +31,7 @@ public class DepartmentController : Controller
     [HttpPost]
     public IActionResult AddDepartment(string departmentName, int active)
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"CrudDepartment 'Insert', {departmentName}, {active}");
+        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudDepartment @Crud = 'Insert', @Name =  {departmentName}, @Active =  {active}");
         return Ok(1);
     }
     
@@ -38,22 +39,21 @@ public class DepartmentController : Controller
     [HttpPost]
     public IActionResult UpdateStatus(int id, int active)
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"CrudDepartment 'Update', @Active={active}, @Id=${id}");
+        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudDepartment @Crud = 'Update', @Active={active}, @Id=${id}");
         return Ok(1);
     }
 
     [HttpGet]
     public IActionResult GetById(int id)
     {
-        var department = _ptcServiceDbContext.Departments.FromSqlRaw($"CrudDepartment 'Select' @id={id}").ToList();
-        return Ok(department);
+        var result = _ptcServiceDbContext.Departments.FromSqlRaw($"EXEC CrudDepartment @Crud = 'Select', @Id={id}").ToList();
+        return Ok(result);
     }
 
     [HttpPost]
     public IActionResult UpdateName(string name, int id)
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"CrudDepartment 'Update', @Name={name}, @id={id}");
-
+        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudDepartment @Crud = 'Update', @Name={name}, @Id={id}");
         return Ok(1);
     }
 }

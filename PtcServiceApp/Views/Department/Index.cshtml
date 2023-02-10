@@ -75,21 +75,6 @@
     </div>
 </div>
 
-@* <div class="loading" style="position: fixed; top: 50%; left: 57%; transform: translate(-50%, -50%); z-index: 9999999"> *@
-@*     <div class="preloader-wrapper big active"> *@
-@*         <div class="spinner-layer spinner-blue-only"> *@
-@*               <div class="circle-clipper left"> *@
-@*                 <div class="circle"></div> *@
-@*               </div><div class="gap-patch"> *@
-@*                 <div class="circle"></div> *@
-@*               </div><div class="circle-clipper right"> *@
-@*                 <div class="circle"></div> *@
-@*               </div> *@
-@*             </div> *@
-@*           </div> *@
-@*     </div> *@
-@* </div> *@
-
 <!-- Modal Structure -->
 <div id="modal1" class="modal width-20">
     <div class="progress ae-loading hide mt-0">
@@ -262,7 +247,7 @@
                 }
             },
             complete: function() {
-                aeCompletedLoaind();
+                aeCompletedLoading();
                 getDepartment();
                 clearForm();
             }
@@ -273,5 +258,23 @@
     function clearForm() {
         $('#department_name').val('');
     }
+    
+    //GetById
+    $(document).on('click', '.edit-btn', function() {
+        let id = $(this).attr('id');
+        
+        $.ajax({
+            url: '@Url.Action("GetById", "Department")',
+            type: 'GET',
+            dataTable: 'JSON',
+            data: {id: id},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                console.log(data)
+            }
+        });
+    });
 
 </script>

@@ -45,7 +45,7 @@ namespace PtcServiceApp.Migrations
 
                     b.HasKey("BranchId");
 
-                    b.ToTable("Branches");
+                    b.ToTable("Branches", (string)null);
                 });
 
             modelBuilder.Entity("PtcServiceApp.Models.Department", b =>
@@ -71,7 +71,7 @@ namespace PtcServiceApp.Migrations
 
                     b.HasKey("DepartmentId");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("PtcServiceApp.Models.JobTitle", b =>
@@ -97,7 +97,7 @@ namespace PtcServiceApp.Migrations
 
                     b.HasKey("JobTitleId");
 
-                    b.ToTable("JobTitles");
+                    b.ToTable("JobTitles", (string)null);
                 });
 
             modelBuilder.Entity("PtcServiceApp.Models.Role", b =>
@@ -123,7 +123,7 @@ namespace PtcServiceApp.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("PtcServiceApp.Models.Status", b =>
@@ -155,7 +155,7 @@ namespace PtcServiceApp.Migrations
 
                     b.HasKey("StatusId");
 
-                    b.ToTable("Statuses");
+                    b.ToTable("Statuses", (string)null);
                 });
 
             modelBuilder.Entity("PtcServiceApp.Models.Ticket", b =>
@@ -213,7 +213,7 @@ namespace PtcServiceApp.Migrations
 
                     b.HasKey("TicketId");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Tickets", (string)null);
                 });
 
             modelBuilder.Entity("PtcServiceApp.Models.User", b =>
@@ -256,7 +256,7 @@ namespace PtcServiceApp.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 #pragma warning restore 612, 618
         }

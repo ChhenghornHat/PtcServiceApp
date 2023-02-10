@@ -8,7 +8,7 @@ public class Department
     public int DepartmentId { get; set; }
     public string DepartmentName { get; set; }
     public int Active { get; set; }
-    public string Parent { get; set; }
+    public string ParentId { get; set; }
     public string CreatedDate { get; set; }
     public string UpdatedDate { get; set; }
 }
