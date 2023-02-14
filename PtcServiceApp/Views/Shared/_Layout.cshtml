@@ -315,8 +315,8 @@
                     <i class="material-icons">radio_button_unchecked</i><span data-i18n="Department">Department</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="branch-sub-nav">
+                <a class="branch-sub-nav" asp-controller="Branch" asp-action="Index">
                     <i class="material-icons">radio_button_unchecked</i><span data-i18n="Branch">Branch</span>
                 </a>
             </li>
@@ -652,7 +652,7 @@
 <script src="~/assets/js/scripts/advance-ui-modals.min.js"></script>
 <script src="~/assets/js/scripts/form-file-uploads.min.js"></script>
 @* <script src="~/assets/js/scripts/advance-ui-toasts.min.js"></script> *@
-<script src="~/assets/js/scripts/data-tables.min.js"></script>
+@* <script src="~/assets/js/scripts/data-tables.min.js"></script> *@
 <!-- END PAGE LEVEL JS-->
 @await RenderSectionAsync("Scripts", required: false)
 </body>

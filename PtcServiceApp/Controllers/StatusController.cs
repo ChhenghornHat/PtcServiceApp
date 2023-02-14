@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PtcServiceApp.Data;
-using PtcServiceApp.Models;
 
 namespace PtcServiceApp.Controllers;
 

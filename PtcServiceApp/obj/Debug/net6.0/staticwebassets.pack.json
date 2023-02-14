@@ -969,6 +969,10 @@
       "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\images\\sort_both.png"
     },
     {
+      "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\images\\sort_desc.png",
+      "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\images\\sort_desc.png"
+    },
+    {
       "Id": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\jquery.dataTables.min.css",
       "PackagePath": "staticwebassets\\assets\\vendors\\data-tables\\css\\jquery.dataTables.min.css"
     },

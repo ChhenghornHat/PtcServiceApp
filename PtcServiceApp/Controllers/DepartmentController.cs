@@ -18,42 +18,46 @@ public class DepartmentController : Controller
     {
         return View();
     }
-
-    // Fetch all department
-    [HttpGet]
-    public IActionResult GetDepartments()
+    
+    // Fetch all data from database
+    public IActionResult GetAllDepartment()
     {
         var result = _ptcServiceDbContext.Departments.FromSqlRaw("EXEC CrudDepartment @Crud = 'Select'").ToList();
         return Ok(result);
     }
     
-    // Add new department
-    [HttpPost]
-    public IActionResult AddDepartment(string departmentName, int active)
+    // Fetch parent
+    public IActionResult GetParent()
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudDepartment @Crud = 'Insert', @Name =  {departmentName}, @Active =  {active}");
-        return Ok(1);
-    }
-    
-    // Update status
-    [HttpPost]
-    public IActionResult UpdateStatus(int id, int active)
-    {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudDepartment @Crud = 'Update', @Active={active}, @Id=${id}");
-        return Ok(1);
-    }
-
-    [HttpGet]
-    public IActionResult GetById(int id)
-    {
-        var result = _ptcServiceDbContext.Departments.FromSqlRaw($"EXEC CrudDepartment @Crud = 'Select', @Id={id}").ToList();
+        var result = _ptcServiceDbContext.GetParents.FromSqlRaw("EXEC CrudDepartment @Crud = 'Select', @Parent = 1").ToList();
         return Ok(result);
     }
 
-    [HttpPost]
-    public IActionResult UpdateName(string name, int id)
+    //Post data to database
+    public async Task<IActionResult> PostDepartment(PostDepartment objDpm)
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudDepartment @Crud = 'Update', @Name={name}, @Id={id}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Insert', @Name = '{objDpm.DepartmentName}', @Active = {objDpm.Active}, @Parent = {objDpm.ParentId}");
+        return Ok(1);
+    }
+    
+    //Get data by id to text field
+    public async Task<IActionResult> GetDpmById(int id)
+    {
+        var result = await _ptcServiceDbContext.GetDepartmentByIds.FromSqlRaw($"EXEC CrudDepartment @Crud = 'Select', @Id = {id}").ToListAsync();
+        return Ok(result);
+    }
+    
+    // Post update data
+    public async Task<IActionResult> PostUpdateDepartment(UpdateDepartment objDpm)
+    {
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud =  'Update', @Name = '{objDpm.DepartmentName}', @Parent = {objDpm.ParentId}, @Id = {objDpm.DepartmentId}");
+        return Ok(1);
+    }
+    
+    // Post update Status
+    public async Task<IActionResult> UpdateStatus(UpdateStatus objSts)
+    {
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Update', @Active = {objSts.Active}, @Id = {objSts.DepartmentId}");
         return Ok(1);
     }
 }

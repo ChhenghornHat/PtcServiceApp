@@ -17,7 +17,7 @@
                     </ol>
                 </div>
                 <div class="col s2 m6 l6">
-                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger add-status-btn" href="#modal1"><i class="material-icons left">add</i> Add New</a>
+                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger" href="#modal1"><i class="material-icons left">add</i> Add New</a>
                 </div>
             </div>
         </div>
@@ -36,13 +36,13 @@
                                 <h4 class="card-title">Department Data</h4>
                                 <div class="row">
                                     <div class="col s12">
-                                        <table id="tblDepartment" class="display">
+                                        <table id="table" class="display">
                                             <thead>
                                             <tr>
                                                 <th style="width: 20px">#</th>
                                                 <th>Department Name</th>
                                                 <th>Parent</th>
-                                                <th>Status</th>
+                                                <th>Active</th>
                                                 <th>Created Date</th>
                                                 <th>Updated Date</th>
                                                 <th>Action</th>
@@ -56,7 +56,7 @@
                                                 <th style="width: 20px">#</th>
                                                 <th>Department Name</th>
                                                 <th>Parent</th>
-                                                <th>Status</th>
+                                                <th>Active</th>
                                                 <th>Created Date</th>
                                                 <th>Updated Date</th>
                                                 <th>Action</th>
@@ -76,8 +76,8 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal width-20">
-    <div class="progress ae-loading hide mt-0">
+<div id="modal1" class="modal">
+    <div class="progress ae-loading mt-0">
         <div class="indeterminate"></div>
     </div>
     <div class="modal-content">
@@ -85,15 +85,21 @@
         <h5>Add New Department</h5>
 
         <div class="row">
-            <div class="input-field col s12">
-                <input type="text" class="validate" id="department_name" required>
-                <label for="department_name">Name *</label>
+            <div class="input-field col s6">
+                <input type="text" class="validate" id="dpm_name" required>
+                <label for="dpm_name">Name *</label>
+            </div>
+            <div class="input-field col s6">
+                <select id="parent">
+                    <option value="0">Main</option>
+                </select>
+                <label>Defualt by main</label>
             </div>
             <div class="input-field col s12">
                 <div class="switch">
-                    Active Status
+                    Active
                     <label class="float-right">
-                        <input class="active" type="checkbox" id="active" value="0">
+                        <input class="active" type="checkbox" id="active" checked="checked" value="1">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -107,7 +113,44 @@
                 <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
                     <i class="material-icons left">close</i>
                 </button>
-                <button class="btn waves-effect waves-light" type="submit" id="save_btn" name="action" disabled="disabled">Save
+                <button class="btn waves-effect waves-light" type="submit" id="btn-dpm-save">Save
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+    <div class="progress ae-loading mt-0">
+        <div class="indeterminate"></div>
+    </div>
+    <div class="modal-content">
+
+        <h5>Update Department</h5>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="hidden" id="dpm-id">
+                <input placeholder="Enter subject" id="e-dpm-name" type="text" class="validate" required="required">
+                <label for="e-dpm-name">Name *</label>
+            </div>
+            <div class="input-field col s6">
+                <select name="" id="e-parent">
+                
+                </select>
+                <label for="e-parent">Defualt</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
+                    <i class="material-icons left">close</i>
+                </button>
+                <button class="btn waves-effect waves-light orange" type="submit" id="btn-dpm-update">Save
                     <i class="material-icons right">send</i>
                 </button>
             </div>
@@ -126,155 +169,181 @@
         item.classList.add('active');
     });
     
-    $(document).ready(function() {
-        // Fetch all department
-        getDepartment();
-        // Add New Department
-        $('#save_btn').click(function() {
-            addDepartment();
-        });
-    });
-    
-    function getDepartment() {
-        $.ajax({
-            url: '@Url.Action("GetDepartments", "Department")',
-            type: 'GET',
-            dataType: 'JSON',
-            beforeSend: function() {
-                setLoading();
-            },
-            success: function(data) {
-                //console.table(data)
-                //let bodyData = '';
-                if (data !== "") {
-                    data.forEach((item, index) => {
-                        $('#tblDepartment tbody').append(`
-                            <tr>
-                                <td style="width: 20px">${index + 1}</td>                  
-                                <td>${item.departmentName}</td>                  
-                                <td>${item.parent}</td>    
-                                <td>
-                                    <div class="switch">
-                                        <label class="float-left">
-                                            <input class="edit-active" type="checkbox" id="${item.departmentId}" ${item.active === 1 ? 'checked' : ''}>
-                                            <span class="lever ml-0">
-                                            </span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>${item.createdDate}</td> 
-                                <td>${item.updatedDate}</td>
-                                <td>
-                                   <a class="mb-6 btn-floating waves-effect waves-light cyan edit-btn" id="${item.departmentId}">
-                                       <i class="material-icons">edit</i>
-                                   </a>
-                               </td>
-                            </tr>
-                        `);
-                    });
+    let table;
+    let list_dpm = [];
+    $(function() {
+        table = $('#table').DataTable({
+            data: list_dpm,
+            columns: [
+                {data: 'departmentId'},
+                {data: 'departmentName'},
+                {data: 'parentName'},
+                {data: 'active',
+                    'render': function(data) {
+                        return `
+                            <div class="switch">
+                                <label class="float-left">
+                                    <input class="edit-active" type="checkbox" ${data === true ? 'checked' : ''}>
+                                    <span class="lever ml-0">
+                                    </span>
+                                </label>
+                            </div>
+                        `;
+                    }
+                },
+                {data: 'createdDate'},
+                {data: 'updatedDate'},
+                {data:'departmentId',
+                    'render': function(data) {
+                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light cyan modal-trigger btn-edit-dpm" href="#modal2"><i class="material-icons">edit</i></a>`;
+                    }
                 }
-                $('#tblDepartment').DataTable();
-            },
-            complete: function() {
-                completedLoading();
-            }
-        });
-    }
-    
-    // Update Status
-    $(document).on('click', '.edit-active', function() {
-        let id = $(this).attr('id');
-        let editStatus = 0;
-
-        if ($(this).is(':checked')) {
-            editStatus = 1;
-        } else {
-            editStatus = 0;
-        }
-        
-        $.ajax({
-            url: '@Url.Action("UpdateStatus","Department")',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {id: id, active: editStatus},
-            beforeSend: function() {
-                console.log("Loading...");
-            },
-            success: function(data) {
-                if (data === 1) {
-                    M.toast({html:"Active updated!"});
-                } else {
-                    alert("Can't update!");
-                }
-            },
+            ]
         });
     });
     
-    // Check is not input
-    $(':input[type="text"]').keyup(function() {
-        let value = $(this).val();
-        
-        if (value !== "" && value.length >=3) {
-            $('#save_btn').prop('disabled', false);
-        } else {
-            $('#save_btn').prop('disabled', true);
-        }
-    });
-    let isActive = 0;
+    // initialize status active or inactive
+    let active = 1;
     $("input[type='checkbox'].active").click(function () {
         if ($("input[type='checkbox'].active").is(':checked')) {
-            isActive = 1;
+            active = 1;
         } else {
-            isActive = 0;
+            active = 0;
         }
-    });
-    function addDepartment() {
-
-        let departmentName = $('#department_name').val();
+    });// end
+    
+    // add new data into database
+    $('#btn-dpm-save').click(function() {
+        let obj_dpm = {};
+        obj_dpm.DepartmentName = $('#dpm_name').val();
+        obj_dpm.ParentId = $('#parent').val();
+        obj_dpm.Active = active;
+        
         $.ajax({
-            url: '@Url.Action("AddDepartment", "Department")',
+            url: '@Url.Action("PostDepartment", "Department")',
             type: 'POST',
             dataType: 'JSON',
-            data: {departmentName: departmentName, active: isActive},
+            data: {objDpm: obj_dpm},
             beforeSend: function() {
-                aeSetLoading();
+              
             },
             success: function(data) {
                 if (data === 1) {
                     M.toast({html:"Successfully added!"});
+                    clearForm();
+                    getDepartment();
+                } else {
+                    alert("Your data not add please try again later!");
+                }
+            }
+        });
+    });//end
+    
+    // get data by id
+    $(document).on('click', '.btn-edit-dpm', function() {
+        let dpm_id = $(this).attr('id');
+        
+        $.ajax({
+            url: '@Url.Action("GetDpmById", "Department")',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {id: dpm_id},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                //console.table(data)
+                $('#e-parent').empty();
+                $('#e-parent').append(`<option value="0">Main</option>`);
+                for (let i = 0;i < data.length;i++) {
+                    $('#dpm-id').val(data[i].departmentId);
+                    $('#e-dpm-name').val(data[i].departmentName);
+                    $('#e-parent').append(`<option value="${data[i].departmentId}" selected>${data[i].departmentName}</option>`);
+                }
+            }
+        });
+    });// end
+    
+    //Post update data into datatasbe
+    $('#btn-dpm-update').click(function () {
+        let obj_dpm = {};
+        obj_dpm.DepartmentName = $('#e-dpm-name').val();
+        obj_dpm.ParentId = $('#e-parent').val();
+        obj_dpm.DepartmentId = $('#dpm-id').val();
+        
+        $.ajax({
+            url: '@Url.Action("PostUpdateDepartment", "Department")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objDpm: obj_dpm},
+            beforeSend: function() {
+                
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully updated!"});
+                    getDepartment();
                 } else {
                     alert("Your data not add please try again later!");
                 }
             },
             complete: function() {
-                aeCompletedLoading();
-                getDepartment();
-                clearForm();
+                $('#modal1').modal('close');
             }
         });
-    }
+    });// end
     
-    //Clear form
-    function clearForm() {
-        $('#department_name').val('');
-    }
-    
-    //GetById
-    $(document).on('click', '.edit-btn', function() {
-        let id = $(this).attr('id');
+    // Update Status
+    $(document).on('click', '.edit-active', function() {
         
+    });
+    
+    // clear form data
+    function clearForm() {
+        $('#dpm_name').val('');
+    }
+    
+    // call the function
+    getDepartment();
+    
+    // call the function from controller
+    function getDepartment() {
         $.ajax({
-            url: '@Url.Action("GetById", "Department")',
+            url: '@Url.Action("GetAllDepartment", "Department")',
             type: 'GET',
-            dataTable: 'JSON',
-            data: {id: id},
+            dataType: 'JSON',
             beforeSend: function() {
                 console.log("Loading...");
             },
             success: function(data) {
-                console.log(data)
+                //console.table(data);
+                list_dpm = [];
+                list_dpm = data;
+                table.clear();
+                table.rows.add(list_dpm);
+                table.draw();
             }
         });
-    });
+    }
+    
+    // call get parent from database
+    getParent();
+    function getParent() {
+        $.ajax({
+            url: '@Url.Action("GetParent", "Department")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                //$('#e-parent').append(`<option value="">Main</option>`);
+                for (let i = 0;i < data.length;i++) {
+                    $('#parent').append(`<option value="${data[i].departmentId}">${data[i].departmentName}</option>`);
+                    $('#e-parent').append(`<option value="${data[i].departmentId}">${data[i].departmentName}</option>`);
+                }
+            }
+        });
+    }
 
 </script>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+EdBpEi5k0TG/tXFnPR6/OACqTkxx+jc+ZD8z25yN5w=",
+  "Hash": "ZRoiQXpdNIVv3uD+CoutXzd+cAd3W+sYnftWtf1GjQE=",
   "Source": "PtcServiceApp",
   "BasePath": "_content/PtcServiceApp",
   "Mode": "Default",
@@ -4129,6 +4129,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendors\\data-tables\\css\\images\\sort_both.png"
+    },
+    {
+      "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\images\\sort_desc.png",
+      "SourceId": "PtcServiceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\",
+      "BasePath": "_content/PtcServiceApp",
+      "RelativePath": "assets/vendors/data-tables/css/images/sort_desc.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendors\\data-tables\\css\\images\\sort_desc.png"
     },
     {
       "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\vendors\\data-tables\\css\\jquery.dataTables.min.css",
