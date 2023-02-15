@@ -1,0 +1,482 @@
+﻿@{
+    ViewBag.Title = "Employee";
+}
+
+<div class="row">
+    <div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
+    <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
+        <!-- Search for small screen-->
+        <div class="container">
+            <div class="row">
+                <div class="col s10 m6 l6">
+                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Manage Employee</span></h5>
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="AdminDashboard">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Manage Employee</li>
+                    </ol>
+                </div>
+                <div class="col s2 m6 l6">
+                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger add-status-btn" href="#modal1"><i class="material-icons left">add</i> Add New</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12">
+        <div class="container">
+            <div class="section section-data-tables">
+                <!-- Page Length Options -->
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 class="card-title">Employee Data</h4>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <table id="table" class="display">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 20px">#</th>
+                                                <th>Employee Code</th>
+                                                <th>Password</th>
+                                                <th>Employee Name</th>
+                                                <th>JobTitle</th>
+                                                <th>Department</th>
+                                                <th>Branch</th>
+                                                <th>Role</th>
+                                                <th>Created Date</th>
+                                                <th>Updated Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th style="width: 20px">#</th>
+                                                <th>Employee Code</th>
+                                                <th>Password</th>
+                                                <th>Employee Name</th>
+                                                <th>JobTitle</th>
+                                                <th>Department</th>
+                                                <th>Branch</th>
+                                                <th>Role</th>
+                                                <th>Created Date</th>
+                                                <th>Updated Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* <div class="content-overlay show"></div> *@
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer" style="height: 500px">
+    <div class="modal-content">
+        <h5>Add New Employee</h5>
+        
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" class="validate" id="employee-name" required>
+                <small class="red-text err-msg-name"></small>
+                <label for="employee-name">User Code *</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" class="validate" id="password" required>
+                <small class="red-text err-msg-name"></small>
+                <label for="password">Password *</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" class="validate" id="address" required>
+                <small class="red-text err-msg-address"></small>
+                <label for="address">Name *</label>
+            </div>
+            <div class="input-field col s6">
+               <select class="error" id="department" required>
+                   <option value="">Choose department</option>
+                   <option value="1">Manager</option>
+                   <option value="2">Developer</option>
+                   <option value="3">Business</option>
+               </select>
+            </div>
+            <div class="input-field col s6">
+                <select class="error" id="job-title" required>
+                    <option value="">Choose department</option>
+                    <option value="1">Manager</option>
+                    <option value="2">Developer</option>
+                    <option value="3">Business</option>
+                </select>
+            </div>
+            <div class="input-field col s6">
+                <select class="error" id="branch" required>
+                    <option value="">Choose department</option>
+                    <option value="1">Manager</option>
+                    <option value="2">Developer</option>
+                    <option value="3">Business</option>
+                </select>
+            </div>
+            <div class="input-field col s6">
+                <select class="error" id="role" required>
+                    <option value="">Choose department</option>
+                    <option value="1">Manager</option>
+                    <option value="2">Developer</option>
+                    <option value="3">Business</option>
+                </select>
+            </div>
+            <div class="input-field col s6">
+                <div class="switch">
+                    Active
+                    <label class="float-right">
+                        <input class="active" type="checkbox" id="active" checked="checked" value="1">
+                        <span class="lever ml-0">
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">
+                    Cancel
+                    <i class="material-icons left">close</i>
+                </button>
+                <button class="btn waves-effect waves-light" type="submit" id="btn-brn-save">
+                    Save
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+@* <div id="modal3" class="modal"> *@
+@*     <div class="modal-content"> *@
+@*          *@
+@*         <h6>Add New Employee</h6> *@
+@* *@
+@*         <div class="row"> *@
+@*             <div class="input-field col s6"> *@
+@*                 <input type="text" class="validate" id="employee-name" required> *@
+@*                 <small class="red-text err-msg-name"></small> *@
+@*                 <label for="employee-name">User Code *</label> *@
+@*             </div> *@
+@*             <div class="input-field col s6"> *@
+@*                 <input type="text" class="validate" id="password" required> *@
+@*                 <small class="red-text err-msg-name"></small> *@
+@*                 <label for="password">Password *</label> *@
+@*             </div> *@
+@*             <div class="input-field col s6"> *@
+@*                 <input type="text" class="validate" id="address" required> *@
+@*                 <small class="red-text err-msg-address"></small> *@
+@*                 <label for="address">Name *</label> *@
+@*             </div> *@
+@*             <div class="input-field col s6"> *@
+@*                <select class="error" id="department" required> *@
+@*                    <option value="">Choose department</option> *@
+@*                    <option value="1">Manager</option> *@
+@*                    <option value="2">Developer</option> *@
+@*                    <option value="3">Business</option> *@
+@*                </select> *@
+@*             </div> *@
+@*             <div class="input-field col s6"> *@
+@*                 <select class="error" id="job-title" required> *@
+@*                     <option value="">Choose department</option> *@
+@*                     <option value="1">Manager</option> *@
+@*                     <option value="2">Developer</option> *@
+@*                     <option value="3">Business</option> *@
+@*                 </select> *@
+@*             </div> *@
+@*             <div class="input-field col s6"> *@
+@*                 <select class="error" id="branch" required> *@
+@*                     <option value="">Choose department</option> *@
+@*                     <option value="1">Manager</option> *@
+@*                     <option value="2">Developer</option> *@
+@*                     <option value="3">Business</option> *@
+@*                 </select> *@
+@*             </div> *@
+@*             <div class="input-field col s6"> *@
+@*                 <select class="error" id="role" required> *@
+@*                     <option value="">Choose department</option> *@
+@*                     <option value="1">Manager</option> *@
+@*                     <option value="2">Developer</option> *@
+@*                     <option value="3">Business</option> *@
+@*                 </select> *@
+@*             </div> *@
+@*             <div class="input-field col s6"> *@
+@*                 <div class="switch"> *@
+@*                     Active *@
+@*                     <label class="float-right"> *@
+@*                         <input class="active" type="checkbox" id="active" checked="checked" value="1"> *@
+@*                         <span class="lever ml-0"> *@
+@*                         </span> *@
+@*                     </label> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@*     <div class="modal-footer"> *@
+@*         <div class="row"> *@
+@*             <div class="col s12"> *@
+@*                 <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel *@
+@*                     <i class="material-icons left">close</i> *@
+@*                 </button> *@
+@*                 <button class="btn waves-effect waves-light" type="submit" id="btn-brn-save">Save *@
+@*                     <i class="material-icons right">send</i> *@
+@*                 </button> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        
+        <h5>Add New Branch</h5>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="hidden" id="brn-id">
+                <input type="text" placeholder="Enter branch name" class="validate" id="e-branch-name" required>
+                <label for="e-branch-name">Branch Name *</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" placeholder="Enter phone" class="validate" id="e-phone" required>
+                <label for="e-phone">Phone *</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" placeholder="Enter address" class="validate" id="e-address" required>
+                <label for="e-address">Address *</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" placeholder="Enter map" class="validate" id="e-map" required>
+                <label for="e-map">Map *</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
+                    <i class="material-icons left">close</i>
+                  </button>
+                <button class="btn waves-effect waves-light orange" type="submit" id="btn-brn-update">Save
+                    <i class="material-icons right">send</i>
+                  </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/assets/vendors/jquery/jquery-3.6.3.min.js"></script>
+<script type="text/javascript">
+    let employeeSubNav = document.querySelectorAll('.employee-sub-nav');
+        
+    document.querySelector('.administrator-main-nav').classList.add('active');
+    employeeSubNav.forEach((item) => {
+        item.classList.add('active');
+    });
+    
+    let table;
+    let list_employee = [];
+    $(function() {
+        table = $('#table').DataTable({
+            data: list_employee,
+            columns: [
+                {data: 'employeeId'},
+                {data: 'employeeCode'},
+                {data: 'password'},
+                {data: 'employeeName'},
+                {data: 'departmentName'},
+                {data: 'jobTitleName'},
+                {data: 'branchName'},
+                {data: 'active',
+                    'render': function(data) {
+                        return `
+                            <div class="switch">
+                                <label class="float-left">
+                                    <input class="edit-active" type="checkbox" ${data === true ? 'checked' : ''}>
+                                    <span class="lever ml-0">
+                                    </span>
+                                </label>
+                            </div>
+                        `;
+                    }
+                },
+                {data:'createdDate'},
+                {data:'updatedDate'},
+                {data:'employeeId',
+                    'render': function(data) {
+                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-brn" href="#modal2"><i class="material-icons">edit</i></a>`;
+                    }
+                }
+            ],
+            "responsive": false,
+            "lengthChange": true,
+            "autoWidth": true,
+            "searching": true,
+            "paging": true,
+            "scrollY": '60vh',
+            "scrollX": true,
+            "scrollCollapse": true
+        });
+    });
+    // call the function
+    getAllEmployee();
+    
+    // initialize status active or inactive
+    let active;
+    $("input[type='checkbox'].active").click(function () {
+        if ($("input[type='checkbox'].active").is(':checked')) {
+            active = 1;
+        } else {
+            active = 0;
+        }
+    });// end
+    
+    //pass data to controller
+    $('#btn-brn-save').click(function() {
+        let obj_brn = {};
+
+        $.ajax({
+            url: '@Url.Action("PostBranch", "Branch")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objBrn: obj_brn},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully added!"});
+                    clearForm();
+                    getAllEmployee();
+                } else {
+                    alert("Your data not add please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    //click to get data from database
+    $(document).on('click', '.btn-edit-brn', function() {
+        let brn_id = $(this).attr('id');
+        
+        $.ajax({
+            url: '@Url.Action("GetBrandById", "Branch")',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {id: brn_id},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                data.forEach((item) => {
+                    $('#brn-id').val(item.branchId);
+                    $('#e-branch-name').val(item.branchName);
+                    $('#e-phone').val(item.phone);
+                    $('#e-address').val(item.address);
+                    $('#e-map').val(item.map);
+                });
+            }
+        });
+    });// end
+    
+    // pass data to controller for update branch
+    $('#btn-brn-update').click(function() {
+        let obj_brn = {};
+        obj_brn.BranchId = $('#brn-id').val();
+        obj_brn.BranchName = $('#e-branch-name').val();
+        obj_brn.Phone = $('#e-phone').val();
+        obj_brn.Address = $('#e-address').val();
+        obj_brn.Map = $('#e-map').val();
+        
+        $.ajax({
+            url: '@Url.Action("PostBrandUpdate", "Branch")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objBrn: obj_brn},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully updated!"});
+                    $('#modal2').modal('close');
+                    getAllBranch();
+                } else {
+                    alert("Your data not update please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    // pass data to controller for update status
+    $(document).on('click', '.edit-active', 'td', function() {
+        let col_id = $(this).closest('tr');
+        let brn_id = col_id.find('td:eq(0)').text();
+        let active;
+        $(this).is(':checked') ? active = 1 : active = 0;
+        
+        let obj_atv = {};
+        obj_atv.BranchId = brn_id;
+        obj_atv.Active = active;
+        
+        $.ajax({
+            url: '@Url.Action("UpdateActive", "Branch")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objAtv: obj_atv},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully updated!"});
+                } else {
+                    alert("Your data not update please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    // fetch all data from database
+    function getAllEmployee() {
+        $.ajax({
+            url: '@Url.Action("GetAllEmployee", "Employee")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+                //setLoading();
+            },
+            success: function(data) {
+                //console.table(data);
+                list_employee = [];
+                list_employee = data;
+                table.clear();
+                table.rows.add(list_employee);
+                table.draw();
+            }
+        });
+    }// end
+    
+    // clear form data
+    function clearForm() {
+        
+    }
+</script>
+

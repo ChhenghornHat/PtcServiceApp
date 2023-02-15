@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PtcServiceApp.Data;
+using PtcServiceApp.Models;
 
 namespace PtcServiceApp.Controllers;
 
@@ -19,44 +20,51 @@ public class StatusController : Controller
     }
 
     [HttpGet]
-    public IActionResult GetStatuses()
+    public async Task<IActionResult> GetAllStatus()
     {
-        var status = _ptcServiceDbContext.Statuses.FromSqlRaw("EXEC CrudStatus @Crud = 'Select'").ToList();
+        var status = await _ptcServiceDbContext.Statuses.FromSqlRaw("EXEC CrudStatus @Crud = 'Select'").ToListAsync();
         return Ok(status);
     }
 
     [HttpPost]
-    public IActionResult AddStatus(string statusName, int sapId, int isClose, int isActive, int customerStatus)
+    public async Task<IActionResult> PostStatus(PostStatus objSts)
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudStatus @Crud = 'Insert', @StatusName = {statusName}, @SapId = {sapId}, @IsClosed = {isClose}, @IsActive = {isActive}, @CustomerStatus = {customerStatus}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudStatus @Crud = 'Insert', @StatusName = '{objSts.StatusName}', @SapId = {objSts.SapId}, @Closed = {objSts.Closed}, @Active = {objSts.Active}, @CustomerActive = {objSts.CustomerActive}");
         return Ok(1);
     }
 
     [HttpPost]
-    public IActionResult UpdateIsClosed(int id, int isClosed)
+    public async Task<IActionResult> EditClosed(EditClose objCls)
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudStatus @Crud = 'Update', @IsClosed = {isClosed}, @Id = {id}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudStatus @Crud = 'Update', @Closed = {objCls.Closed}, @Id = {objCls.StatusId}");
         return Ok(1);
     }
     
     [HttpPost]
-    public IActionResult UpdateIsActive(int id, int isActive)
+    public async Task<IActionResult> EditActive(EditActive objAtv)
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudStatus @Crud = 'Update', @IsActive = {isActive}, @Id = {id}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudStatus @Crud = 'Update', @Active = {objAtv.Active}, @Id = {objAtv.StatusId}");
         return Ok(1);
     }
     
     [HttpPost]
-    public IActionResult UpdateCustomer(int id, int customerStatus)
+    public async Task<IActionResult> EditCtmActive(EditCtmActive objCtmAtv)
     {
-        _ptcServiceDbContext.Database.ExecuteSqlRaw($"EXEC CrudStatus @Crud = 'Update', @CustomerStatus = {customerStatus}, @Id = {id}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudStatus @Crud = 'Update', @CustomerActive = {objCtmAtv.CustomerActive}, @Id = {objCtmAtv.StatusId}");
         return Ok(1);
     }
 
     [HttpGet]
-    public IActionResult GetById(int id)
+    public async Task<IActionResult> GetStsById(int id)
     {
-        var result = _ptcServiceDbContext.Statuses.FromSqlRaw($"EXEC CrudStatus @Crud = 'Select', StatusId @Id = {id}").ToList();
+        var result = await _ptcServiceDbContext.GetStsByIds.FromSqlRaw($"EXEC CrudStatus @Crud = 'Select', @Id = {id}").ToListAsync();
         return Ok(result);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> PostUpdateSts(PostUpdateSts objSts)
+    {
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudStatus @Crud = 'Update', @StatusName = '{objSts.StatusName}', @SapId = {objSts.SapId}, @Id = {objSts.StatusId}");
+        return Ok(1);
     }
 }

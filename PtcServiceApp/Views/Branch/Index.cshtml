@@ -72,12 +72,12 @@
                     </div>
                 </div>
             </div>
-        @* <div class="content-overlay show"></div> *@
+            @* <div class="content-overlay show"></div> *@
     </div>
 </div>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal width-40">
+<div id="modal1" class="modal">
     <div class="modal-content">
         
         <h5>Add New Branch</h5>
@@ -85,18 +85,22 @@
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" class="validate" id="branch-name" required>
+                <small class="red-text err-msg-name"></small>
                 <label for="branch-name">Branch Name *</label>
             </div>
             <div class="input-field col s6">
                 <input type="text" class="validate" id="phone" required>
+                <small class="red-text err-msg-phone"></small>
                 <label for="phone">Phone *</label>
             </div>
             <div class="input-field col s12">
                 <input type="text" class="validate" id="address" required>
+                <small class="red-text err-msg-address"></small>
                 <label for="address">Address *</label>
             </div>
             <div class="input-field col s12">
                 <input type="text" class="validate" id="map" required>
+                <small class="red-text err-msg-map"></small>
                 <label for="map">Map *</label>
             </div>
             <div class="input-field col s12">
@@ -116,8 +120,48 @@
             <div class="col s12">
                 <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
                     <i class="material-icons left">close</i>
-                  </button>
+                </button>
                 <button class="btn waves-effect waves-light" type="submit" id="btn-brn-save">Save
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        
+        <h5>Add New Branch</h5>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="hidden" id="brn-id">
+                <input type="text" placeholder="Enter branch name" class="validate" id="e-branch-name" required>
+                <label for="e-branch-name">Branch Name *</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" placeholder="Enter phone" class="validate" id="e-phone" required>
+                <label for="e-phone">Phone *</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" placeholder="Enter address" class="validate" id="e-address" required>
+                <label for="e-address">Address *</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" placeholder="Enter map" class="validate" id="e-map" required>
+                <label for="e-map">Map *</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
+                    <i class="material-icons left">close</i>
+                  </button>
+                <button class="btn waves-effect waves-light orange" type="submit" id="btn-brn-update">Save
                     <i class="material-icons right">send</i>
                   </button>
             </div>
@@ -137,14 +181,22 @@
     let table;
     let list_branch = [];
     $(function() {
-        table = $('.table').DataTable({
+        table = $('#table').DataTable({
             data: list_branch,
             columns: [
                 {data: 'branchId'},
                 {data: 'branchName'},
                 {data: 'phone'},
                 {data: 'address'},
-                {data: 'map'},
+                {data: 'map',
+                //"targets": 2,
+                    'render': function(data, type) {
+                        if (type === 'display') {
+                           data = typeof data === 'string' && data.length > 100 ? data.substring(0, 50) + '...' : data;
+                        }
+                        return data;
+                    }
+                },
                 {data: 'active',
                     'render': function(data) {
                         return `
@@ -162,17 +214,25 @@
                 {data:'updatedDate'},
                 {data:'branchId',
                     'render': function(data) {
-                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-evn" href="#modal2"><i class="material-icons">edit</i></a>`;
+                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-brn" href="#modal2"><i class="material-icons">edit</i></a>`;
                     }
                 }
-            ]
+            ],
+            "responsive": false,
+            "lengthChange": true,
+            "autoWidth": true,
+            "searching": true,
+            "paging": true,
+            "scrollY": '60vh',
+            "scrollX": true,
+            "scrollCollapse": true
         });
     });
     // call the function
     getAllBranch();
     
     // initialize status active or inactive
-    let active = 1;
+    let active;
     $("input[type='checkbox'].active").click(function () {
         if ($("input[type='checkbox'].active").is(':checked')) {
             active = 1;
@@ -180,7 +240,8 @@
             active = 0;
         }
     });// end
-    // pass data to controller
+    
+    //pass data to controller
     $('#btn-brn-save').click(function() {
         let obj_brn = {};
         obj_brn.BranchName = $('#branch-name').val();
@@ -188,7 +249,7 @@
         obj_brn.Address = $('#address').val();
         obj_brn.Map = $('#map').val();
         obj_brn.Active = active;
-        
+
         $.ajax({
             url: '@Url.Action("PostBranch", "Branch")',
             type: 'POST',
@@ -207,7 +268,89 @@
                 }
             }
         });
-    });
+    });// end
+    
+    //click to get data from database
+    $(document).on('click', '.btn-edit-brn', function() {
+        let brn_id = $(this).attr('id');
+        
+        $.ajax({
+            url: '@Url.Action("GetBrandById", "Branch")',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {id: brn_id},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                data.forEach((item) => {
+                    $('#brn-id').val(item.branchId);
+                    $('#e-branch-name').val(item.branchName);
+                    $('#e-phone').val(item.phone);
+                    $('#e-address').val(item.address);
+                    $('#e-map').val(item.map);
+                });
+            }
+        });
+    });// end
+    
+    // pass data to controller for update branch
+    $('#btn-brn-update').click(function() {
+        let obj_brn = {};
+        obj_brn.BranchId = $('#brn-id').val();
+        obj_brn.BranchName = $('#e-branch-name').val();
+        obj_brn.Phone = $('#e-phone').val();
+        obj_brn.Address = $('#e-address').val();
+        obj_brn.Map = $('#e-map').val();
+        
+        $.ajax({
+            url: '@Url.Action("PostBrandUpdate", "Branch")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objBrn: obj_brn},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully updated!"});
+                    $('#modal2').modal('close');
+                    getAllBranch();
+                } else {
+                    alert("Your data not update please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    // pass data to controller for update status
+    $(document).on('click', '.edit-active', 'td', function() {
+        let col_id = $(this).closest('tr');
+        let brn_id = col_id.find('td:eq(0)').text();
+        let active;
+        $(this).is(':checked') ? active = 1 : active = 0;
+        
+        let obj_atv = {};
+        obj_atv.BranchId = brn_id;
+        obj_atv.Active = active;
+        
+        $.ajax({
+            url: '@Url.Action("UpdateActive", "Branch")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objAtv: obj_atv},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully updated!"});
+                } else {
+                    alert("Your data not update please try again later!");
+                }
+            }
+        });
+    });// end
     
     // fetch all data from database
     function getAllBranch() {
@@ -217,9 +360,10 @@
             dataType: 'JSON',
             beforeSend: function() {
                 console.log("Loading...");
+                //setLoading();
             },
             success: function(data) {
-                console.table(data);
+                //console.table(data);
                 list_branch = [];
                 list_branch = data;
                 table.clear();
@@ -227,7 +371,7 @@
                 table.draw();
             }
         });
-    }
+    }// end
     
     // clear form data
     function clearForm() {
