@@ -36,7 +36,7 @@ public class DepartmentController : Controller
     //Post data to database
     public async Task<IActionResult> PostDepartment(PostDepartment objDpm)
     {
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Insert', @Name = '{objDpm.DepartmentName}', @Active = {objDpm.Active}, @Parent = {objDpm.ParentId}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Insert', @DepartmentName = '{objDpm.DepartmentName}', @Active = {objDpm.Active}, @Parent = {objDpm.ParentId}");
         return Ok(1);
     }
     
@@ -50,7 +50,7 @@ public class DepartmentController : Controller
     // Post update data
     public async Task<IActionResult> PostUpdateDepartment(UpdateDepartment objDpm)
     {
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud =  'Update', @Name = '{objDpm.DepartmentName}', @Parent = {objDpm.ParentId}, @Id = {objDpm.DepartmentId}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud =  'Update', @DepartmentName = '{objDpm.DepartmentName}', @Parent = {objDpm.ParentId}, @Id = {objDpm.DepartmentId}");
         return Ok(1);
     }
     

@@ -80,7 +80,7 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
+<div id="modal1" class="modal modal-fixed-footer">
     <div class="progress ae-loading hide mt-0">
         <div class="indeterminate"></div>
     </div>
@@ -146,31 +146,29 @@
     <div class="modal-content">
 
         <h5 class="header-title">Update Event</h5>
-
-        @* <form enctype="multipart/form-data"> *@
-            <div class="row">
-                <div class="input-field col s6">
-                    <p>Maximum file upload size 1MB.</p>
-                    <input type="hidden" id="id">
-                    <input type="file" id="e-image" class="dropify" data-max-file-size="1M" />
-                </div>
-                <div class="input-field col s6">
-                    <p>View Image.</p>
-                    <div class="image" style="height: 200px; border: 2px solid #E5E5E5">
-                        <img id="view-image" style="width: 100%; height: 100%; object-fit: contain" alt="">
-                    </div>
-                </div>
-                <div class="input-field col s12">
-                    <input placeholder="Enter subject" id="e-subject" type="text" class="validate">
-                    <label for="e-subject">Subject *</label>
-                </div>
-                <div class="input-field col s12">
-                    <textarea placeholder="Enter description" id="e-description" class="materialize-textarea"></textarea>
-                    <label for="e-description">Description *</label>
+        
+        <div class="row">
+            <div class="input-field col s6">
+                <p>Maximum file upload size 1MB.</p>
+                <input type="hidden" id="evn_id">
+                <input type="file" id="e-image" class="dropify" data-max-file-size="1M" />
+            </div>
+            <div class="input-field col s6">
+                <p>View Image.</p>
+                <div class="image white" style="height: 200px; border: 2px solid #E5E5E5">
+                    <img id="view-image" style="width: 100%; height: 100%; object-fit: contain" alt="" src="">
                 </div>
             </div>
-        @* </form> *@
-        
+            <div class="input-field col s12">
+                <input placeholder="Enter subject" id="e-subject" type="text" class="validate">
+                <label for="e-subject">Subject *</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea placeholder="Enter description" id="e-description" class="materialize-textarea"></textarea>
+                <label for="e-description">Description *</label>
+            </div>
+        </div>
+
     </div>
     <div class="modal-footer">
         <div class="row">
@@ -178,7 +176,7 @@
                 <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
                     <i class="material-icons left">close</i>
                 </button>
-                <button class="btn waves-effect waves-light orange" type="submit" id="edit_btn" name="action">Save
+                <button class="btn waves-effect waves-light orange" type="submit" id="btn-evn-update" name="action">Save
                     <i class="material-icons right">send</i>
                 </button>
             </div>
@@ -227,7 +225,7 @@
                         return `
                             <div class="switch">
                                 <label class="float-left">
-                                    <input class="edit-active" type="checkbox" ${data === true ? 'checked' : ''}>
+                                    <input class="edit-feature" type="checkbox" ${data === true ? 'checked' : ''}>
                                     <span class="lever ml-0">
                                     </span>
                                 </label>
@@ -254,29 +252,6 @@
         });
     });
     getAllEvent();
-    
-    //get all event
-    function getAllEvent() {
-        $.ajax({
-            url: '@Url.Action("GetEvents", "Event")',
-            type: 'GET',
-            dataType: 'JSON',
-            beforeSend: function() {
-                //setLoading();
-            },
-            success: function(data) {
-                //console.table(data);
-                list_event = [];
-                list_event = data;
-                table.clear();
-                table.rows.add(list_event);
-                table.draw();
-            },
-            complete: function() {
-                completedLoading();
-            }
-        });
-    } // end get all event
     
     // pass data to controller
     $('input[type="file"]').change(function() {
@@ -315,22 +290,22 @@
     });// end
     
     $('#btn-event-save').click(function() {
-        let obj_event = {};
+        let obj_evn = {};
         if (img != null) {
             let imgs = img.split(",");
-            obj_event.Photo = imgs[1];
+            obj_evn.Photo = imgs[1];
         }
-        obj_event.Subject = $('#subject').val();
-        obj_event.Description = $('#description').val();
-        obj_event.Active = active;
-        obj_event.Feature = feature;
+        obj_evn.Subject = $('#subject').val();
+        obj_evn.Description = $('#description').val();
+        obj_evn.Active = active;
+        obj_evn.Feature = feature;
         
         // pass data to controller object
         $.ajax({
             url: '@Url.Action("PostEvent", "Event")',
             type: 'POST',
             dataType: 'JSON',
-            data: {objEvent: obj_event},
+            data: {objEvn: obj_evn},
             beforeSend: function() {
               
             },
@@ -363,18 +338,133 @@
                 
             },
             success: function(data) {
-                console.table(data);
-                // for (let i = 0;i < data.length;i++) {
-                //     $('#dpm-id').val(data[i].departmentId);
-                //     $('#e-dpm-name').val(data[i].departmentName);
-                //     $('#e-parent').append(`<option value="${data[i].departmentId}" selected>${data[i].departmentName}</option>`);
-                // }
+                //console.table(data);
+                data.forEach((item) => {
+                    $('#evn_id').val(item.eventId);
+                    $('#view-image').attr('src', `data:image/png;base64,${item.photo}`);
+                    $('#e-subject').val(item.subject);
+                    $('#e-description').val(item.description);
+                });
             }
         });
     });
     
+    // pass data to controller for update event
+    $('#btn-evn-update').click(function() {
+        let obj_evn = {};
+        obj_evn.EventId = $('#evn_id').val();
+        if (img != null) {
+            let imgs = img.split(",");
+            obj_evn.Photo = imgs[1];
+        }
+        obj_evn.Subject = $('#e-subject').val();
+        obj_evn.Description = $('#e-description').val();
+        
+        $.ajax({
+            url: '@Url.Action("PostUpdateEvn", "Event")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objEvn: obj_evn},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully updated!"});
+                    $('.dropify-clear').click();
+                    $('#modal2').modal('close');
+                    getAllEvent();
+                } else {
+                    alert("Your data not add please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    // pass data to update active
+    $(document).on('click', '.edit-active', 'td', function() {
+        let col_id = $(this).closest('tr');
+        let evn_id = col_id.find('td:eq(0)').text();
+        let active;
+        $(this).is(':checked') ? active = 1 : active = 0;
+        
+        let obj_atv = {};
+        obj_atv.EventId = evn_id;
+        obj_atv.Active = active;
+        
+        $.ajax({
+            url: '@Url.Action("EditAtv", "Event")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objAtv: obj_atv},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Active has been updated!"});
+                } else {
+                    alert("Your data not add please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    // pass data to update feature
+    $(document).on('click', '.edit-feature', 'td', function() {
+        let col_id = $(this).closest('tr');
+        let ft_id = col_id.find('td:eq(0)').text();
+        let feature;
+        $(this).is(':checked') ? feature = 1 : feature = 0;
+        
+        let obj_ft = {};
+        obj_ft.EventId = ft_id;
+        obj_ft.Feature = feature;
+        
+        $.ajax({
+            url: '@Url.Action("EditFt", "Event")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objFt: obj_ft},
+            beforeSend: function() {
+                
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Feature has been updated!"});
+                } else {
+                    alert("Your data not add please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    //get all event
+    function getAllEvent() {
+        $.ajax({
+            url: '@Url.Action("GetAllEvent", "Event")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                //setLoading();
+            },
+            success: function(data) {
+                //console.table(data);
+                list_event = [];
+                list_event = data;
+                table.clear();
+                table.rows.add(list_event);
+                table.draw();
+            },
+            complete: function() {
+                completedLoading();
+            }
+        });
+    } // end get all event
+    
     // clear form data
     function clearForm() {
+        $('.dropify-clear').click();
         $('#subject').val('');
         $('#description').val('');
     }

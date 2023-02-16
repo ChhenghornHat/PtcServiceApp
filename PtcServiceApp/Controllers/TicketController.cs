@@ -4,11 +4,11 @@ using PtcServiceApp.Data;
 
 namespace PtcServiceApp.Controllers;
 
-public class LiveTicketController : Controller
+public class TicketController : Controller
 {
     private readonly PtcServiceDbContext _ptcServiceDbContext;
 
-    public LiveTicketController(PtcServiceDbContext ptcServiceDbContext)
+    public TicketController(PtcServiceDbContext ptcServiceDbContext)
     {
         _ptcServiceDbContext = ptcServiceDbContext;
     }
@@ -18,10 +18,9 @@ public class LiveTicketController : Controller
         return View();
     }
 
-    // [HttpGet]
-    // public IActionResult GetLiveTicket()
-    // {
-    //     var liveTicket = _ptcServiceDbContext.LiveTickets.FromSqlRaw("EXEC GetLiveTickets").ToList();
-    //     return Ok(liveTicket);
-    // }
+    public async Task<IActionResult> GetAllTicket()
+    {
+        var result = await _ptcServiceDbContext.Tickets.FromSqlRaw("EXEC CrudTicket @Crud = 'Select'").ToListAsync();
+        return Ok(result);
+    }
 }

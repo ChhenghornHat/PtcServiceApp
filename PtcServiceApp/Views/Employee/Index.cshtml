@@ -40,8 +40,8 @@
                                                 <th>Employee Code</th>
                                                 <th>Password</th>
                                                 <th>Employee Name</th>
-                                                <th>JobTitle</th>
                                                 <th>Department</th>
+                                                <th>JobTitle</th>
                                                 <th>Branch</th>
                                                 <th>Role</th>
                                                 <th>Created Date</th>
@@ -58,8 +58,8 @@
                                                 <th>Employee Code</th>
                                                 <th>Password</th>
                                                 <th>Employee Name</th>
-                                                <th>JobTitle</th>
                                                 <th>Department</th>
+                                                <th>JobTitle</th>
                                                 <th>Branch</th>
                                                 <th>Role</th>
                                                 <th>Created Date</th>
@@ -87,9 +87,9 @@
         
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" class="validate" id="employee-name" required>
+                <input type="text" class="validate" id="employee-code" required>
                 <small class="red-text err-msg-name"></small>
-                <label for="employee-name">User Code *</label>
+                <label for="employee-code">User Code *</label>
             </div>
             <div class="input-field col s6">
                 <input type="text" class="validate" id="password" required>
@@ -97,43 +97,31 @@
                 <label for="password">Password *</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" class="validate" id="address" required>
+                <input type="text" class="validate" id="employee-name" required>
                 <small class="red-text err-msg-address"></small>
-                <label for="address">Name *</label>
+                <label for="employee-name">Name *</label>
             </div>
             <div class="input-field col s6">
-               <select class="error" id="department" required>
-                   <option value="">Choose department</option>
-                   <option value="1">Manager</option>
-                   <option value="2">Developer</option>
-                   <option value="3">Business</option>
-               </select>
+                <select class="error" id="department" required>
+                    <option value="" selected="selected" disabled="">Choose department</option>
+                </select>
             </div>
             <div class="input-field col s6">
                 <select class="error" id="job-title" required>
-                    <option value="">Choose department</option>
-                    <option value="1">Manager</option>
-                    <option value="2">Developer</option>
-                    <option value="3">Business</option>
+                    <option value="" selected="selected" disabled="">Choose job-title</option>
                 </select>
             </div>
             <div class="input-field col s6">
                 <select class="error" id="branch" required>
-                    <option value="">Choose department</option>
-                    <option value="1">Manager</option>
-                    <option value="2">Developer</option>
-                    <option value="3">Business</option>
+                    <option value="" selected="selected" disabled="">Choose branch</option>
                 </select>
             </div>
             <div class="input-field col s6">
                 <select class="error" id="role" required>
-                    <option value="">Choose department</option>
-                    <option value="1">Manager</option>
-                    <option value="2">Developer</option>
-                    <option value="3">Business</option>
+                    <option value="" selected="selected" disabled="">Choose role</option>
                 </select>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s6 mt-4">
                 <div class="switch">
                     Active
                     <label class="float-right">
@@ -152,7 +140,7 @@
                     Cancel
                     <i class="material-icons left">close</i>
                 </button>
-                <button class="btn waves-effect waves-light" type="submit" id="btn-brn-save">
+                <button class="btn waves-effect waves-light" type="submit" id="btn-emp-save">
                     Save
                     <i class="material-icons right">send</i>
                 </button>
@@ -162,124 +150,66 @@
 </div>
 
 <!-- Modal Structure -->
-@* <div id="modal3" class="modal"> *@
-@*     <div class="modal-content"> *@
-@*          *@
-@*         <h6>Add New Employee</h6> *@
-@* *@
-@*         <div class="row"> *@
-@*             <div class="input-field col s6"> *@
-@*                 <input type="text" class="validate" id="employee-name" required> *@
-@*                 <small class="red-text err-msg-name"></small> *@
-@*                 <label for="employee-name">User Code *</label> *@
-@*             </div> *@
-@*             <div class="input-field col s6"> *@
-@*                 <input type="text" class="validate" id="password" required> *@
-@*                 <small class="red-text err-msg-name"></small> *@
-@*                 <label for="password">Password *</label> *@
-@*             </div> *@
-@*             <div class="input-field col s6"> *@
-@*                 <input type="text" class="validate" id="address" required> *@
-@*                 <small class="red-text err-msg-address"></small> *@
-@*                 <label for="address">Name *</label> *@
-@*             </div> *@
-@*             <div class="input-field col s6"> *@
-@*                <select class="error" id="department" required> *@
-@*                    <option value="">Choose department</option> *@
-@*                    <option value="1">Manager</option> *@
-@*                    <option value="2">Developer</option> *@
-@*                    <option value="3">Business</option> *@
-@*                </select> *@
-@*             </div> *@
-@*             <div class="input-field col s6"> *@
-@*                 <select class="error" id="job-title" required> *@
-@*                     <option value="">Choose department</option> *@
-@*                     <option value="1">Manager</option> *@
-@*                     <option value="2">Developer</option> *@
-@*                     <option value="3">Business</option> *@
-@*                 </select> *@
-@*             </div> *@
-@*             <div class="input-field col s6"> *@
-@*                 <select class="error" id="branch" required> *@
-@*                     <option value="">Choose department</option> *@
-@*                     <option value="1">Manager</option> *@
-@*                     <option value="2">Developer</option> *@
-@*                     <option value="3">Business</option> *@
-@*                 </select> *@
-@*             </div> *@
-@*             <div class="input-field col s6"> *@
-@*                 <select class="error" id="role" required> *@
-@*                     <option value="">Choose department</option> *@
-@*                     <option value="1">Manager</option> *@
-@*                     <option value="2">Developer</option> *@
-@*                     <option value="3">Business</option> *@
-@*                 </select> *@
-@*             </div> *@
-@*             <div class="input-field col s6"> *@
-@*                 <div class="switch"> *@
-@*                     Active *@
-@*                     <label class="float-right"> *@
-@*                         <input class="active" type="checkbox" id="active" checked="checked" value="1"> *@
-@*                         <span class="lever ml-0"> *@
-@*                         </span> *@
-@*                     </label> *@
-@*                 </div> *@
-@*             </div> *@
-@*         </div> *@
-@*     </div> *@
-@*     <div class="modal-footer"> *@
-@*         <div class="row"> *@
-@*             <div class="col s12"> *@
-@*                 <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel *@
-@*                     <i class="material-icons left">close</i> *@
-@*                 </button> *@
-@*                 <button class="btn waves-effect waves-light" type="submit" id="btn-brn-save">Save *@
-@*                     <i class="material-icons right">send</i> *@
-@*                 </button> *@
-@*             </div> *@
-@*         </div> *@
-@*     </div> *@
-@* </div> *@
-
-<!-- Modal Structure -->
-<div id="modal2" class="modal">
+<div id="modal2" class="modal modal-fixed-footer" style="height: 500px">
     <div class="modal-content">
+        <h5>Update Employee</h5>
         
-        <h5>Add New Branch</h5>
-
         <div class="row">
             <div class="input-field col s6">
-                <input type="hidden" id="brn-id">
-                <input type="text" placeholder="Enter branch name" class="validate" id="e-branch-name" required>
-                <label for="e-branch-name">Branch Name *</label>
+                <input type="hidden" id="emp_id">
+                <input type="text" class="validate" id="e-employee-code" placeholder="Enter employee code" required>
+                <small class="red-text err-msg-name"></small>
+                <label for="e-employee-code">User Code *</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" placeholder="Enter phone" class="validate" id="e-phone" required>
-                <label for="e-phone">Phone *</label>
+                <input type="text" class="validate" id="e-password" placeholder="Enter password" required>
+                <small class="red-text err-msg-name"></small>
+                <label for="e-password">Password *</label>
             </div>
             <div class="input-field col s12">
-                <input type="text" placeholder="Enter address" class="validate" id="e-address" required>
-                <label for="e-address">Address *</label>
+                <input type="text" class="validate" id="e-employee-name" placeholder="Enter employee name" required>
+                <small class="red-text err-msg-address"></small>
+                <label for="e-employee-name">Name *</label>
             </div>
-            <div class="input-field col s12">
-                <input type="text" placeholder="Enter map" class="validate" id="e-map" required>
-                <label for="e-map">Map *</label>
+            <div class="input-field col s6">
+               <select class="error browser-default" id="e-department" required>
+                   <option value="" selected="selected" disabled="">Choose department</option>
+               </select>
+            </div>
+            <div class="input-field col s6">
+                <select class="error browser-default" id="e-job-title" required>
+                    <option value="" selected="selected" disabled="">Choose job-title</option>
+                </select>
+            </div>
+            <div class="input-field col s6">
+                <select class="error browser-default" id="e-branch" required>
+                    <option value="" selected="selected" disabled="">Choose branch</option>
+                </select>
+            </div>
+            <div class="input-field col s6">
+                <select class="error browser-default" id="e-role" required>
+                    <option value="" selected="selected" disabled="">Choose role</option>
+                </select>
             </div>
         </div>
     </div>
     <div class="modal-footer">
         <div class="row">
             <div class="col s12">
-                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
+                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">
+                    Cancel
                     <i class="material-icons left">close</i>
-                  </button>
-                <button class="btn waves-effect waves-light orange" type="submit" id="btn-brn-update">Save
+                </button>
+                <button class="btn waves-effect waves-light orange" type="submit" id="btn-emp-update">
+                    Save
                     <i class="material-icons right">send</i>
-                  </button>
+                </button>
             </div>
         </div>
     </div>
 </div>
+
+
 
 <script src="~/assets/vendors/jquery/jquery-3.6.3.min.js"></script>
 <script type="text/javascript">
@@ -320,7 +250,7 @@
                 {data:'updatedDate'},
                 {data:'employeeId',
                     'render': function(data) {
-                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-brn" href="#modal2"><i class="material-icons">edit</i></a>`;
+                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-emp" href="#modal2"><i class="material-icons">edit</i></a>`;
                     }
                 }
             ],
@@ -348,14 +278,22 @@
     });// end
     
     //pass data to controller
-    $('#btn-brn-save').click(function() {
-        let obj_brn = {};
+    $('#btn-emp-save').click(function() {
+        let obj_emp = {};
+        obj_emp.EmployeeCode = $('#employee-code').val();
+        obj_emp.EmployeeName = $('#employee-name').val();
+        obj_emp.Password = $('#password').val();
+        obj_emp.DepartmentId = $('#department').val();
+        obj_emp.JobTitleId = $('#job-title').val();
+        obj_emp.BranchId = $('#branch').val();
+        obj_emp.RoleId = $('#role').val();
+        obj_emp.Active = active;
 
         $.ajax({
-            url: '@Url.Action("PostBranch", "Branch")',
+            url: '@Url.Action("PostEmployee", "Employee")',
             type: 'POST',
             dataType: 'JSON',
-            data: {objBrn: obj_brn},
+            data: {objEmp: obj_emp},
             beforeSend: function() {
                 console.log("Loading...");
             },
@@ -371,44 +309,50 @@
         });
     });// end
     
-    //click to get data from database
-    $(document).on('click', '.btn-edit-brn', function() {
-        let brn_id = $(this).attr('id');
+    //click to get data from database by id
+    $(document).on('click', '.btn-edit-emp', function() {
+        let emp_id = $(this).attr('id');
         
         $.ajax({
-            url: '@Url.Action("GetBrandById", "Branch")',
+            url: '@Url.Action("GetEmployeeById", "Employee")',
             type: 'GET',
             dataType: 'JSON',
-            data: {id: brn_id},
+            data: {id: emp_id},
             beforeSend: function() {
               
             },
             success: function(data) {
+                //console.table(data)
                 data.forEach((item) => {
-                    $('#brn-id').val(item.branchId);
-                    $('#e-branch-name').val(item.branchName);
-                    $('#e-phone').val(item.phone);
-                    $('#e-address').val(item.address);
-                    $('#e-map').val(item.map);
+                    $('#emp_id').val(item.employeeId);
+                    $('#e-employee-code').val(item.employeeCode);
+                    $('#e-employee-name').val(item.employeeName);
+                    $('#e-department').val(item.departmentId);
+                    $('#e-job-title').val(item.jobTitleId);
+                    $('#e-branch').val(item.branchId);
+                    $('#e-role').val(item.roleId);
                 });
             }
         });
     });// end
     
     // pass data to controller for update branch
-    $('#btn-brn-update').click(function() {
-        let obj_brn = {};
-        obj_brn.BranchId = $('#brn-id').val();
-        obj_brn.BranchName = $('#e-branch-name').val();
-        obj_brn.Phone = $('#e-phone').val();
-        obj_brn.Address = $('#e-address').val();
-        obj_brn.Map = $('#e-map').val();
+    $('#btn-emp-update').click(function() {
+        let obj_emp = {};
+        obj_emp.EmployeeId = $('#emp_id').val();
+        obj_emp.EmployeeCode = $('#e-employee-code').val();
+        obj_emp.EmployeeName = $('#e-employee-name').val();
+        obj_emp.Password = $('#e-password').val();
+        obj_emp.DepartmentId = $('#e-department').val();
+        obj_emp.JobTitleId = $('#e-job-title').val();
+        obj_emp.BranchId = $('#e-branch').val();
+        obj_emp.RoleId = $('#e-role').val();
         
         $.ajax({
-            url: '@Url.Action("PostBrandUpdate", "Branch")',
+            url: '@Url.Action("PostUpdateEmployee", "Employee")',
             type: 'POST',
             dataType: 'JSON',
-            data: {objBrn: obj_brn},
+            data: {objEmp: obj_emp},
             beforeSend: function() {
               
             },
@@ -416,7 +360,7 @@
                 if (data === 1) {
                     M.toast({html:"Successfully updated!"});
                     $('#modal2').modal('close');
-                    getAllBranch();
+                    getAllEmployee();
                 } else {
                     alert("Your data not update please try again later!");
                 }
@@ -427,16 +371,16 @@
     // pass data to controller for update status
     $(document).on('click', '.edit-active', 'td', function() {
         let col_id = $(this).closest('tr');
-        let brn_id = col_id.find('td:eq(0)').text();
+        let emp_id = col_id.find('td:eq(0)').text();
         let active;
         $(this).is(':checked') ? active = 1 : active = 0;
         
         let obj_atv = {};
-        obj_atv.BranchId = brn_id;
+        obj_atv.EmployeeId = emp_id;
         obj_atv.Active = active;
         
         $.ajax({
-            url: '@Url.Action("UpdateActive", "Branch")',
+            url: '@Url.Action("EditActive", "Employee")',
             type: 'POST',
             dataType: 'JSON',
             data: {objAtv: obj_atv},
@@ -445,13 +389,99 @@
             },
             success: function(data) {
                 if (data === 1) {
-                    M.toast({html:"Successfully updated!"});
+                    M.toast({html:"Active has been updated!"});
                 } else {
                     alert("Your data not update please try again later!");
                 }
             }
         });
     });// end
+    
+    // call the function
+    getDepartment();
+    // get department for dropdown select box
+    function getDepartment() {
+        $.ajax({
+            url: '@Url.Action("GetDepartment", "Employee")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                
+            },
+            success: function(data) {
+                //console.log(data)
+                data.forEach((item) => {
+                    $('#department').append(`<option value="${item.departmentId}">${item.departmentName}</option>`);
+                    $('#e-department').append(`<option value="${item.departmentId}">${item.departmentName}</option>`);
+                });
+            }
+        });
+    }// end
+    
+    // call the function
+    getJobTitle();
+    // get job-title for dropdown select box
+    function getJobTitle() {
+        $.ajax({
+            url: '@Url.Action("GetJobTitle", "Employee")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                
+            },
+            success: function(data) {
+                //console.log(data)
+                data.forEach((item) => {
+                    $('#job-title').append(`<option value="${item.jobTitleId}">${item.jobTitleName}</option>`);
+                    $('#e-job-title').append(`<option value="${item.jobTitleId}">${item.jobTitleName}</option>`);
+                });
+                
+            }
+        });
+    }// end
+    
+    // call the function
+    getBranch();
+    // get branch for dropdown select box
+    function getBranch() {
+        $.ajax({
+            url: '@Url.Action("GetBranch", "Employee")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                
+            },
+            success: function(data) {
+                //console.log(data)
+                data.forEach((item) => {
+                    $('#branch').append(`<option value="${item.branchId}">${item.branchName}</option>`);
+                    $('#e-branch').append(`<option value="${item.branchId}">${item.branchName}</option>`);
+                });
+            }
+        });
+    }// end
+    
+    // call the function
+    getRole();
+    // get role for dropdown select box
+    function getRole() {
+        $.ajax({
+            url: '@Url.Action("GetRole", "Employee")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                
+            },
+            success: function(data) {
+                //console.log(data)
+                data.forEach((item) => {
+                    $('#role').append(`<option value="${item.roleId}">${item.roleName}</option>`);
+                    $('#e-role').append(`<option value="${item.roleId}">${item.roleName}</option>`);
+                });
+                
+            }
+        });
+    }// end
     
     // fetch all data from database
     function getAllEmployee() {
@@ -476,7 +506,9 @@
     
     // clear form data
     function clearForm() {
-        
+        $('#employee-code').val('');
+        $('#employee-name').val('');
+        $('#password').val('');
     }
 </script>
 

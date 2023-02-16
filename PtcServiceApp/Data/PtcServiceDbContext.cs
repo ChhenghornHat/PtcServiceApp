@@ -34,6 +34,13 @@ public class PtcServiceDbContext : DbContext
     
     // Employee Db
     public DbSet<Employee> Employees { get; set; }
+    public DbSet<GetDepartment> GetDepartments { get; set; }
+    public DbSet<GetJobTitle> GetJobTitles { get; set; }
+    public DbSet<GetBranch> GetBranches { get; set; }
+    public DbSet<GetRole> GetRoles { get; set; }
+    public DbSet<PostEmployee> PostEmployees { get; set; }
+    public DbSet<GetEmployeeById> GetEmployeeByIds { get; set; }
+    public DbSet<PostUpdateEmployee> PostUpdateEmployees { get; set; }
     // End
 
     public DbSet<User> Users { get; set; }

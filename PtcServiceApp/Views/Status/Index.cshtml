@@ -196,7 +196,11 @@
             data: list_status,
             columns: [
                 {data: 'statusId'},
-                {data: 'statusName'},
+                {data: 'statusName',
+                    'render': function(data) {
+                        return `<span class="new badge ${data === 'Open' ? 'orange' : data === 'Completed' ? 'green' : data === 'In-progress' ? 'blue' : data === 'Cancel' ? 'red' : ''}">${data}</span>`;
+                    }
+                },
                 {data: 'sapId'},
                 {data: 'closed',
                     'render': function(data) {

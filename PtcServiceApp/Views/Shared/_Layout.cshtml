@@ -26,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/pages/form-select2.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/pages/dashboard.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/pages/data-tables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/pages/app-sidebar.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/assets/css/pages/app-contacts.min.css"/>
     <!-- END: Page Level CSS-->
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="~/assets/css/custom/custom.css">
@@ -37,7 +39,7 @@
 <!-- BEGIN: Header-->
 <header class="page-topbar" id="header">
     <div class="navbar navbar-fixed">
-        <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-indigo-purple no-shadow">
+        <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark no-shadow gradient-45deg-indigo-blue">
             <div class="nav-wrapper">
                 <div class="header-search-wrapper hide-on-med-and-down">
                     <i class="material-icons">search</i>
@@ -285,7 +287,7 @@
 
 
 <!-- BEGIN: SideNav-->
-<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
+<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-rounded">
 <div class="brand-sidebar">
     <h1 class="logo-wrapper">
         <a class="brand-logo darken-1" href="#">
@@ -340,7 +342,7 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Costomer">Costomer</span>
+                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Customer">Customer</span>
                 </a>
             </li>
             <li>
@@ -351,8 +353,8 @@
         </ul>
     </div>
 </li>
-<li class="bold">
-    <a class="waves-effect waves-cyan " asp-controller="LiveTicket" asp-action="Index">
+<li class="bold liveTicketMainNav">
+    <a class="waves-effect waves-cyan liveTicketMainNav" asp-controller="Ticket" asp-action="Index">
         <i class="material-icons">inbox</i><span class="menu-title" data-i18n="LiveTicket">Live Ticket</span>
     </a>
 </li>
@@ -630,7 +632,7 @@
 
 <!-- BEGIN: Footer-->
 
-<footer class="page-footer footer footer-static footer-dark gradient-45deg-indigo-purple gradient-shadow navbar-border navbar-shadow">
+<footer class="page-footer footer gradient-shadow navbar-border navbar-shadow footer-light footer-fixed">
     <div class="footer-copyright">
         <div class="container">
             <span>&copy; 2023 PTC Computer Co., Ltd. All rights reserved.</span><span class="right hide-on-small-only">Design and Developed by <a href="#">Chhenghorn</a>, <a href="#">Chanet</a>, <a href="#">Paly</a></span>
@@ -661,6 +663,7 @@
 <script src="~/assets/js/scripts/advance-ui-modals.min.js"></script>
 <script src="~/assets/js/scripts/form-file-uploads.min.js"></script>
 <script src="~/assets/js/scripts/form-select2.min.js"></script>
+<script src="~/assets/js/scripts/app-contacts.min.js"></script>
 @* <script src="~/assets/js/scripts/advance-ui-toasts.min.js"></script> *@
 @* <script src="~/assets/js/scripts/data-tables.min.js"></script> *@
 <!-- END PAGE LEVEL JS-->

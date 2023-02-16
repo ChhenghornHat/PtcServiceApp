@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace PtcServiceApp.Models;
 
@@ -27,6 +28,7 @@ public class PostDepartment
     public int ParentId { get; set; }
 }
 
+[Keyless]
 public class UpdateDepartment
 {
     [Key]
@@ -35,6 +37,7 @@ public class UpdateDepartment
     public int ParentId { get; set; }
 }
 
+[Keyless]
 public class UpdateStatus
 {
     [Key]
@@ -42,6 +45,7 @@ public class UpdateStatus
     public int Active { get; set; }
 }
 
+[Keyless]
 public class GetDepartmentById
 {
     [Key]

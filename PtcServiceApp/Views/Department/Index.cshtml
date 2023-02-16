@@ -77,9 +77,9 @@
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
-    <div class="progress ae-loading mt-0">
-        <div class="indeterminate"></div>
-    </div>
+    @* <div class="progress ae-loading mt-0"> *@
+    @*     <div class="indeterminate"></div> *@
+    @* </div> *@
     <div class="modal-content">
 
         <h5>Add New Department</h5>
@@ -123,9 +123,9 @@
 
 <!-- Modal Structure -->
 <div id="modal2" class="modal">
-    <div class="progress ae-loading mt-0">
-        <div class="indeterminate"></div>
-    </div>
+    @* <div class="progress ae-loading mt-0"> *@
+    @*     <div class="indeterminate"></div> *@
+    @* </div> *@
     <div class="modal-content">
 
         <h5>Update Department</h5>
@@ -137,10 +137,10 @@
                 <label for="e-dpm-name">Name *</label>
             </div>
             <div class="input-field col s6">
-                <select name="" id="e-parent">
-                
+                <select class="browser-default" id="e-parent">
+                    <option value="0">Main</option>
                 </select>
-                <label for="e-parent">Defualt</label>
+                @* <label for="e-parent">Defualt</label> *@
             </div>
         </div>
     </div>
@@ -253,12 +253,10 @@
             },
             success: function(data) {
                 //console.table(data)
-                $('#e-parent').empty();
-                $('#e-parent').append(`<option value="0">Main</option>`);
                 for (let i = 0;i < data.length;i++) {
                     $('#dpm-id').val(data[i].departmentId);
                     $('#e-dpm-name').val(data[i].departmentName);
-                    $('#e-parent').append(`<option value="${data[i].departmentId}" selected>${data[i].departmentName}</option>`);
+                    $('#e-parent').val(data[i].parentId);
                 }
             }
         });
