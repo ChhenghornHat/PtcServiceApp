@@ -46,8 +46,11 @@ public class PtcServiceDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<JobTitle> JobTitles { get; set; }
-    public DbSet<Ticket> Tickets { get; set; }
     
+    // Ticket Db
+    public DbSet<Ticket> Tickets { get; set; }
+    public DbSet<GetTicketById> GetTicketByIds { get; set; }
+
     // Event Db
     public DbSet<Event> Eventes { get; set; }
     public DbSet<GetEventById> GetEventByIds { get; set; }
