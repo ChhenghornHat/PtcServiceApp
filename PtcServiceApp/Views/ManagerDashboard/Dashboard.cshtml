@@ -1,0 +1,7 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor;
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "_ManagerLayout";
+}
+
+<h2>Role: @HttpContextAccessor.HttpContext.Session.GetString("Manager")</h2>

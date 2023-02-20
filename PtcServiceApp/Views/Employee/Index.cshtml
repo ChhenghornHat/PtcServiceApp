@@ -209,8 +209,6 @@
     </div>
 </div>
 
-
-
 <script src="~/assets/vendors/jquery/jquery-3.6.3.min.js"></script>
 <script type="text/javascript">
     let employeeSubNav = document.querySelectorAll('.employee-sub-nav');
@@ -268,7 +266,7 @@
     getAllEmployee();
     
     // initialize status active or inactive
-    let active;
+    let active = 1;
     $("input[type='checkbox'].active").click(function () {
         if ($("input[type='checkbox'].active").is(':checked')) {
             active = 1;

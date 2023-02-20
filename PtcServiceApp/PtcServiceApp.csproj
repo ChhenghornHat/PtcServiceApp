@@ -71,6 +71,8 @@
     <_ContentIncludedByDefault Remove="wwwroot\assets\css\themes\vertical-menu-nav-dark-template\style.min.css" />
     <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\data-tables\css\images\sort_asc (1).png" />
     <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\data-tables\css\images\sort_asc.png" />
+    <_ContentIncludedByDefault Remove="Pages\ManagerDashboard\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Manager\ManagerDashboard\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

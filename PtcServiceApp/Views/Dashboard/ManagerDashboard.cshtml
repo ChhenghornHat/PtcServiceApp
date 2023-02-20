@@ -1,6 +1,7 @@
 ﻿@inject IHttpContextAccessor HttpContextAccessor;
 @{
-    ViewBag.Title = "Admin Dashboard";
+    ViewBag.Title = "Manager Dashboard";
+    Layout = "_ManagerLayout";
 }
 
 @HttpContextAccessor.HttpContext.Session.GetInt32("EmployeeId");
@@ -657,4 +658,3 @@
         item.classList.add('active');
     });
 </script>
-

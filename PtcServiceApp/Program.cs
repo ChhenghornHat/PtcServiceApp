@@ -5,9 +5,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<PtcServiceDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PtcServiceConnection")));
-builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(120);
+});
+
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
 
 var app = builder.Build();
 
@@ -23,12 +30,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Dashboard}/{action=AdminDashboard}/{id?}");
-    // pattern: "{controller=LiveTicket}/{action=Index}/{id?}");
+    pattern: "{controller=Auth}/{action=Login}/{id?}");
+    // pattern: "{controller=Dashboard}/{action=AdminDashboard}/{id?}");
+    // pattern: "{controller=ManagerDashboard}/{action=Dashboard}/{id?}");
 
 app.Run();

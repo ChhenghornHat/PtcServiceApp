@@ -23,8 +23,7 @@ public class GetTicketById
     public string Indidual { get; set; }
     public string Subject { get; set; }
     public string Description { get; set; }
-    public string Letitude { get; set; }
-    public string Longitude { get; set; }
+    public string Phone { get; set; }
     public string UserAddress { get; set; }
     public string Photo { get; set; }
     public string StatusName { get; set; }
@@ -38,6 +37,6 @@ public class TicketAccept
 {
     [Key]
     public int TicketId { get; set; }
+    public string Comment { get; set; }
     public int StatusId { get; set; }
-    public string Notificate { get; set; }
 }

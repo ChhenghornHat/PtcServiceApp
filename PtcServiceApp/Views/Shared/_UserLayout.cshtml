@@ -295,68 +295,9 @@
 </div>
 <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
 <li class="bold dashboardMainNav">
-    <a class="waves-effect waves-cyan dashboardMainNav" asp-controller="Dashboard" asp-action="AdminDashboard">
+    <a class="waves-effect waves-cyan dashboardMainNav" asp-controller="Dashboard" asp-action="UserDashboard">
         <i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span>
     </a>
-</li>
-<li class="bold administrator-main-nav">
-    <a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)">
-        <i class="material-icons">person_pin</i><span class="menu-title" data-i18n="Dashboard">Administrator</span><span class="badge badge pill orange float-right mr-10">6</span>
-    </a>
-    <div class="collapsible-body">
-        <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-            <li class="status-sub-nav">
-                <a class="status-sub-nav" asp-controller="Status" asp-action="Index">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Status">Status</span>
-                </a>
-            </li>
-            <li class="department-sub-nav">
-                <a class="department-sub-nav" asp-controller="Department" asp-action="Index">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Department">Department</span>
-                </a>
-            </li>
-            <li class="job-title-sub-nav">
-                <a class="job-title-sub-nav" asp-controller="JobTitle" asp-action="Index">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="JobTitle">JobTitle</span>
-                </a>
-            </li>
-            <li class="branch-sub-nav">
-                <a class="branch-sub-nav" asp-controller="Branch" asp-action="Index">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Branch">Branch</span>
-                </a>
-            </li>
-            <li class="event-sub-nav">
-                <a class="event-sub-nav" asp-controller="Event" asp-action="Index">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Event">Event</span>
-                </a>
-            </li>
-            <li >
-                <a >
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="User">User</span>
-                </a>
-            </li>
-            <li class="user-role-sub-nav">
-                <a class="user-role-sub-nav" asp-controller="UserRole" asp-action="Index">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="User Role">User Role</span>
-                </a>
-            </li>
-            <li class="employee-sub-nav">
-                <a class="employee-sub-nav" asp-controller="Employee" asp-action="Index">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Employee">Employee</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Customer">Customer</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="material-icons">radio_button_unchecked</i><span data-i18n="Setting">Setting</span>
-                </a>
-            </li>
-        </ul>
-    </div>
 </li>
 <li class="bold liveTicketMainNav">
     <a class="waves-effect waves-cyan liveTicketMainNav" asp-controller="Ticket" asp-action="Index">

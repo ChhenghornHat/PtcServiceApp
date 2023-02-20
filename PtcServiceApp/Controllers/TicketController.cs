@@ -16,6 +16,23 @@ public class TicketController : Controller
     // GET
     public IActionResult Index()
     {
+        var roleId = HttpContext.Session.GetInt32("RoleId");
+        if (roleId == 1)
+        {
+            return RedirectToAction("AdminDashboard", "Dashboard");
+        }
+        else if (roleId == 2)
+        {
+            return RedirectToAction("ManagerDashboard", "Dashboard");
+        }
+        else if (roleId == 3)
+        {
+            return RedirectToAction("UserDashboard", "Dashboard");
+        }
+        else
+        {
+            return RedirectToAction("Login", "Auth");
+        }
         return View();
     }
 
@@ -34,9 +51,10 @@ public class TicketController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> TicketAccept(int id)
+    public async Task<IActionResult> TicketAccept(TicketAccept objTk)
     {
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudTicket @Crud = 'Update', @StatusId = 2, @Notificate = 'Your ticket was accept', @Id = {id}");
+        var roleId = HttpContext.Session.GetInt32("RoleId");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudProcces @Crud = 'Insert', @Comments = '{objTk.Comment}' @CreatedById = {roleId}, @TicketId = {objTk.TicketId}");
         return Ok(1);
     }
 }

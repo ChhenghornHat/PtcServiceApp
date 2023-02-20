@@ -1,10 +1,40 @@
-﻿namespace PtcServiceApp.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PtcServiceApp.Models;
 
 public class Role
 {
+    [Key]
     public int RoleId { get; set; }
     public string RoleName { get; set; }
-    public int Status { get; set; }
-    public DateTime CreatedDate { get; set; } = DateTime.Now;
-    public DateTime UpdatedDate { get; set; } = DateTime.Now;
+    public bool Active { get; set; }
+    public string CreatedDate { get; set; }
+    public string UpdatedDate { get; set; }
+}
+
+public class PostRole
+{
+    public string RoleName { get; set; }
+    public int Active { get; set; }
+}
+
+public class GetUserRoleById
+{
+    [Key]
+    public int RoleId { get; set; }
+    public string RoleName { get; set; }
+}
+
+public class PostUpdateRole
+{
+    [Key]
+    public int RoleId { get; set; }
+    public string RoleName { get; set; }
+}
+
+public class EditRoleActive
+{
+    [Key]
+    public int RoleId { get; set; }
+    public int Active { get; set; }
 }

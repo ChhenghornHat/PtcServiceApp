@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Branch";
+    ViewBag.Title = "UserRole";
 }
 
 <div class="row">
@@ -9,11 +9,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col s10 m6 l6">
-                        <h5 class="breadcrumbs-title mt-0 mb-0"><span>Manage Branch</span></h5>
+                        <h5 class="breadcrumbs-title mt-0 mb-0"><span>Manage UserRole</span></h5>
                         <ol class="breadcrumbs mb-0">
                             <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="AdminDashboard">Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Manage Branch</li>
+                            <li class="breadcrumb-item active">Manage UserRole</li>
                         </ol>
                     </div>
                     <div class="col s2 m6 l6">
@@ -30,17 +30,14 @@
                         <div class="col s12">
                             <div class="card">
                                 <div class="card-content">
-                                    <h4 class="card-title">Branch Data</h4>
+                                    <h4 class="card-title">UserRole Data</h4>
                                     <div class="row">
                                         <div class="col s12">
                                             <table id="table" class="display">
                                                 <thead>
                                                 <tr>
-                                                    <th style="width: 20px">#</th>
-                                                    <th>Branch Name</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
-                                                    <th>Map</th>
+                                                    <th>#</th>
+                                                    <th>Name</th>
                                                     <th>Active</th>
                                                     <th>Created Date</th>
                                                     <th>Updated Date</th>
@@ -51,17 +48,14 @@
 
                                                 </tbody>
                                                 <tfoot>
-                                                <tr>
-                                                    <th style="width: 20px">#</th>
-                                                    <th>Branch Name</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
-                                                    <th>Map</th>
-                                                    <th>Active</th>
-                                                    <th>CreatedDate</th>
-                                                    <th>Updated Date</th>
-                                                    <th>Action</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Name</th>
+                                                        <th>Active</th>
+                                                        <th>Created Date</th>
+                                                        <th>Updated Date</th>
+                                                        <th>Action</th>
+                                                    </tr>
                                                 </tfoot>
                                             </table>
                                         </div>
@@ -72,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            @* <div class="content-overlay show"></div> *@
+            <div class="content-overlay"></div>
     </div>
 </div>
 
@@ -80,28 +74,13 @@
 <div id="modal1" class="modal">
     <div class="modal-content">
         
-        <h5>Add New Branch</h5>
+        <h5>Add New UserRole</h5>
 
         <div class="row">
-            <div class="input-field col s6">
-                <input type="text" class="validate" id="branch-name" required>
+            <div class="input-field col s12">
+                <input type="text" class="validate" id="role-name" required>
                 <small class="red-text err-msg-name"></small>
-                <label for="branch-name">Branch Name *</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" class="validate" id="phone" required>
-                <small class="red-text err-msg-phone"></small>
-                <label for="phone">Phone *</label>
-            </div>
-            <div class="input-field col s12">
-                <input type="text" class="validate" id="address" required>
-                <small class="red-text err-msg-address"></small>
-                <label for="address">Address *</label>
-            </div>
-            <div class="input-field col s12">
-                <input type="text" class="validate" id="map" required>
-                <small class="red-text err-msg-map"></small>
-                <label for="map">Map *</label>
+                <label for="role-name">Name *</label>
             </div>
             <div class="input-field col s12">
                 <div class="switch">
@@ -118,10 +97,10 @@
     <div class="modal-footer">
         <div class="row">
             <div class="col s12">
-                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
+                <button class="btn waves-effect waves-light modal-close btn-light-red">Cancel
                     <i class="material-icons left">close</i>
                 </button>
-                <button class="btn waves-effect waves-light" type="submit" id="btn-brn-save">Save
+                <button class="btn waves-effect waves-light" type="submit" id="btn-ul-save">Save
                     <i class="material-icons right">send</i>
                 </button>
             </div>
@@ -133,37 +112,26 @@
 <div id="modal2" class="modal">
     <div class="modal-content">
         
-        <h5>Update Branch</h5>
+        <h5>UpdateUserRole</h5>
 
         <div class="row">
-            <div class="input-field col s6">
-                <input type="hidden" id="brn-id">
-                <input type="text" placeholder="Enter branch name" class="validate" id="e-branch-name" required>
-                <label for="e-branch-name">Branch Name *</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" placeholder="Enter phone" class="validate" id="e-phone" required>
-                <label for="e-phone">Phone *</label>
-            </div>
-            <div class="input-field col s12">
-                <input type="text" placeholder="Enter address" class="validate" id="e-address" required>
-                <label for="e-address">Address *</label>
-            </div>
-            <div class="input-field col s12">
-                <input type="text" placeholder="Enter map" class="validate" id="e-map" required>
-                <label for="e-map">Map *</label>
-            </div>
+          <div class="input-field col s12">
+            <input type="hidden" id="rl-id">
+            <input type="text" class="validate" id="e-role-name" placeholder="Enter role name" required>
+            <small class="red-text err-msg-name"></small>
+            <label for="e-role-name">Name *</label>
+          </div>
         </div>
     </div>
     <div class="modal-footer">
         <div class="row">
             <div class="col s12">
-                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
+                <button class="btn waves-effect waves-light modal-close btn-light-red">Cancel
                     <i class="material-icons left">close</i>
-                  </button>
-                <button class="btn waves-effect waves-light orange" type="submit" id="btn-brn-update">Save
+                </button>
+                <button class="btn waves-effect waves-light orange" type="submit" id="btn-rl-update">Save
                     <i class="material-icons right">send</i>
-                  </button>
+                </button>
             </div>
         </div>
     </div>
@@ -171,32 +139,21 @@
 
 <script src="~/assets/vendors/jquery/jquery-3.6.3.min.js"></script>
 <script type="text/javascript">
-    let branchSubNav = document.querySelectorAll('.branch-sub-nav');
+    let userRoleSubNav = document.querySelectorAll('.user-role-sub-nav');
         
     document.querySelector('.administrator-main-nav').classList.add('active');
-    branchSubNav.forEach((item) => {
+    userRoleSubNav.forEach((item) => {
         item.classList.add('active');
     });
     
     let table;
-    let list_branch = [];
+    let list_ul = [];
     $(function() {
         table = $('#table').DataTable({
-            data: list_branch,
+            data: list_ul,
             columns: [
-                {data: 'branchId'},
-                {data: 'branchName'},
-                {data: 'phone'},
-                {data: 'address'},
-                {data: 'map',
-                //"targets": 2,
-                    'render': function(data, type) {
-                        if (type === 'display') {
-                           data = typeof data === 'string' && data.length > 100 ? data.substring(0, 50) + '...' : data;
-                        }
-                        return data;
-                    }
-                },
+                {data: 'roleId'},
+                {data: 'roleName'},
                 {data: 'active',
                     'render': function(data) {
                         return `
@@ -212,9 +169,9 @@
                 },
                 {data:'createdDate'},
                 {data:'updatedDate'},
-                {data:'branchId',
+                {data:'roleId',
                     'render': function(data) {
-                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-brn" href="#modal2"><i class="material-icons">edit</i></a>`;
+                        return `<a id="${data}" class="mb-6 waves-effect waves-light modal-trigger btn-edit-ul" href="#modal2"><i class="material-icons">edit</i></a>`;
                     }
                 }
             ],
@@ -225,11 +182,11 @@
             "paging": true,
             "scrollY": '60vh',
             "scrollX": true,
-            "scrollCollapse": true
+            "scrollCollapse": true,
         });
     });
     // call the function
-    getAllBranch();
+    getAllUserRole();
     
     // initialize status active or inactive
     let active = 1;
@@ -242,19 +199,16 @@
     });// end
     
     //pass data to controller
-    $('#btn-brn-save').click(function() {
-        let obj_brn = {};
-        obj_brn.BranchName = $('#branch-name').val();
-        obj_brn.Phone = $('#phone').val();
-        obj_brn.Address = $('#address').val();
-        obj_brn.Map = $('#map').val();
-        obj_brn.Active = active;
+    $('#btn-ul-save').click(function() {
+        let obj_rl = {};
+        obj_rl.RoleName = $('#role-name').val();
+        obj_rl.Active = active;
 
         $.ajax({
-            url: '@Url.Action("PostBranch", "Branch")',
+            url: '@Url.Action("PostUserRole", "UserRole")',
             type: 'POST',
             dataType: 'JSON',
-            data: {objBrn: obj_brn},
+            data: {objRl: obj_rl},
             beforeSend: function() {
                 console.log("Loading...");
             },
@@ -262,7 +216,7 @@
                 if (data === 1) {
                     M.toast({html:"Successfully added!"});
                     clearForm();
-                    getAllBranch();
+                    getAllUserRole();
                 } else {
                     alert("Your data not add please try again later!");
                 }
@@ -271,43 +225,38 @@
     });// end
     
     //click to get data from database
-    $(document).on('click', '.btn-edit-brn', function() {
-        let brn_id = $(this).attr('id');
+    $(document).on('click', '.btn-edit-ul', function() {
+        let ul_id = $(this).attr('id');
         
         $.ajax({
-            url: '@Url.Action("GetBrandById", "Branch")',
+            url: '@Url.Action("GetUserRoleById", "UserRole")',
             type: 'GET',
             dataType: 'JSON',
-            data: {id: brn_id},
+            data: {id: ul_id},
             beforeSend: function() {
               
             },
             success: function(data) {
+                //console.log(data)
                 data.forEach((item) => {
-                    $('#brn-id').val(item.branchId);
-                    $('#e-branch-name').val(item.branchName);
-                    $('#e-phone').val(item.phone);
-                    $('#e-address').val(item.address);
-                    $('#e-map').val(item.map);
+                    $('#rl-id').val(item.roleId);
+                    $('#e-role-name').val(item.roleName);
                 });
             }
         });
     });// end
     
     // pass data to controller for update branch
-    $('#btn-brn-update').click(function() {
-        let obj_brn = {};
-        obj_brn.BranchId = $('#brn-id').val();
-        obj_brn.BranchName = $('#e-branch-name').val();
-        obj_brn.Phone = $('#e-phone').val();
-        obj_brn.Address = $('#e-address').val();
-        obj_brn.Map = $('#e-map').val();
+    $('#btn-rl-update').click(function() {
+        let obj_rl = {};
+        obj_rl.RoleId = $('#rl-id').val();
+        obj_rl.RoleName = $('#e-role-name').val();
         
         $.ajax({
-            url: '@Url.Action("PostBrandUpdate", "Branch")',
+            url: '@Url.Action("PostUpdateRole", "UserRole")',
             type: 'POST',
             dataType: 'JSON',
-            data: {objBrn: obj_brn},
+            data: {objRl: obj_rl},
             beforeSend: function() {
               
             },
@@ -315,7 +264,7 @@
                 if (data === 1) {
                     M.toast({html:"Successfully updated!"});
                     $('#modal2').modal('close');
-                    getAllBranch();
+                    getAllUserRole();
                 } else {
                     alert("Your data not update please try again later!");
                 }
@@ -326,16 +275,16 @@
     // pass data to controller for update status
     $(document).on('click', '.edit-active', 'td', function() {
         let col_id = $(this).closest('tr');
-        let brn_id = col_id.find('td:eq(0)').text();
+        let rl_id = col_id.find('td:eq(0)').text();
         let active;
         $(this).is(':checked') ? active = 1 : active = 0;
         
         let obj_atv = {};
-        obj_atv.BranchId = brn_id;
+        obj_atv.RoleId = rl_id;
         obj_atv.Active = active;
         
         $.ajax({
-            url: '@Url.Action("UpdateActive", "Branch")',
+            url: '@Url.Action("EditActive", "UserRole")',
             type: 'POST',
             dataType: 'JSON',
             data: {objAtv: obj_atv},
@@ -344,7 +293,7 @@
             },
             success: function(data) {
                 if (data === 1) {
-                    M.toast({html:"Successfully updated!"});
+                    M.toast({html:"Active has been updated!"});
                 } else {
                     alert("Your data not update please try again later!");
                 }
@@ -353,9 +302,9 @@
     });// end
     
     // fetch all data from database
-    function getAllBranch() {
+    function getAllUserRole() {
         $.ajax({
-            url: '@Url.Action("GetAllBranch", "Branch")',
+            url: '@Url.Action("GetAllUserRole", "UserRole")',
             type: 'GET',
             dataType: 'JSON',
             beforeSend: function() {
@@ -364,10 +313,10 @@
             },
             success: function(data) {
                 //console.table(data);
-                list_branch = [];
-                list_branch = data;
+                list_ul = [];
+                list_ul = data;
                 table.clear();
-                table.rows.add(list_branch);
+                table.rows.add(list_ul);
                 table.draw();
             }
         });
@@ -375,10 +324,7 @@
     
     // clear form data
     function clearForm() {
-        $('#branch-name').val('');
-        $('#phone').val('');
-        $('#address').val('');
-        $('#map').val('');
+        $('#role-name').val('');
     }
 </script>
 

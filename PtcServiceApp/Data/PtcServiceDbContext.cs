@@ -44,8 +44,14 @@ public class PtcServiceDbContext : DbContext
     // End
 
     public DbSet<User> Users { get; set; }
+    
+    //User Role Db
     public DbSet<Role> Roles { get; set; }
+    public DbSet<GetUserRoleById> GetUserRoleByIds { get; set; }
+
+    // JobTitle Db
     public DbSet<JobTitle> JobTitles { get; set; }
+    public DbSet<GetJobTitleById> GetJobTitleByIds { get; set; }
     
     // Ticket Db
     public DbSet<Ticket> Tickets { get; set; }
@@ -55,4 +61,7 @@ public class PtcServiceDbContext : DbContext
     public DbSet<Event> Eventes { get; set; }
     public DbSet<GetEventById> GetEventByIds { get; set; }
     // End
+    
+    // User Db
+    public DbSet<Auth> Auths { get; set; }
 }

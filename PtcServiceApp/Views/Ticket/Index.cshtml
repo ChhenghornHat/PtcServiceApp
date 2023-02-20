@@ -6,20 +6,35 @@
 <style>
     .swiper {
       width: 100%;
-      padding-top: 50px;
-      padding-bottom: 50px;
+      height: 100%;
     }
 
     .swiper-slide {
-      background-position: center;
-      background-size: cover;
-      width: 300px;
-      height: 300px;
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .swiper-slide img {
       display: block;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-slide {
+      width: 80%;
+    }
+
+    .swiper-slide:nth-child(2n) {
+      width: 60%;
+    }
+
+    .swiper-slide:nth-child(3n) {
+      width: 40%;
     }
 </style>
 
@@ -60,7 +75,7 @@
                                         <table id="table" class="display">
                                             <thead>
                                             <tr>
-                                                <th style="width: 20px">#</th>
+                                                <th>#</th>
                                                 <th>Ticket Code</th>
                                                 <th>Status Name</th>
                                                 <th>Created By</th>
@@ -112,10 +127,10 @@
                     <div class="swiper-pagination"></div>
                 </div>
                 <h5>View Details</h5>
-                <br>
-                <hr class="mb-5">
+                <hr class="mb-1">
                 <table>
                     <tr>
+                        <input type="hidden" id="tk-id">
                         <th>Ticket Code<span>:</span></th>
                         <td class="ticket-code"></td>
                     </tr>
@@ -140,6 +155,14 @@
                         <td class="description"></td>
                     </tr>
                     <tr>
+                        <th>Phone<span>:</span></th>
+                        <td class="phone"></td>
+                    </tr>
+                    <tr>
+                        <th>Address<span>:</span></th>
+                        <td class="address"></td>
+                    </tr>
+                    <tr>
                         <th>Created By<span>:</span></th>
                         <td class="created-by"></td>
                     </tr>
@@ -158,11 +181,11 @@
     <div class="modal-footer">
         <div class="row">
             <div class="col s12">
-                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Reject
+                <button class="btn waves-effect waves-light btn-light-red">Reject
                     <i class="material-icons left">close</i>
                 </button>
-                <button class="btn waves-effect waves-light" type="submit" id="btn-evn-update" name="action">Accept
-                    <i class="material-icons right">send</i>
+                <button class="btn waves-effect waves-light blue" type="submit" id="btn-accept">Accept
+                    <i class="material-icons right">check</i>
                 </button>
             </div>
         </div>
@@ -192,7 +215,7 @@
                 {data: 'createdDate'},
                 {data:'ticketId',
                     'render': function(data) {
-                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger green btn-edit-tk" href="#modal2"><i class="material-icons">visibility</i></a>`;
+                        return `<a id="${data}" class="mb-6 waves-effect waves-light modal-trigger btn-edit-tk" href="#modal2"><i class="material-icons">remove_red_eye</i></a>`;
                     }
                 }
             ],
@@ -205,8 +228,9 @@
             "scrollX": true,    
             "scrollCollapse": true
         });
-    });
+    });// end
     
+    // click to call data from database
     $(document).on('click', '.btn-edit-tk', function() {
         let tk_id = $(this).attr('id');
         
@@ -219,22 +243,47 @@
               
             },
             success: function(data) {
-                console.table(data);
+                //console.table(data);
                 $('.swiper-slide').remove();
                 data.forEach((item) => {
                     $(`<div class="swiper-slide">
                        <img src="data:image/png;base64,${item.photo}" alt="Photo image ticket"/>
                     </div>`).appendTo('.swiper-wrapper');
+                    $('#tk-id').val(item.ticketId);
                     $('.ticket-code').text(item.ticketCode);
                     $('.name').text(item.createdByName);
-                    $('.status').text(item.statusName);
                     $('.status').text(item.statusName);
                     $('.indidual').text(item.indidual);
                     $('.subject').text(item.subject);
                     $('.description').text(item.description);
+                    $('.address').text(item.userAddress);
                     $('.created-by').text(item.createdBy);
                     $('.created-date').text(item.createdDate);
                 });
+            }
+        });
+    });// end
+    
+    // click to accept
+    $('#btn-accept').click(function() {
+        // let tk_id = $(this).attr('id');
+        let tk_id = $('#tk-id').val();
+        
+        $.ajax({
+            url: '@Url.Action("TicketAccept", "Ticket")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {id: tk_id},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Successfully accept!"});
+                    getAllTicket();
+                } else {
+                    alert("Your data not add please try again later!");
+                }
             }
         });
     });
@@ -262,19 +311,11 @@
     }// end
     
     var swiper = new Swiper(".mySwiper", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
       slidesPerView: "auto",
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
+      spaceBetween: 30,
       pagination: {
         el: ".swiper-pagination",
+        clickable: true,
       },
     });
         
