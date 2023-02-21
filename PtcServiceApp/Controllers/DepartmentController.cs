@@ -36,7 +36,7 @@ public class DepartmentController : Controller
     //Post data to database
     public async Task<IActionResult> PostDepartment(PostDepartment objDpm)
     {
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Insert', @DepartmentName = '{objDpm.DepartmentName}', @Active = {objDpm.Active}, @Parent = {objDpm.ParentId}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Insert', @DepartmentName = '{objDpm.DepartmentName}', @Active = {objDpm.Active}, @ShowTicket = {objDpm.ShowTicket}, @Parent = {objDpm.ParentId}");
         return Ok(1);
     }
     
@@ -53,11 +53,16 @@ public class DepartmentController : Controller
         await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud =  'Update', @DepartmentName = '{objDpm.DepartmentName}', @Parent = {objDpm.ParentId}, @Id = {objDpm.DepartmentId}");
         return Ok(1);
     }
-    
-    // Post update Status
-    public async Task<IActionResult> UpdateStatus(UpdateStatus objSts)
+
+    public async Task<IActionResult> EditDpmActive(EditDpmStatus objAtv)
     {
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Update', @Active = {objSts.Active}, @Id = {objSts.DepartmentId}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Update', @Active = {objAtv.Active}, @Id = {objAtv.DepartmentId}");
+        return Ok(1);
+    }
+
+    public async Task<IActionResult> EditDpmTicket(EditDpmTicket objTk)
+    {
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Update', @ShowTicket = {objTk.ShowTicket}, @Id = {objTk.DepartmentId}");
         return Ok(1);
     }
 }

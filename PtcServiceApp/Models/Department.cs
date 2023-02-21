@@ -9,6 +9,7 @@ public class Department
     public int DepartmentId { get; set; }
     public string DepartmentName { get; set; }
     public bool Active { get; set; }
+    public bool ShowTicket { get; set; }
     public string ParentName { get; set; }
     public string CreatedDate { get; set; }
     public string UpdatedDate { get; set; }
@@ -25,6 +26,7 @@ public class PostDepartment
 {
     public string DepartmentName { get; set; }
     public int Active { get; set; }
+    public int ShowTicket { get; set; }
     public int ParentId { get; set; }
 }
 
@@ -38,7 +40,16 @@ public class UpdateDepartment
 }
 
 [Keyless]
-public class UpdateStatus
+public class GetDepartmentById
+{
+    [Key]
+    public int DepartmentId { get; set; }
+    public string DepartmentName { get; set; }
+    public int ParentId { get; set; }
+}
+
+[Keyless]
+public class EditDpmStatus
 {
     [Key]
     public int DepartmentId { get; set; }
@@ -46,10 +57,9 @@ public class UpdateStatus
 }
 
 [Keyless]
-public class GetDepartmentById
+public class EditDpmTicket
 {
     [Key]
     public int DepartmentId { get; set; }
-    public string DepartmentName { get; set; }
-    public int ParentId { get; set; }
+    public int ShowTicket { get; set; }
 }

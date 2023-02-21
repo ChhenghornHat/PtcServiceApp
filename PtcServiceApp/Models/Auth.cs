@@ -8,6 +8,7 @@ public class Auth
 {
     [Key]
     public int EmployeeId { get; set; }
+    public int DepartmentId { get; set; }
     public string EmployeeCode { get; set; }
     public string Password { get; set; }
     public int RoleId { get; set; }

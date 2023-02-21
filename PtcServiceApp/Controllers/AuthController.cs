@@ -40,9 +40,17 @@ public class AuthController : Controller
         foreach (var item in result)
         {
             HttpContext.Session.SetInt32("EmployeeId", item.EmployeeId);
+            HttpContext.Session.SetInt32("DepartmentId", item.DepartmentId);
             HttpContext.Session.SetInt32("RoleId", item.RoleId);
         }
         
         return Ok(result);
+    }
+
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Remove("EmployeeId");
+        HttpContext.Session.Remove("RoleId");
+        return RedirectToAction("Login", "Auth");
     }
 }

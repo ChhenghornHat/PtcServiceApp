@@ -1,0 +1,342 @@
+﻿@{
+    ViewBag.Title = "Manager Ticket";
+    Layout = "_ManagerLayout";
+}
+
+<!-- Demo styles -->
+<style>
+    .swiper {
+      width: 100%;
+      height: 350px;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-slide {
+      width: 80%;
+    }
+
+    .swiper-slide:nth-child(2n) {
+      width: 60%;
+    }
+
+    .swiper-slide:nth-child(3n) {
+      width: 40%;
+    }
+</style>
+
+<div class="row">
+    <div class="content-wrapper-before gradient-45deg-indigo-blue"></div>
+    <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
+        <!-- Search for small screen-->
+        <div class="container">
+            <div class="row">
+                <div class="col s10 m6 l6">
+                    <h5 class="breadcrumbs-title mt-0 mb-0">
+                        <span>Manage LiveTicket</span>
+                    </h5>
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Dashboard" asp-action="ManagerDashboard">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Manage LiveTicket</li>
+                    </ol>
+                </div>
+                <div class="col s2 m6 l6">
+                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger add-status-btn" href="#modal1"><i class="material-icons left">add</i> Add New</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12">
+        <div class="container">
+            <div class="section section-data-tables">
+                <!-- Page Length Options -->
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 class="card-title">Live Ticket Data</h4>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <table id="table" class="subscription-table responsive-table highlight">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Ticket Code</th>
+                                                <th>Status Name</th>
+                                                <th>Created By</th>
+                                                <th>Created Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-overlay"></div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content pt-2">
+        <div class="row" id="product-one">
+            <div class="col s12">
+                <a class="modal-close right">
+                    <i class="material-icons">close</i>
+                </a>
+            </div>
+            <div class="col m7 s7">
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <h5>View Details</h5>
+                <hr class="mb-1">
+                <table>
+                    <tr>
+                        <input type="hidden" id="tk-id">
+                        <th>Ticket Code</th>
+                        <td>:</td>
+                        <td class="ticket-code"></td>
+                    </tr>
+                    <tr>
+                        <th>Customer Name</th>
+                        <td>:</td>
+                        <td class="name"></td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>:</td>
+                        <td class="status"></td>
+                    </tr>
+                    <tr>
+                        <th>Request Type</th>
+                        <td>:</td>
+                        <td class="indidual"></td>
+                    </tr>
+                    <tr>
+                        <th>Subject</th>
+                        <td>:</td>
+                        <td class="subject"></td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>:</td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>:</td>
+                        <td class="phone"></td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>:</td>
+                        <td class="address"></td>
+                    </tr>
+                    <tr>
+                        <th>Created By</th>
+                        <td>:</td>
+                        <td class="created-by"></td>
+                    </tr>
+                    <tr>
+                        <th>Created Date</th>
+                        <td>:</td>
+                        <td class="created-date"></td>
+                    </tr>
+                </table>
+                <div class="input-field">
+                    <input type="text" class="validate" id="comment" required="required"/>
+                    <label for="comment">Comments</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col s12 is-accept hide">
+                <button class="btn waves-effect waves-light btn-light-red">Reject
+                    <i class="material-icons left">close</i>
+                </button>
+                <button class="btn waves-effect waves-light green" type="submit" id="btn-accept">Accept
+                    <i class="material-icons right">check</i>
+                </button>
+                <button class="btn waves-effect waves-light deep-purple" type="submit" id="btn-transfer">Transfer
+                    <i class="material-icons right">arrow_outward</i>
+                </button>
+            </div>
+            <div class="col s12 is-assign hide">
+                <button class="btn waves-effect waves-light deep-purple" type="submit" id="btn-assign">Asign To
+                    <i class="material-icons right">assignment_add</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="~/assets/vendors/jquery/jquery-3.6.3.min.js"></script>
+<script type="text/javascript">
+    let liveTicketMainNav = document.querySelectorAll('.liveTicketMainNav');
+        
+    liveTicketMainNav.forEach((item) => {
+        item.classList.add('active');
+    });
+    
+    let table;
+    let list_ticket = [];
+    $(function() {
+        table = $('#table').DataTable({
+            data: list_ticket,
+            columns: [
+                {data: 'ticketId'},
+                {data: 'ticketCode'},
+                {data: 'statusName'},
+                {data: 'createdBy'},
+                {data: 'createdDate'},
+                {data:'ticketId',
+                    'render': function(data) {
+                        return `<a id="${data}" class="mb-6 waves-effect waves-light modal-trigger btn-view-tk" href="#modal2"><i class="material-icons">remove_red_eye</i></a>`;
+                    }
+                }
+            ],
+            // "responsive": false,
+            // "lengthChange": true,
+            // "autoWidth": true,
+            // "searching": true,
+            // "paging": true,
+            // "scrollY": '60vh',
+            // "scrollX": true,    
+            // "scrollCollapse": true
+        });
+    });// end
+    
+    // click to call data from database
+    $(document).on('click', '.btn-view-tk', function() {
+        let tk_id = $(this).attr('id');
+        
+        $.ajax({
+            url: '@Url.Action("GetTicketById", "Ticket")',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {id: tk_id},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                //console.table(data);
+                $('.swiper-slide').remove();
+                data.forEach((item) => {
+                    $(`<div class="swiper-slide">
+                       <img src="data:image/png;base64,${item.photo}" alt="Photo image ticket"/>
+                    </div>`).appendTo('.swiper-wrapper');
+                    $('#tk-id').val(item.ticketId);
+                    $('.ticket-code').text(item.ticketCode);
+                    $('.name').text(item.createdByName);
+                    $('.status').text(item.statusName);
+                    $('.indidual').text(item.indidual);
+                    $('.subject').text(item.subject);
+                    $('.description').text(item.description);
+                    $('.address').text(item.userAddress);
+                    $('.created-by').text(item.createdBy);
+                    $('.created-date').text(item.createdDate);
+                });
+            }
+        });
+    });// end
+    
+    // click to accept
+    $('#btn-accept').click(function() {
+        let obj_tk = {};
+        obj_tk.TicketId = $('#tk-id').val();
+        obj_tk.Comment = $('#comment').val();
+        
+        $.ajax({
+            url: '@Url.Action("TicketAccept", "Ticket")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objTk: obj_tk},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Tick has been accepted!"});
+                    getByManagerTicket();
+                } else {
+                    alert("Failed please try again later!");
+                }
+            }
+        });
+    });
+    
+    // call the function
+    getByManagerTicket();
+    // call data from controller
+    function getByManagerTicket() {
+        $.ajax({
+            url: '@Url.Action("GetByManagerTicket", "Ticket")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                //console.table(data);
+                list_ticket = [];
+                list_ticket = data;
+                table.clear();
+                table.rows.add(list_ticket);
+                table.draw();
+            }
+        });
+    }// end
+    
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+        
+</script>

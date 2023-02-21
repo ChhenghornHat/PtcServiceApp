@@ -43,6 +43,7 @@
                                                 <th>Department Name</th>
                                                 <th>Parent</th>
                                                 <th>Active</th>
+                                                <th>Show Ticket</th>
                                                 <th>Created Date</th>
                                                 <th>Updated Date</th>
                                                 <th>Action</th>
@@ -57,6 +58,7 @@
                                                 <th>Department Name</th>
                                                 <th>Parent</th>
                                                 <th>Active</th>
+                                                <th>Show Ticket</th>
                                                 <th>Created Date</th>
                                                 <th>Updated Date</th>
                                                 <th>Action</th>
@@ -100,6 +102,16 @@
                     Active
                     <label class="float-right">
                         <input class="active" type="checkbox" id="active" checked="checked" value="1">
+                        <span class="lever ml-0">
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="switch">
+                    Show Ticket
+                    <label class="float-right">
+                        <input class="show-ticket" type="checkbox" id="show-ticket" checked="checked" value="1">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -191,6 +203,19 @@
                         `;
                     }
                 },
+                {data: 'showTicket',
+                    'render': function(data) {
+                        return `
+                            <div class="switch">
+                                <label class="float-left">
+                                    <input class="edit-ticket" type="checkbox" ${data === true ? 'checked' : ''}>
+                                    <span class="lever ml-0">
+                                    </span>
+                                </label>
+                            </div>
+                        `;
+                    }
+                },
                 {data: 'createdDate'},
                 {data: 'updatedDate'},
                 {data:'departmentId',
@@ -211,6 +236,14 @@
             active = 0;
         }
     });// end
+    let ticket = 1;
+    $("input[type='checkbox'].show-ticket").click(function () {
+        if ($("input[type='checkbox'].active").is(':checked')) {
+            ticket = 1;
+        } else {
+            ticket = 0;
+        }
+    });// end
     
     // add new data into database
     $('#btn-dpm-save').click(function() {
@@ -218,6 +251,7 @@
         obj_dpm.DepartmentName = $('#dpm_name').val();
         obj_dpm.ParentId = $('#parent').val();
         obj_dpm.Active = active;
+        obj_dpm.ShowTicket = ticket;
         
         $.ajax({
             url: '@Url.Action("PostDepartment", "Department")',
@@ -262,7 +296,7 @@
         });
     });// end
     
-    //Post update data into datatasbe
+    //Post update data into database
     $('#btn-dpm-update').click(function () {
         let obj_dpm = {};
         obj_dpm.DepartmentName = $('#e-dpm-name').val();
@@ -280,6 +314,7 @@
             success: function(data) {
                 if (data === 1) {
                     M.toast({html:"Successfully updated!"});
+                    $('#modal2').modal('close');
                     getDepartment();
                 } else {
                     alert("Your data not add please try again later!");
@@ -291,10 +326,63 @@
         });
     });// end
     
-    // Update Status
-    $(document).on('click', '.edit-active', function() {
+    // pass data to controller for update status
+    $(document).on('click', '.edit-active', 'td', function() {
+        let col_id = $(this).closest('tr');
+        let dpm_id = col_id.find('td:eq(0)').text();
+        let active;
+        $(this).is(':checked') ? active = 1 : active = 0;
         
-    });
+        let obj_atv = {};
+        obj_atv.DepartmentId = dpm_id;
+        obj_atv.Active = active;
+        
+        $.ajax({
+            url: '@Url.Action("EditDpmActive", "Department")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objAtv: obj_atv},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Active has been updated!"});
+                } else {
+                    alert("Your data not update please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    // pass data to controller for update status
+    $(document).on('click', '.edit-ticket', 'td', function() {
+        let col_id = $(this).closest('tr');
+        let dpm_id = col_id.find('td:eq(0)').text();
+        let ticket;
+        $(this).is(':checked') ? ticket = 1 : ticket = 0;
+        
+        let obj_tk = {};
+        obj_tk.DepartmentId = dpm_id;
+        obj_tk.ShowTicket = ticket;
+        
+        $.ajax({
+            url: '@Url.Action("EditDpmTicket", "Department")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objTk: obj_tk},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Show ticket has been updated!"});
+                } else {
+                    alert("Your data not update please try again later!");
+                }
+            }
+        });
+    });// end
     
     // clear form data
     function clearForm() {

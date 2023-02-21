@@ -116,14 +116,9 @@
     
     
     $('#btn-login').click(function() {
-        // let obj_auth = {};
-        // obj_auth.EmployeeCode = $('#user-code').val();
-        // obj_auth.Password = $('#password').val();
         let empCode = $('#user-code').val();
         let password = $('#password').val();
         
-        //console.log(obj_auth)
-            
         $.ajax({
             url: '@Url.Action("PostLogin", "Auth")',
             type: 'GET',
@@ -133,21 +128,7 @@
                 console.log("Loading...");
             },
             success: function(data) {
-                // data.forEach((item) => {
-                //     if (item.roleId === 1) {
-                //         window.location.replace('@Url.Action("AdminDashboard", "Dashboard")');
-                //     } 
-                //     else if (item.roleId === 2) {
-                //         window.location.replace('@Url.Action("ManagerDashboard", "Dashboard")');
-                //     }
-                //     else if (item.roleId === 3) {
-                //         window.location.replace('@Url.Action("ManagerDashboard", "Dashboard")');         
-                //     }
-                //     else {
-                //         alert("Wrong code or password");
-                //     }
-                // });
-                if (data !== "") {
+                if (data !== null) {
                     window.location.replace('@Url.Action("AdminDashboard", "Dashboard")');
                 } else {
                     alert("Wrong usercode or password");

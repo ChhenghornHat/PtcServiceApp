@@ -9,27 +9,18 @@ public class PtcServiceDbContext : DbContext
 
     // Status Db
     public DbSet<Status> Statuses { get; set; }
-    public DbSet<EditClose> EditCloses { get; set; }
-    public DbSet<EditActive> EditActive { get; set; }
-    public DbSet<EditCtmActive> EditCtmActive { get; set; }
     public DbSet<GetStsById> GetStsByIds { get; set; }
-    public DbSet<PostUpdateSts> PostUpdateSts { get; set; }
     // End
     
     // Department Db
     public DbSet<Department> Departments { get; set; }
     public DbSet<GetParent> GetParents { get; set; }
     public DbSet<GetDepartmentById> GetDepartmentByIds { get; set; }
-    public DbSet<UpdateDepartment> UpdateDepartments { get; set; }
-    public DbSet<UpdateStatus> UpdateStatuses { get; set; }
     // End
     
     // Branch Db
     public DbSet<Branch> Branches { get; set; }
-    public DbSet<PostBranch> PostBranches { get; set; }
     public DbSet<GetBranchById> GetBranchByIds { get; set; }
-    public DbSet<PostBranchUpdate> PostBranchUpdates { get; set; }
-    public DbSet<UpdateActive> UpdateActives { get; set; }
     // End
     
     // Employee Db
@@ -55,7 +46,9 @@ public class PtcServiceDbContext : DbContext
     
     // Ticket Db
     public DbSet<Ticket> Tickets { get; set; }
+    public DbSet<ManagerTicket> ManagerTickets { get; set; }
     public DbSet<GetTicketById> GetTicketByIds { get; set; }
+    // End
 
     // Event Db
     public DbSet<Event> Eventes { get; set; }
