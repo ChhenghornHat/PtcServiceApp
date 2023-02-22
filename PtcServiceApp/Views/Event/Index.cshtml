@@ -53,19 +53,6 @@
                                             <tbody>
                                                 
                                             </tbody>
-                                            <tfoot>
-                                            <tr>
-                                                <th style="width: 20px">#</th>
-                                                <th>Image</th>
-                                                <th>Subject</th>
-                                                <th>Description</th>
-                                                <th>Active</th>
-                                                <th>Feature</th>
-                                                <th>Created Date</th>
-                                                <th>Updated Date</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
@@ -84,44 +71,43 @@
     <div class="progress ae-loading hide mt-0">
         <div class="indeterminate"></div>
     </div>
-    @* <form enctype="multipart/form-data"> *@
         <div class="modal-content">
 
             <h5 class="header-title">Add New Event</h5>
             <div class="row">
-                    <div class="input-field col s12">
-                        <p>Maximum file upload size 1MB.</p>
-                        <input type="file" id="image" class="dropify" data-max-file-size="1M" />
-                    </div>
-                    <div class="input-field col s12">
-                        <input type="text" class="validate" id="subject" required>
-                        <label for="subject">Subject *</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <textarea id="description" class="materialize-textarea validate" required></textarea>
-                        <label for="description">Description *</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <div class="switch">
-                            Active
-                            <label class="float-right">
-                                <input class="active" type="checkbox" id="active" checked="checked" value="1">
-                                <span class="lever ml-0">
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="input-field col s6">
-                        <div class="switch">
-                            Feature
-                            <label class="float-right">
-                                <input class="feature" type="checkbox" id="feature" checked="checked" value="1">
-                                <span class="lever ml-0">
-                                </span>
-                            </label>
-                        </div>
+                <div class="input-field col s12">
+                    <p>Maximum file upload size 1MB.</p>
+                    <input type="file" id="image" class="dropify" data-max-file-size="1M" />
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" class="validate" id="subject" required>
+                    <label for="subject">Subject *</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="description" class="materialize-textarea validate" required></textarea>
+                    <label for="description">Description *</label>
+                </div>
+                <div class="input-field col s6">
+                    <div class="switch">
+                        Active
+                        <label class="float-right">
+                            <input class="active" type="checkbox" id="active" checked="checked" value="1">
+                            <span class="lever ml-0">
+                            </span>
+                        </label>
                     </div>
                 </div>
+                <div class="input-field col s6">
+                    <div class="switch">
+                        Feature
+                        <label class="float-right">
+                            <input class="feature" type="checkbox" id="feature" checked="checked" value="1">
+                            <span class="lever ml-0">
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="modal-footer">
             <div class="row">
@@ -135,7 +121,6 @@
                 </div>
             </div>
         </div>
-    @* </form> *@
 </div>
 
 <!-- Modal Structure -->
@@ -341,6 +326,7 @@
                 //console.table(data);
                 data.forEach((item) => {
                     $('#evn_id').val(item.eventId);
+                    $('#e-image').val(item.photo);
                     $('#view-image').attr('src', `data:image/png;base64,${item.photo}`);
                     $('#e-subject').val(item.subject);
                     $('#e-description').val(item.description);
@@ -357,6 +343,7 @@
             let imgs = img.split(",");
             obj_evn.Photo = imgs[1];
         }
+        obj_evn.Photo = $('#e-image').val();
         obj_evn.Subject = $('#e-subject').val();
         obj_evn.Description = $('#e-description').val();
         

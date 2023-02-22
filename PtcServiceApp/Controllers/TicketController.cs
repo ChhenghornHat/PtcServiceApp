@@ -45,7 +45,7 @@ public class TicketController : Controller
     [HttpGet]
     public async Task<IActionResult> GetTicketById(int id)
     {
-        var result = await _ptcServiceDbContext.GetTicketByIds.FromSqlRaw($"EXEC CrudTicketAdmin @Crud = 'Select', @Id = {id}").ToListAsync();
+        var result = await _ptcServiceDbContext.GetTicketByIds.FromSqlRaw($"EXEC LiveTicketManager @Id = {id}").ToListAsync();
         return Ok(result);
     }
 
@@ -53,7 +53,7 @@ public class TicketController : Controller
     public async Task<IActionResult> TicketAccept(TicketAccept objTk)
     {
         var empId = HttpContext.Session.GetInt32("EmployeeId");
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudProcces @Crud = 'Insert', @Comments = '{objTk.Comment}', @CreatedById = {empId}, @TicketId = {objTk.TicketId}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC AcceptTicket @Crud = 'Insert', @Comments = '{objTk.Comment}', @CreatedById = {empId}, @TicketId = {objTk.TicketId}");
         return Ok(1);
     }
     // End Admin
@@ -80,10 +80,18 @@ public class TicketController : Controller
         }
     }
 
+    [HttpGet]
     public async Task<IActionResult> GetByManagerTicket()
     {
         var dpmId = HttpContext.Session.GetInt32("DepartmentId");
-        var result = await _ptcServiceDbContext.ManagerTickets.FromSqlRaw($"EXEC CrudTicketDepartment @Crud = 'Select', @DepartmentId = {dpmId}").ToListAsync();
+        var result = await _ptcServiceDbContext.ManagerTickets.FromSqlRaw($"EXEC LiveTicketManager @DepartmentId = {dpmId}").ToListAsync();
+        return Ok(result);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetManagerTicketById(int id)
+    {
+        var result = await _ptcServiceDbContext.GetTicketByIds.FromSqlRaw($"EXEC LiveTicketAdmin @Id = {id}").ToListAsync();
         return Ok(result);
     }
     // End Manager

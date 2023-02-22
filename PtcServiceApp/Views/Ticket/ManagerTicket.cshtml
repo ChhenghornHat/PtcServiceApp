@@ -79,7 +79,6 @@
                                                 <th>#</th>
                                                 <th>Ticket Code</th>
                                                 <th>Status Name</th>
-                                                <th>Created By</th>
                                                 <th>Created Date</th>
                                                 <th>Action</th>
                                             </tr>
@@ -101,34 +100,24 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-    </div>
-</div>
-
-<!-- Modal Structure -->
 <div id="modal2" class="modal modal-fixed-footer">
+    
+    <div class="modal-header">
+        <h5>View Details</h5>
+        <a class="modal-close display-flex justify-content-center">
+            <i class="material-icons">close</i>
+        </a>
+    </div>
+
     <div class="modal-content pt-2">
         <div class="row" id="product-one">
-            <div class="col s12">
-                <a class="modal-close right">
-                    <i class="material-icons">close</i>
-                </a>
-            </div>
-            <div class="col m7 s7">
+            <div class="col m8 s8">
                 <!-- Swiper -->
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-                <h5>View Details</h5>
-                <hr class="mb-1">
                 <table>
                     <tr>
                         <input type="hidden" id="tk-id">
@@ -145,6 +134,7 @@
                         <th>Status</th>
                         <td>:</td>
                         <td class="status"></td>
+                        <input type="hidden" id="status"/>
                     </tr>
                     <tr>
                         <th>Request Type</th>
@@ -172,20 +162,18 @@
                         <td class="address"></td>
                     </tr>
                     <tr>
-                        <th>Created By</th>
-                        <td>:</td>
-                        <td class="created-by"></td>
-                    </tr>
-                    <tr>
                         <th>Created Date</th>
                         <td>:</td>
                         <td class="created-date"></td>
                     </tr>
                 </table>
-                <div class="input-field">
+                <div class="input-field mt-4">
                     <input type="text" class="validate" id="comment" required="required"/>
                     <label for="comment">Comments</label>
                 </div>
+            </div>
+            <div class="col m4 s4">
+                hi thear
             </div>
         </div>
     </div>
@@ -229,8 +217,11 @@
             columns: [
                 {data: 'ticketId'},
                 {data: 'ticketCode'},
-                {data: 'statusName'},
-                {data: 'createdBy'},
+                {data: 'statusId',
+                    'render': function(data) {
+                        return `<span class="${data === 1 ? 'badge blue' : data === 2 ? 'badge green' : data === 3 ? 'badge orange' : data === 4 ? 'badge red' : ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : data === 3 ? 'Rejected' : data === 4 ? 'Cancelled' : ''}</span>`;
+                    }
+                },
                 {data: 'createdDate'},
                 {data:'ticketId',
                     'render': function(data) {
@@ -254,12 +245,12 @@
         let tk_id = $(this).attr('id');
         
         $.ajax({
-            url: '@Url.Action("GetTicketById", "Ticket")',
+            url: '@Url.Action("GetManagerTicketById", "Ticket")',
             type: 'GET',
             dataType: 'JSON',
             data: {id: tk_id},
             beforeSend: function() {
-              
+                console.log("Loading...");
             },
             success: function(data) {
                 //console.table(data);
@@ -271,14 +262,31 @@
                     $('#tk-id').val(item.ticketId);
                     $('.ticket-code').text(item.ticketCode);
                     $('.name').text(item.createdByName);
-                    $('.status').text(item.statusName);
+                    $('.status').text(item.statusId);
+                    $('#status').val(item.statusId);
                     $('.indidual').text(item.indidual);
                     $('.subject').text(item.subject);
                     $('.description').text(item.description);
+                    $('.phone').text(item.phone);
                     $('.address').text(item.userAddress);
-                    $('.created-by').text(item.createdBy);
                     $('.created-date').text(item.createdDate);
                 });
+
+                let status = $('#status').val();
+                let isAccept = $('.is-accept');
+                let isAssign = $('.is-assign');
+                
+                console.log(status);
+
+                if (status == 1) {
+                    isAccept.removeClass('hide');
+                    isAssign.addClass('hide');
+                } else if (status == 2) {
+                    isAssign.removeClass('hide');
+                    isAccept.addClass('hide');
+                } else {
+                    alert("Failed");
+                }
             }
         });
     });// end
