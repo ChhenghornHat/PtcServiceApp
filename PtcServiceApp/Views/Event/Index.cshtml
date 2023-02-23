@@ -187,7 +187,10 @@
                 {data:'eventId', autoWidth: true},
                 {data:'photo', autoWidth: true,
                     'render': function(data) {
-                        return `<img src="data:image/png;base64,${data}" width="150" alt="">`;
+                        return `<button class="dropdown-trigger btn-floating mb-1 btn-flat waves-effect waves-light  pink accent-2 white-text" href="#!" data-target="dropdown2">
+                                <i class="material-icons">image_search</i>
+                              </button>`;
+                        //return `<img src="data:image/png;base64,${data}" width="150" alt="">`;
                     }
                 },
                 {data:'subject', autoWidth: true},
@@ -302,9 +305,6 @@
                 } else {
                     alert("Your data not add please try again later!");
                 }
-            },
-            complete: function() {
-              
             }
         });
     });

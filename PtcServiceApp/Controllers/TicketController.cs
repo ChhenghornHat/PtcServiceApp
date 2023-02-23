@@ -49,11 +49,29 @@ public class TicketController : Controller
         return Ok(result);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetSelectDepartment()
+    {
+        var dpmId = HttpContext.Session.GetInt32("DepartmentId");
+        var result = await _ptcServiceDbContext.GetDepartments.FromSqlRaw($"EXEC CrudInfo @InfoName = 'TransferDepartment', @DepartmentId = {dpmId}").ToListAsync();
+        return Ok(result);
+    }
+
     [HttpPost]
     public async Task<IActionResult> TicketAccept(TicketAccept objTk)
     {
         var empId = HttpContext.Session.GetInt32("EmployeeId");
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC AcceptTicket @Crud = 'Insert', @Comments = '{objTk.Comment}', @CreatedById = {empId}, @TicketId = {objTk.TicketId}");
+        var dpmId = HttpContext.Session.GetInt32("DepartmentId");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC AcceptTicket @Crud = 'Insert', @Comments = '{objTk.Comment}', @CreatedById = {empId}, @DepartmentId = {dpmId}, @TicketId = {objTk.TicketId}");
+        return Ok(1);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> TicketReject(TicketReject objTk)
+    {
+        var empId = HttpContext.Session.GetInt32("EmployeeId");
+        var dpmId = HttpContext.Session.GetInt32("DepartmentId");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC RejectTicket @Crud = 'Insert', @Comments = '{objTk.Comment}', @CreatedById = {empId}, @DepartmentId = {dpmId}, @TicketId = {objTk.TicketId}");
         return Ok(1);
     }
     // End Admin
@@ -93,6 +111,14 @@ public class TicketController : Controller
     {
         var result = await _ptcServiceDbContext.GetTicketByIds.FromSqlRaw($"EXEC LiveTicketAdmin @Id = {id}").ToListAsync();
         return Ok(result);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> TransferTo(TransferTo objTf)
+    {
+        var empId = HttpContext.Session.GetInt32("EmployeeId");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudTransfer @Crud = 'Insert', @Comments = '{objTf.Comment}', @TicketId = {objTf.TicketId}, @DepartmentId = {objTf.EmployeeId}, @CreatedById = {empId}");
+        return Ok(1);
     }
     // End Manager
     

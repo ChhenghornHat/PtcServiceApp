@@ -1,3 +1,38 @@
+/*table:after {*/
+/*    content: "";*/
+/*    background-color: rgba(0, 0, 0, 0.5);*/
+/*    backdrop-filter: blur(2px);*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    z-index: 9;*/
+/*}*/
+
+/*.preloader-wrapper {*/
+/*    position: absolute;*/
+/*    display: grid;*/
+/*    place-content: center;*/
+/*    z-index: 99999;*/
+/*}*/
+
+/*.modal:after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    z-index: 999;*/
+/*    display: none;*/
+/*}*/
+
+/*.modal-loading {*/
+/*    position: fixed;*/
+/*    top: 300px;*/
+/*    left: 500px;*/
+/*    z-index: 99999;*/
+/*    display: none;*/
+/*}*/
+
 .modal-header {
     position: fixed;
     width: 100%;
@@ -7,4 +42,37 @@
     align-items: center;
     padding: 10px 25px;
     z-index: 9999;
+}
+
+.swiper {
+    width: 100%;
+    height: 350px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-slide {
+    width: 80%;
+}
+
+.swiper-slide:nth-child(2n) {
+    width: 60%;
+}
+
+.swiper-slide:nth-child(3n) {
+    width: 40%;
 }

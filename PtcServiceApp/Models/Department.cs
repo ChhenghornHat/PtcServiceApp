@@ -26,7 +26,6 @@ public class PostDepartment
 {
     public string DepartmentName { get; set; }
     public int Active { get; set; }
-    public int ShowTicket { get; set; }
     public int ParentId { get; set; }
 }
 

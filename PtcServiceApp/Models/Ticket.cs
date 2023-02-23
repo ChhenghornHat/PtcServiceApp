@@ -38,6 +38,14 @@ public class TicketAccept
     public string Comment { get; set; }
 }
 
+[Keyless]
+public class TicketReject
+{
+    [Key]
+    public int TicketId { get; set; }
+    public string Comment { get; set; }
+}
+
 // Manger Ticket
 [Keyless]
 public class ManagerTicket
@@ -47,4 +55,13 @@ public class ManagerTicket
     public int TicketCode { get; set; }
     public int StatusId { get; set; }
     public string CreatedDate { get; set; }
+}
+
+[Keyless]
+public class TransferTo
+{
+    [Key]
+    public int TicketId { get; set; }
+    public string Comment { get; set; }
+    public int EmployeeId { get; set; }
 }

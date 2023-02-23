@@ -36,7 +36,7 @@ public class DepartmentController : Controller
     //Post data to database
     public async Task<IActionResult> PostDepartment(PostDepartment objDpm)
     {
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Insert', @DepartmentName = '{objDpm.DepartmentName}', @Active = {objDpm.Active}, @ShowTicket = {objDpm.ShowTicket}, @Parent = {objDpm.ParentId}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudDepartment @Crud = 'Insert', @DepartmentName = '{objDpm.DepartmentName}', @Active = {objDpm.Active}, @Parent = {objDpm.ParentId}");
         return Ok(1);
     }
     

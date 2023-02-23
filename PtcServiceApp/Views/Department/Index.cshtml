@@ -28,7 +28,7 @@
                 <!-- Page Length Options -->
                 <div class="row">
                     <div class="col s12">
-                        <div class="card">
+                        <div class="card mb-4">
                             <div class="progress datable-loading hide">
                                 <div class="indeterminate"></div>
                             </div>
@@ -52,18 +52,6 @@
                                             <tbody>
                                                 
                                             </tbody>
-                                            <tfoot>
-                                            <tr>
-                                                <th style="width: 20px">#</th>
-                                                <th>Department Name</th>
-                                                <th>Parent</th>
-                                                <th>Active</th>
-                                                <th>Show Ticket</th>
-                                                <th>Created Date</th>
-                                                <th>Updated Date</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
@@ -79,9 +67,6 @@
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
-    @* <div class="progress ae-loading mt-0"> *@
-    @*     <div class="indeterminate"></div> *@
-    @* </div> *@
     <div class="modal-content">
 
         <h5>Add New Department</h5>
@@ -97,21 +82,11 @@
                 </select>
                 <label>Defualt by main</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <div class="switch">
                     Active
                     <label class="float-right">
                         <input class="active" type="checkbox" id="active" checked="checked" value="1">
-                        <span class="lever ml-0">
-                        </span>
-                    </label>
-                </div>
-            </div>
-            <div class="input-field col s6">
-                <div class="switch">
-                    Show Ticket
-                    <label class="float-right">
-                        <input class="show-ticket" type="checkbox" id="show-ticket" checked="checked" value="1">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -135,9 +110,6 @@
 
 <!-- Modal Structure -->
 <div id="modal2" class="modal">
-    @* <div class="progress ae-loading mt-0"> *@
-    @*     <div class="indeterminate"></div> *@
-    @* </div> *@
     <div class="modal-content">
 
         <h5>Update Department</h5>
@@ -251,7 +223,6 @@
         obj_dpm.DepartmentName = $('#dpm_name').val();
         obj_dpm.ParentId = $('#parent').val();
         obj_dpm.Active = active;
-        obj_dpm.ShowTicket = ticket;
         
         $.ajax({
             url: '@Url.Action("PostDepartment", "Department")',
@@ -315,6 +286,7 @@
                 if (data === 1) {
                     M.toast({html:"Successfully updated!"});
                     $('#modal2').modal('close');
+                    getParent();
                     getDepartment();
                 } else {
                     alert("Your data not add please try again later!");
@@ -377,6 +349,7 @@
             success: function(data) {
                 if (data === 1) {
                     M.toast({html:"Show ticket has been updated!"});
+                    getDepartment();
                 } else {
                     alert("Your data not update please try again later!");
                 }

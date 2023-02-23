@@ -73,6 +73,7 @@
     <_ContentIncludedByDefault Remove="wwwroot\assets\vendors\data-tables\css\images\sort_asc.png" />
     <_ContentIncludedByDefault Remove="Pages\ManagerDashboard\Index.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Manager\ManagerDashboard\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\UserDashboard\Dashboard.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

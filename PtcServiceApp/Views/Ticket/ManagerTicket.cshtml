@@ -3,43 +3,7 @@
     Layout = "_ManagerLayout";
 }
 
-<!-- Demo styles -->
-<style>
-    .swiper {
-      width: 100%;
-      height: 350px;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .swiper-slide {
-      width: 80%;
-    }
-
-    .swiper-slide:nth-child(2n) {
-      width: 60%;
-    }
-
-    .swiper-slide:nth-child(3n) {
-      width: 40%;
-    }
-</style>
-
-<div class="row">
+<div class="row mb-3">
     <div class="content-wrapper-before gradient-45deg-indigo-blue"></div>
     <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
         <!-- Search for small screen-->
@@ -57,7 +21,7 @@
                     </ol>
                 </div>
                 <div class="col s2 m6 l6">
-                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger add-status-btn" href="#modal1"><i class="material-icons left">add</i> Add New</a>
+                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger" href="#modal1"><i class="material-icons left">add</i> Add New</a>
                 </div>
             </div>
         </div>
@@ -100,8 +64,92 @@
 </div>
 
 <!-- Modal Structure -->
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <h5>Transfer To</h5>
+        
+        <div class="col mt-2 mb-2">
+            <div class="input-field">
+                <textarea class="validate materialize-textarea" id="transfer-comment" required="required"></textarea>
+                <label for="transfer-comment">Comment</label>
+            </div>
+        </div>
+        <div class="input-field">
+            <select id="department" required="required">
+                <option value="">Choose department</option>
+            </select>
+            <label for="department">Choose department</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
+                    <i class="material-icons left">close</i>
+                </button>
+                <button class="btn waves-effect waves-light cyan" id="btn-transfer-to">Transfer
+                    <i class="material-icons right">arrow_outward</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
 <div id="modal2" class="modal modal-fixed-footer">
     
+    @* <div class="modal-loading"> *@
+    @*     <div class="preloader-wrapper big active"> *@
+    @*         <div class="spinner-layer spinner-blue"> *@
+    @*             <div class="circle-clipper left"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*             <div class="gap-patch"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*             <div class="circle-clipper right"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @* *@
+    @*         <div class="spinner-layer spinner-red"> *@
+    @*             <div class="circle-clipper left"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*             <div class="gap-patch"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*             <div class="circle-clipper right"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @* *@
+    @*         <div class="spinner-layer spinner-yellow"> *@
+    @*             <div class="circle-clipper left"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*             <div class="gap-patch"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*             <div class="circle-clipper right"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @* *@
+    @*         <div class="spinner-layer spinner-green"> *@
+    @*             <div class="circle-clipper left"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*             <div class="gap-patch"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*             <div class="circle-clipper right"> *@
+    @*                 <div class="circle"></div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @*     </div> *@
+    @* </div> *@
+
     <div class="modal-header">
         <h5>View Details</h5>
         <a class="modal-close display-flex justify-content-center">
@@ -169,6 +217,7 @@
                 </table>
                 <div class="input-field mt-4">
                     <input type="text" class="validate" id="comment" required="required"/>
+                    <div id="comment-error" class="error hide">This field is required.</div>
                     <label for="comment">Comments</label>
                 </div>
             </div>
@@ -180,20 +229,20 @@
     <div class="modal-footer">
         <div class="row">
             <div class="col s12 is-accept hide">
-                <button class="btn waves-effect waves-light btn-light-red">Reject
+                <button class="btn waves-effect waves-light btn-light-red" id="btn-reject">Reject
                     <i class="material-icons left">close</i>
                 </button>
-                <button class="btn waves-effect waves-light green" type="submit" id="btn-accept">Accept
+                <button class="btn waves-effect waves-light green" id="btn-accept">Accept
                     <i class="material-icons right">check</i>
                 </button>
-                <button class="btn waves-effect waves-light deep-purple" type="submit" id="btn-transfer">Transfer
+                <button class="btn waves-effect waves-light deep-purple" id="btn-transfer">Transfer To
                     <i class="material-icons right">arrow_outward</i>
                 </button>
             </div>
             <div class="col s12 is-assign hide">
-                <button class="btn waves-effect waves-light deep-purple" type="submit" id="btn-assign">Asign To
+                <a class="btn waves-effect waves-light deep-purple" id="btn-assign">Asign To
                     <i class="material-icons right">assignment_add</i>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -254,6 +303,7 @@
             },
             success: function(data) {
                 //console.table(data);
+                let statuses = $('.status');
                 $('.swiper-slide').remove();
                 data.forEach((item) => {
                     $(`<div class="swiper-slide">
@@ -262,7 +312,11 @@
                     $('#tk-id').val(item.ticketId);
                     $('.ticket-code').text(item.ticketCode);
                     $('.name').text(item.createdByName);
-                    $('.status').text(item.statusId);
+                    if (item.statusId === 1){
+                        statuses.html('<span class="badge blue">Requested</span>');
+                    } else if (item.statusId === 2) {
+                        statuses.html('<span class="badge green">Accepted</span>');
+                    }
                     $('#status').val(item.statusId);
                     $('.indidual').text(item.indidual);
                     $('.subject').text(item.subject);
@@ -276,7 +330,7 @@
                 let isAccept = $('.is-accept');
                 let isAssign = $('.is-assign');
                 
-                console.log(status);
+                //console.log(status);
 
                 if (status == 1) {
                     isAccept.removeClass('hide');
@@ -291,8 +345,28 @@
         });
     });// end
     
+    // validate
+    function validate() {
+        let commentEL = $('#comment');
+        let errorEl = $('#comment-error');
+        
+        if (commentEL.val() === "") {
+            commentEL.focus();
+            errorEl.removeClass('hide');
+            return false;
+        } else {
+            errorEl.addClass('hide');
+        }
+        
+        return true;
+    }
+    
     // click to accept
     $('#btn-accept').click(function() {
+        if (!validate()) {
+            return;
+        }
+        
         let obj_tk = {};
         obj_tk.TicketId = $('#tk-id').val();
         obj_tk.Comment = $('#comment').val();
@@ -307,7 +381,69 @@
             },
             success: function(data) {
                 if (data === 1) {
-                    M.toast({html:"Tick has been accepted!"});
+                    M.toast({html:"Ticket has been accepted!"});
+                    $('#modal2').modal('close');
+                    $('#comment-error').removeClass('hide');
+                    getByManagerTicket();
+                    clearForm();
+                } else {
+                    alert("Failed please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    // click to accept
+    $('#btn-reject').click(function() {
+        if (!validate()) {
+            return;
+        }
+        
+        let obj_tk = {};
+        obj_tk.TicketId = $('#tk-id').val();
+        obj_tk.Comment = $('#comment').val();
+        
+        $.ajax({
+            url: '@Url.Action("TicketReject", "Ticket")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objTk: obj_tk},
+            beforeSend: function() {
+              
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Ticket has been rejected!"});
+                    $('#modal2').modal('close');
+                    $('#comment-error').removeClass('hide');
+                    getByManagerTicket();
+                    clearForm();
+                } else {
+                    alert("Failed please try again later!");
+                }
+            }
+        });
+    });// end
+    
+    // click button to transfer ticket
+    $('#btn-transfer-to').click(function() {
+        let obj_tf = {};
+        obj_tf.TicketId = $('#tk-id').val();
+        obj_tf.Comment = $('#transfer-comment').val();
+        obj_tf.EmployeeId = $('#department').val();
+        
+        $.ajax({
+            url: '@Url.Action("TransferTo", "Ticket")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objTf: obj_tf},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                 if (data === 1) {
+                    M.toast({html:"Ticket has been transfer!"});
+                    $('#modal3').modal('close');
                     getByManagerTicket();
                 } else {
                     alert("Failed please try again later!");
@@ -315,6 +451,31 @@
             }
         });
     });
+    
+    // click to show popup assign
+    $('#btn-transfer').click(function() {
+        $('#modal2').modal('close');
+        $('#modal3').modal('open');
+    });
+    
+    // call the function
+    getDepartment();
+    // Get data for transfer department
+    function getDepartment() {
+        $.ajax({
+            url: '@Url.Action("GetSelectDepartment", "Ticket")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                data.forEach((item) => {
+                    $('#department').append(`<option value="${item.departmentId}">${item.departmentName}</option>`);
+                });
+            }
+        });
+    }
     
     // call the function
     getByManagerTicket();
@@ -337,6 +498,11 @@
             }
         });
     }// end
+    
+    // clear form
+    function clearForm() {
+        $('#comment').val('');
+    }
     
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: "auto",
