@@ -10,6 +10,7 @@ public class Ticket
     public int TicketId { get; set; }
     public int TicketCode { get; set; }
     public int StatusId { get; set; }
+    public string Name { get; set; }
     public string CreatedDate { get; set; }
 }
 
@@ -31,15 +32,7 @@ public class GetTicketById
 }
 
 [Keyless]
-public class TicketAccept
-{
-    [Key]
-    public int TicketId { get; set; }
-    public string Comment { get; set; }
-}
-
-[Keyless]
-public class TicketReject
+public class TicketAssignOrReject
 {
     [Key]
     public int TicketId { get; set; }
@@ -58,10 +51,12 @@ public class ManagerTicket
 }
 
 [Keyless]
-public class TransferTo
+public class TicketTransferOrAssign
 {
     [Key]
     public int TicketId { get; set; }
     public string Comment { get; set; }
-    public int EmployeeId { get; set; }
+    public int DepartmentId { get; set; }
+    public int ServiceCallId { get; set; }
+    public int AssignId { get; set; }
 }

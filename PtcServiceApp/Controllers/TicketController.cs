@@ -38,7 +38,7 @@ public class TicketController : Controller
     [HttpGet]
     public async Task<IActionResult> GetAllTicket()
     {
-        var result = await _ptcServiceDbContext.Tickets.FromSqlRaw("EXEC CrudTicketAdmin @Crud = 'Select'").ToListAsync();
+        var result = await _ptcServiceDbContext.Tickets.FromSqlRaw("EXEC LiveTicketAdmin").ToListAsync();
         return Ok(result);
     }
 
@@ -58,7 +58,7 @@ public class TicketController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> TicketAccept(TicketAccept objTk)
+    public async Task<IActionResult> TicketAccept(TicketAssignOrReject objTk)
     {
         var empId = HttpContext.Session.GetInt32("EmployeeId");
         var dpmId = HttpContext.Session.GetInt32("DepartmentId");
@@ -67,13 +67,19 @@ public class TicketController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> TicketReject(TicketReject objTk)
+    public async Task<IActionResult> TicketReject(TicketAssignOrReject objTk)
     {
         var empId = HttpContext.Session.GetInt32("EmployeeId");
         var dpmId = HttpContext.Session.GetInt32("DepartmentId");
         await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC RejectTicket @Crud = 'Insert', @Comments = '{objTk.Comment}', @CreatedById = {empId}, @DepartmentId = {dpmId}, @TicketId = {objTk.TicketId}");
         return Ok(1);
     }
+
+    // [HttpGet]
+    // public async Task<IActionResult> TicketReport()
+    // {
+    //     var result = await _ptcServiceDbContext.
+    // }
     // End Admin
     
     // Manager
@@ -114,11 +120,27 @@ public class TicketController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> TransferTo(TransferTo objTf)
+    public async Task<IActionResult> TransferTo(TicketTransferOrAssign objTf)
     {
         var empId = HttpContext.Session.GetInt32("EmployeeId");
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudTransfer @Crud = 'Insert', @Comments = '{objTf.Comment}', @TicketId = {objTf.TicketId}, @DepartmentId = {objTf.EmployeeId}, @CreatedById = {empId}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudTransfer @Crud = 'Insert', @Comments = '{objTf.Comment}', @TicketId = {objTf.TicketId}, @DepartmentId = {objTf.DepartmentId}, @CreatedById = {empId}");
         return Ok(1);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> AssignTo(TicketTransferOrAssign objAs)
+    {
+        var empId = HttpContext.Session.GetInt32("EmployeeId");
+        var result = await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC AssignTicket @Crud = 'Insert', @Comments '{objAs.Comment}', @TicketId = {objAs.TicketId}, @ServiceCallId = {objAs.ServiceCallId}, @AssignToId = {objAs.AssignId}, @DepartmentId = {objAs.DepartmentId}, @CreatedById = {empId}");
+        if (result == 1)
+        {
+            result = 1;
+        }
+        else
+        {
+            result = 0;
+        }
+        return Ok(result);
     }
     // End Manager
     

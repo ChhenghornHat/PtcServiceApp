@@ -21,6 +21,7 @@ public class Status
 public class PostStatus
 {
     public string StatusName { get; set; }
+    public string Color { get; set; }
     public int SapId { get; set; }
     public int Closed { get; set; }
     public int Active { get; set; }

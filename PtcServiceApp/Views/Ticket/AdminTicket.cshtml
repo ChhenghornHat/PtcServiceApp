@@ -2,42 +2,6 @@
     ViewBag.Title = "Live Ticket";
 }
 
-<!-- Demo styles -->
-<style>
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .swiper-slide {
-      width: 80%;
-    }
-
-    .swiper-slide:nth-child(2n) {
-      width: 60%;
-    }
-
-    .swiper-slide:nth-child(3n) {
-      width: 40%;
-    }
-</style>
-
 <div class="row">
     <div class="content-wrapper-before gradient-45deg-indigo-blue"></div>
     <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
@@ -54,9 +18,6 @@
                         </li>
                         <li class="breadcrumb-item active">Manage LiveTicket</li>
                     </ol>
-                </div>
-                <div class="col s2 m6 l6">
-                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger add-status-btn" href="#modal1"><i class="material-icons left">add</i> Add New</a>
                 </div>
             </div>
         </div>
@@ -78,7 +39,7 @@
                                                 <th>#</th>
                                                 <th>Ticket Code</th>
                                                 <th>Status Name</th>
-                                                <th>Created By</th>
+                                                <th>Name</th>
                                                 <th>Created Date</th>
                                                 <th>Action</th>
                                             </tr>
@@ -96,17 +57,6 @@
             </div>
         </div>
         <div class="content-overlay"></div>
-    </div>
-</div>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
     </div>
 </div>
 
@@ -210,8 +160,11 @@
             columns: [
                 {data: 'ticketId'},
                 {data: 'ticketCode'},
-                {data: 'statusName'},
-                {data: 'createdBy'},
+                {data: 'statusId',
+                    'render': function(data) {
+                        return `<span class="${data === 1 ? 'badge blue' : data === 2 ? 'badge green': ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : ''}</span>`;
+                    }
+                },
                 {data: 'createdDate'},
                 {data:'ticketId',
                     'render': function(data) {

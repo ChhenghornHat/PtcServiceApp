@@ -9,7 +9,7 @@ builder.Services.AddDbContext<PtcServiceDbContext>(options => options.UseSqlServ
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(120);
+    options.IdleTimeout = TimeSpan.FromHours(24);
 });
 // builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);

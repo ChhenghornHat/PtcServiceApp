@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PtcServiceApp.Data;
 using PtcServiceApp.Models;
@@ -29,7 +30,7 @@ public class StatusController : Controller
     [HttpPost]
     public async Task<IActionResult> PostStatus(PostStatus objSts)
     {
-        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudStatus @Crud = 'Insert', @StatusName = '{objSts.StatusName}', @SapId = {objSts.SapId}, @Closed = {objSts.Closed}, @Active = {objSts.Active}, @CustomerActive = {objSts.CustomerActive}");
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC CrudStatus @Crud = 'Insert', @StatusName = '{objSts.StatusName}', @Color = '{objSts.Color}', @SapId = {objSts.SapId}, @Closed = {objSts.Closed}, @Active = {objSts.Active}, @CustomerActive = {objSts.CustomerActive}");
         return Ok(1);
     }
 

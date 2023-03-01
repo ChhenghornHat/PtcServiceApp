@@ -76,11 +76,15 @@
         <h5>Add New Status</h5>
 
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s4">
                 <input type="text" class="validate" id="status-name" required>
                 <label for="status-name">Status Name *</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s4">
+                <input type="text" class="validate" id="color" required>
+                <label for="color">Color *</label>
+            </div>
+            <div class="input-field col s4">
                 <input type="number" class="validate" id="sap-id" required>
                 <label for="sap-id">Sap Id *</label>
             </div>
@@ -88,7 +92,7 @@
                 <div class="switch">
                     Cloes
                     <label class="float-right">
-                        <input class="closed" type="checkbox" id="closed" value="0">
+                        <input class="closed" type="checkbox" id="closed" checked="checked" value="1">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -98,7 +102,7 @@
                 <div class="switch">
                     Active
                     <label class="float-right">
-                        <input class="active" type="checkbox" id="active" value="0">
+                        <input class="active" type="checkbox" id="active" checked="checked" value="1">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -108,7 +112,7 @@
                 <div class="switch">
                     Customer Active
                     <label class="float-right">
-                        <input class="customer-active" type="checkbox" id="customer-active" value="0">
+                        <input class="customer-active" type="checkbox" id="customer-active" checked="checked" value="1">
                         <span class="lever ml-0">
                         </span>
                     </label>
@@ -185,7 +189,7 @@
                 {data: 'statusId'},
                 {data: 'statusName',
                     'render': function(data) {
-                        return `<span class="new badge ${data === 'Open' ? 'orange' : data === 'Completed' ? 'green' : data === 'In-progress' ? 'blue' : data === 'Cancel' ? 'red' : ''}">${data}</span>`;
+                        return `<span class="${data === 'Requested' ? 'badge orange' : data === 'Accepted' ? 'badge blue' : data === 'Rejected' ? 'badge red' : data === 'Cancelled' ? 'badge red darken-2' : data === 'Completed' ? 'badge green' : ''}">${data}</span>`;
                     }
                 },
                 {data: 'sapId'},
@@ -232,7 +236,7 @@
                 {data:'updatedDate'},
                 {data:'statusId',
                     'render': function(data) {
-                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-sts" href="#modal2"><i class="material-icons">edit</i></a>`;
+                        return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-sts ${data === 1 ? 'hide' : data === 2 ? 'hide' : data === 3 ? 'hide' : data === 4 ? 'hide' : data === 5 ? 'hide' : ''}" href="#modal2"><i class="material-icons">edit</i></a>`;
                     }
                 }
             ],
@@ -251,7 +255,7 @@
     getAllStatus();
     
     // initialize status active or inactive
-    let closed;
+    let closed = 1;
     $("input[type='checkbox'].closed").click(function () {
         if ($("input[type='checkbox'].closed").is(':checked')) {
             closed = 1;
@@ -259,7 +263,7 @@
             closed = 0;
         }
     });// end
-    let active;
+    let active = 1;
     $("input[type='checkbox'].active").click(function () {
         if ($("input[type='checkbox'].active").is(':checked')) {
             active = 1;
@@ -267,7 +271,7 @@
             active = 0;
         }
     });// end
-    let customerActive;
+    let customerActive = 1;
     $("input[type='checkbox'].customer-active").click(function () {
         if ($("input[type='checkbox'].customer-active").is(':checked')) {
             customerActive = 1;
@@ -280,6 +284,7 @@
     $('#btn-sts-save').click(function() {
         let obj_sts = {};
         obj_sts.StatusName = $('#status-name').val();
+        obj_sts.Color = $('#color').val();
         obj_sts.SapId = $('#sap-id').val();
         obj_sts.Closed = closed;
         obj_sts.Active = active;
@@ -291,7 +296,7 @@
             dataType: 'JSON',
             data: {objSts: obj_sts},
             beforeSend: function() {
-              
+                console.log("Loading...");
             },
             success: function(data) {
                 if (data === 1) {
@@ -358,6 +363,7 @@
     $(document).on('click', '.edit-closed', 'td', function() {
         let col_id = $(this).closest('tr');
         let sts_id = col_id.find('td:eq(0)').text();
+        
         let closed;
         $(this).is(':checked') ? closed = 1 : closed = 0;
         
@@ -451,7 +457,7 @@
               
             },
             success: function(data) {
-                console.table(data);
+                //console.table(data);
                 list_status = [];
                 list_status = data;
                 table.clear();
