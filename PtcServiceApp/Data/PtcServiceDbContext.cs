@@ -9,6 +9,7 @@ public class PtcServiceDbContext : DbContext
 
     // Status Db
     public DbSet<Status> Statuses { get; set; }
+    public DbSet<GetStatus> GetStatuses { get; set; }
     public DbSet<GetStsById> GetStsByIds { get; set; }
     // End
     
@@ -46,6 +47,7 @@ public class PtcServiceDbContext : DbContext
     
     // Ticket Db
     public DbSet<Ticket> Tickets { get; set; }
+    public DbSet<ReportAdmin> ReportAdmins { get; set; }
     public DbSet<ManagerTicket> ManagerTickets { get; set; }
     public DbSet<GetTicketById> GetTicketByIds { get; set; }
     // End

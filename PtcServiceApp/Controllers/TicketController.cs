@@ -74,12 +74,49 @@ public class TicketController : Controller
         await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC RejectTicket @Crud = 'Insert', @Comments = '{objTk.Comment}', @CreatedById = {empId}, @DepartmentId = {dpmId}, @TicketId = {objTk.TicketId}");
         return Ok(1);
     }
+    
+    // Ticket Report
+    public IActionResult AdminTicketReport()
+    {
+        var roleId = HttpContext.Session.GetInt32("RoleId");
+        if (roleId == 1)
+        {
+            return View();
+        }
+        else if (roleId == 2)
+        {
+            return RedirectToAction("ManagerDashboard", "Dashboard");
+        }
+        else if (roleId == 3)
+        {
+            return RedirectToAction("UserDashboard", "Dashboard");
+        }
+        else
+        {
+            return RedirectToAction("Login", "Auth");
+        }
+    }
 
-    // [HttpGet]
-    // public async Task<IActionResult> TicketReport()
-    // {
-    //     var result = await _ptcServiceDbContext.
-    // }
+    [HttpGet]
+    public async Task<IActionResult> GetAdminTicketReport()
+    {
+        var result = await _ptcServiceDbContext.ReportAdmins.FromSqlRaw("EXEC ReportAdmin").ToListAsync();
+        return Ok(result);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAdminTicketReportFilterBy(int statusId, string docDate, string dueDate)
+    {
+        var result = await _ptcServiceDbContext.ReportAdmins.FromSqlRaw($"EXEC ReportAdmin @StatusId = {statusId}, @DocDate = '{docDate}', @DueDate = '{dueDate}'").ToListAsync();
+        return Ok(result);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetStatus()
+    {
+        var result = await _ptcServiceDbContext.GetStatuses.FromSqlRaw("EXEC GetStatus").ToListAsync();
+        return Ok(result);
+    }
     // End Admin
     
     // Manager

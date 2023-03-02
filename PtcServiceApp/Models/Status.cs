@@ -18,6 +18,14 @@ public class Status
 }
 
 [Keyless]
+public class GetStatus
+{
+    [Key]
+    public int StatusId { get; set; }
+    public string StatusName { get; set; }
+}
+
+[Keyless]
 public class PostStatus
 {
     public string StatusName { get; set; }

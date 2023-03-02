@@ -1,0 +1,189 @@
+﻿@{
+    ViewBag.Title = "Ticket Report";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="content-wrapper-before gradient-45deg-indigo-blue"></div>
+    <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
+        <!-- Search for small screen-->
+        <div class="container">
+            <div class="row">
+                <div class="col s10 m6 l6">
+                    <h5 class="breadcrumbs-title mt-0 mb-0">
+                        <span>Manage TicketReport</span>
+                    </h5>
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Dashboard" asp-action="AdminDashboard">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Manage TicketReport</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12">
+        <div class="container">
+            <div class="section">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <i class="material-icons prefix">date_range</i>
+                                <input id="date_from" type="text" class="datepicker">
+                                <label for="date_from">Date From</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <i class="material-icons prefix">date_range</i>
+                                <input id="from_to" type="text" class="datepicker">
+                                <label for="from_to">From To</label>
+                            </div>
+                            <div class="input-field col s2">
+                                <i class="material-icons prefix">checklist</i>
+                                <select id="status">
+                                </select>
+                                <label for="from_to">From To</label>
+                            </div>
+                            <div class="input-field col s2">
+                                  <button class="btn cyan waves-effect waves-light right" type="submit" id="btn-search">Search
+                                    <i class="material-icons right">search</i>
+                                  </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Page Length Options -->
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 class="card-title">TicketReport Data</h4>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <table id="table" class="display width-100">
+                                            <thead>
+                                            <tr>
+                                                <th>Ticket Code</th>
+                                                <th>Status Name</th>
+                                                <th>Name</th>
+                                                <th>Created Date</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-overlay"></div>
+    </div>
+</div>
+
+<script src="~/assets/vendors/jquery/jquery-3.6.3.min.js"></script>
+<script>
+    let ticketReportMainNav = document.querySelectorAll('.ticketReportMainNav');
+            
+    ticketReportMainNav.forEach((item) => {
+        item.classList.add('active');
+    });
+    
+    let d = new Date();
+    let strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
+    $('.datepicker').val(strDate);
+    
+    
+    let table;
+    let list_ticket_report = [];
+    $(function() {
+        table = $('#table').DataTable({
+            data: list_ticket_report,
+            columns: [
+                {data: 'ticketCode'},
+                {data: 'statusId',
+                    'render': function(data) {
+                        return `<span class="${data === 1 ? 'badge blue' : data === 2 ? 'badge green': ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : ''}</span>`;
+                    }
+                },
+                {data: 'name'},
+                {data: 'createdDate'},
+            ],
+            "responsive": false,
+            "lengthChange": false,
+            "autoWidth": true,
+            "searching": false,
+            "paging": true,
+            "scrollY": '60vh',
+            "scrollX": false,
+            "scrollCollapse": true
+        });
+    });// end
+    
+    // pass data to controller for the filter by date
+    $('#btn-search').click(function() {
+        let statusId = $('#status').val();
+        let docDate = $('#date_from').val();
+        let dueDate = $('#from_to').val();
+        
+        $.ajax({
+            url: '@Url.Action("GetAdminTicketReportFilterBy", "Ticket")',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {statusId: statusId, docDate: docDate, dueDate: dueDate},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                console.table(data)
+            }
+        });
+    });// end
+    
+    // call the function
+    getStatus();
+    // get status from database
+    function getStatus() {
+        $.ajax({
+            url: '@Url.Action("GetStatus", "Ticket")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                data.forEach(item => {
+                    $('#status').append(`<option value="${item.statusId}">${item.statusName}</option>`);
+                });
+            }
+        });
+    }
+    
+    // call the function
+    getAllTicketReport();
+    // call data from controller
+    function getAllTicketReport() {
+        $.ajax({
+            url: '@Url.Action("GetAdminTicketReport", "Ticket")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                console.table(data);
+                list_ticket_report = [];
+                list_ticket_report = data;
+                table.clear();
+                table.rows.add(list_ticket_report);
+                table.draw();
+            }
+        });
+    }// end
+    
+</script>

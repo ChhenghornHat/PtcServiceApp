@@ -15,6 +15,23 @@ public class Ticket
 }
 
 [Keyless]
+public class ReportAdmin
+{
+    public int TicketCode { get; set; }
+    public int StatusId { get; set; }
+    public string Name { get; set; }
+    public string CreatedDate { get; set; }
+}
+
+[Keyless]
+public class ReportAdminFilterBy
+{
+    public int StatusId { get; set; }
+    public string DocDate { get; set; }
+    public string DueDate { get; set; }
+}
+
+[Keyless]
 public class GetTicketById
 {
     [Key]
