@@ -8,6 +8,7 @@ public class Ticket
 {
     [Key]
     public int TicketId { get; set; }
+    public int No { get; set; }
     public int TicketCode { get; set; }
     public int StatusId { get; set; }
     public string Name { get; set; }
@@ -17,18 +18,12 @@ public class Ticket
 [Keyless]
 public class ReportAdmin
 {
+    public int No { get; set; }
     public int TicketCode { get; set; }
-    public int StatusId { get; set; }
     public string Name { get; set; }
-    public string CreatedDate { get; set; }
-}
-
-[Keyless]
-public class ReportAdminFilterBy
-{
+    public string Subject { get; set; }
     public int StatusId { get; set; }
-    public string DocDate { get; set; }
-    public string DueDate { get; set; }
+    public string CreatedDate { get; set; }
 }
 
 [Keyless]
@@ -49,7 +44,7 @@ public class GetTicketById
 }
 
 [Keyless]
-public class TicketAssignOrReject
+public class TicketAcceptOrReject
 {
     [Key]
     public int TicketId { get; set; }
@@ -62,7 +57,10 @@ public class ManagerTicket
 {
     [Key]
     public int TicketId { get; set; }
+    public Int64 No { get; set; }
     public int TicketCode { get; set; }
+    public string Username { get; set; }
+    public string Subject { get; set; }
     public int StatusId { get; set; }
     public string CreatedDate { get; set; }
 }

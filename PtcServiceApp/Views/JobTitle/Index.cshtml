@@ -36,7 +36,7 @@
                                             <table id="table" class="display">
                                                 <thead>
                                                 <tr>
-                                                    <th>#</th>
+                                                    <th style="min-width: 5px;">#</th>
                                                     <th>JobTitle</th>
                                                     <th>Active</th>
                                                     <th>Created Date</th>
@@ -142,7 +142,11 @@
         table = $('#table').DataTable({
             data: list_jtl,
             columns: [
-                {data: 'jobTitleId'},
+                {data: 'jobTitleId',
+                    'render': function(data) {
+                        return `<span>${data}</span>`;
+                    }
+                },
                 {data: 'jobTitleName'},
                 {data: 'active',
                     'render': function(data) {
@@ -172,7 +176,7 @@
             "paging": true,
             "scrollY": '60vh',
             "scrollX": true,
-            "scrollCollapse": true,
+            "scrollCollapse": true
         });
     });
     // call the function
@@ -263,9 +267,10 @@
     });// end
     
     // pass data to controller for update status
-    $(document).on('click', '.edit-active', 'td', function() {
+    $(document).on('click', '.edit-active', function() {
         let col_id = $(this).closest('tr');
         let jtl_id = col_id.find('td:eq(0)').text();
+        alert(jtl_id)
         let active;
         $(this).is(':checked') ? active = 1 : active = 0;
         

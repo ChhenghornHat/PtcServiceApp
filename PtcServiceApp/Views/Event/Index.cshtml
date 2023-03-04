@@ -36,10 +36,10 @@
                                 <h4 class="card-title">Events Data</h4>
                                 <div class="row">
                                     <div class="col s12">
-                                        <table id="tblEvent" class="display table">
+                                        <table id="table" class="display">
                                             <thead>
                                             <tr>
-                                                <th style="width: 20px">#</th>
+                                                <th style="min-width: 5px">#</th>
                                                 <th>Image</th>
                                                 <th>Subject</th>
                                                 <th>Description</th>
@@ -181,11 +181,11 @@
     let table;
     let list_event = [];
     $(function() {
-        table = $('.table').DataTable({
+        table = $('#table').DataTable({
             data: list_event,
             columns: [
-                {data:'eventId', autoWidth: true},
-                {data:'photo', autoWidth: true,
+                {data:'eventId'},
+                {data:'photo',
                     'render': function(data) {
                         return `<button class="dropdown-trigger btn-floating mb-1 btn-flat waves-effect waves-light  pink accent-2 white-text" href="#!" data-target="dropdown2">
                                 <i class="material-icons">image_search</i>
@@ -193,9 +193,16 @@
                         //return `<img src="data:image/png;base64,${data}" width="150" alt="">`;
                     }
                 },
-                {data:'subject', autoWidth: true},
-                {data:'description', autoWidth: true},
-                {data:'active', autoWidth: true,
+                {data:'subject'},
+                {data:'description',
+                    'render': function(data, type) {
+                        if (type === 'display') {
+                           data = typeof data === 'string' && data.length > 100 ? data.substring(0, 50) + '... <a href="#">Read more</a>' : data;
+                        }
+                        return data;
+                    }
+                },
+                {data:'active',
                     'render': function(data) {
                         return `
                             <div class="switch">
@@ -208,7 +215,7 @@
                         `;
                     }
                 },
-                {data:'feature', autoWidth: true,
+                {data:'feature',
                     'render': function(data) {
                         return `
                             <div class="switch">
@@ -221,9 +228,9 @@
                         `;
                     }
                 },
-                {data:'createdDate', autoWidth: true},
-                {data:'updatedDate', autoWidth: true},
-                {data:'eventId', autoWidth: true,
+                {data:'createdDate'},
+                {data:'updatedDate'},
+                {data:'eventId',
                     'render': function(data) {
                         return `<a id="${data}" class="mb-6 btn-floating waves-effect waves-light modal-trigger cyan btn-edit-evn" href="#modal2"><i class="material-icons">edit</i></a>`;
                     }
@@ -444,7 +451,6 @@
                 table.draw();
             },
             complete: function() {
-                completedLoading();
             }
         });
     } // end get all event

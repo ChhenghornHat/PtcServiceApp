@@ -33,10 +33,10 @@
                                 <h4 class="card-title">Live Ticket Data</h4>
                                 <div class="row">
                                     <div class="col s12">
-                                        <table id="table" class="display">
+                                        <table id="table" class="display width-100">
                                             <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <th style="min-width: 5px">#</th>
                                                 <th>Ticket Code</th>
                                                 <th>Status Name</th>
                                                 <th>Name</th>
@@ -166,20 +166,20 @@
                     }
                 },
                 {data: 'createdDate'},
-                {data:'ticketId',
+                {data: 'ticketId',
                     'render': function(data) {
                         return `<a id="${data}" class="mb-6 waves-effect waves-light modal-trigger btn-edit-tk" href="#modal2"><i class="material-icons">remove_red_eye</i></a>`;
                     }
                 }
             ],
-            "responsive": false,
-            "lengthChange": true,
-            "autoWidth": true,
-            "searching": true,
-            "paging": true,
-            "scrollY": '60vh',
-            "scrollX": true,    
-            "scrollCollapse": true
+            // "responsive": false,
+            // "lengthChange": true,
+            // "autoWidth": true,
+            // "searching": true,
+            // "paging": true,
+            // "scrollY": '60vh',
+            // "scrollX": true,    
+            // "scrollCollapse": true
         });
     });// end
     
@@ -219,7 +219,6 @@
     
     // click to accept
     $('#btn-accept').click(function() {
-        // let tk_id = $(this).attr('id');
         let tk_id = $('#tk-id').val();
         
         $.ajax({

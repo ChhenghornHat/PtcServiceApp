@@ -3,58 +3,29 @@
     Layout = "_ManagerLayout";
 }
 
-<div class="row mb-3">
-    <div class="content-wrapper-before gradient-45deg-indigo-blue"></div>
-    <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
-        <!-- Search for small screen-->
-        <div class="container">
-            <div class="row">
-                <div class="col s10 m6 l6">
-                    <h5 class="breadcrumbs-title mt-0 mb-0">
-                        <span>Manage LiveTicket</span>
-                    </h5>
-                    <ol class="breadcrumbs mb-0">
-                        <li class="breadcrumb-item">
-                            <a asp-controller="Dashboard" asp-action="ManagerDashboard">Home</a>
-                        </li>
-                        <li class="breadcrumb-item active">Manage LiveTicket</li>
-                    </ol>
-                </div>
-                <div class="col s2 m6 l6">
-                    <a class="waves-effect waves-light breadcrumbs-btn right btn modal-trigger" href="#modal1"><i class="material-icons left">add</i> Add New</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="row mb-4">
     <div class="col s12">
-        <div class="container">
-            <div class="section section-data-tables">
+        <div class="container animate fadeLeft">
+            <div class="section">
                 <!-- Page Length Options -->
                 <div class="row">
                     <div class="col s12">
-                        <div class="card">
-                            <div class="card-content">
-                                <h4 class="card-title">Live Ticket Data</h4>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <table id="table" class="subscription-table responsive-table highlight">
-                                            <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Ticket Code</th>
-                                                <th>Status Name</th>
-                                                <th>Created Date</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
+                        <table id="table" class="display width-100">
+                            <thead>
+                                <tr>
+                                    <th style="min-width: 5px">#</th>
+                                    <th>Ticket Code</th>
+                                    <th>User Name</th>
+                                    <th>Subject</th>
+                                    <th>Status Name</th>
+                                    <th>Created Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -64,7 +35,7 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal3" class="modal">
+<div id="modal3" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h5 class="type"></h5>
         
@@ -85,7 +56,7 @@
     <div class="modal-footer">
         <div class="row">
             <div class="col s12">
-                <button class="btn waves-effect waves-light modal-close btn-light-red" type="submit" name="action">Cancel
+                <button class="btn waves-effect waves-light modal-close btn-light-red">Cancel
                     <i class="material-icons left">close</i>
                 </button>
                 <button class="btn waves-effect waves-light cyan hide" id="btn-assign-to">Assign
@@ -167,7 +138,7 @@
                         <td class="created-date"></td>
                     </tr>
                 </table>
-                <div class="input-field mt-4">
+                <div class="input-field mt-4 hide-comment">
                     <input type="text" class="validate" id="comment" required="required"/>
                     <div id="comment-error" class="error hide">This field is required.</div>
                     <label for="comment">Comments</label>
@@ -216,11 +187,13 @@
         table = $('#table').DataTable({
             data: list_ticket,
             columns: [
-                {data: 'ticketId'},
+                {data: 'no'},
                 {data: 'ticketCode'},
+                {data: 'username'},
+                {data: 'subject'},
                 {data: 'statusId',
                     'render': function(data) {
-                        return `<span class="${data === 1 ? 'badge blue' : data === 2 ? 'badge green' : data === 3 ? 'badge orange' : data === 4 ? 'badge red' : ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : data === 3 ? 'Rejected' : data === 4 ? 'Cancelled' : ''}</span>`;
+                        return `<span class="${data === 1 ? 'badge orange' : data === 2 ? 'badge blue' : ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : ''}</span>`;
                     }
                 },
                 {data: 'createdDate'},
@@ -230,14 +203,14 @@
                     }
                 }
             ],
-            // "responsive": false,
-            // "lengthChange": true,
-            // "autoWidth": true,
-            // "searching": true,
-            // "paging": true,
-            // "scrollY": '60vh',
-            // "scrollX": true,    
-            // "scrollCollapse": true
+            "responsive": false,
+            "lengthChange": true,
+            "autoWidth": true,
+            "searching": true,
+            "paging": true,
+            "scrollY": '60vh',
+            "scrollX": true,
+            "scrollCollapse": true
         });
     });// end
     
@@ -265,9 +238,9 @@
                     $('.ticket-code').text(item.ticketCode);
                     $('.name').text(item.createdByName);
                     if (item.statusId === 1){
-                        statuses.html('<span class="badge blue">Requested</span>');
+                        statuses.html('<span class="badge orange">Requested</span>');
                     } else if (item.statusId === 2) {
-                        statuses.html('<span class="badge green">Accepted</span>');
+                        statuses.html('<span class="badge blue">Accepted</span>');
                     }
                     $('#status').val(item.statusId);
                     $('.indidual').text(item.indidual);
@@ -290,8 +263,7 @@
                 } else if (status == 2) {
                     isAssign.removeClass('hide');
                     isAccept.addClass('hide');
-                } else {
-                    alert("Failed");
+                    $('.hide-comment').addClass('hide');
                 }
             }
         });
@@ -450,16 +422,16 @@
             return;
         }
         
-        let obj_tf = {};
-        obj_tf.TicketId = $('#tk-id').val();
-        obj_tf.Comment = $('#type-comment').val();
-        obj_tf.DepartmentId = $('#department').val();
+        let obj_asn = {};
+        obj_asn.TicketId = $('#tk-id').val();
+        obj_asn.Comment = $('#type-comment').val();
+        obj_asn.DepartmentId = $('#department').val();
         
         $.ajax({
             url: '@Url.Action("AssignTo", "Ticket")',
             type: 'POST',
             dataType: 'JSON',
-            data: {objTf: obj_tf},
+            data: {objAsn: obj_asn},
             beforeSend: function() {
                 console.log("Loading...");
             },
@@ -475,12 +447,19 @@
         });
     });
     
+    // close to clear btn
+    $('.modal-close').click(function() {
+        $('.is-assign').addClass('hide');
+        $('.is-accept').addClass('hide');
+        $('.hide-comment').removeClass('hide');
+    });
+    
     // call the function
     getDepartment();
     // Get data for transfer department
     function getDepartment() {
         $.ajax({
-            url: '@Url.Action("GetSelectDepartment", "Ticket")',
+            url: '@Url.Action("GetTransferDepartment", "Ticket")',
             type: 'GET',
             dataType: 'JSON',
             beforeSend: function() {

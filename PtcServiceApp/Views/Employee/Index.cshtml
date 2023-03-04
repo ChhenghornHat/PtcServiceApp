@@ -36,14 +36,14 @@
                                         <table id="table" class="display">
                                             <thead>
                                             <tr>
-                                                <th style="width: 20px">#</th>
+                                                <th style="min-width: 5px">#</th>
                                                 <th>Employee Code</th>
                                                 <th>Password</th>
                                                 <th>Employee Name</th>
                                                 <th>Department</th>
                                                 <th>JobTitle</th>
                                                 <th>Branch</th>
-                                                <th>Role</th>
+                                                <th>Active</th>
                                                 <th>Created Date</th>
                                                 <th>Updated Date</th>
                                                 <th>Action</th>
@@ -203,6 +203,7 @@
         item.classList.add('active');
     });
     
+    // initial database
     let table;
     let list_employee = [];
     $(function() {

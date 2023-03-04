@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PtcServiceApp.Data;
 using PtcServiceApp.Models;
@@ -50,15 +51,23 @@ public class TicketController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetSelectDepartment()
+    public async Task<IActionResult> GetTransferDepartment()
     {
         var dpmId = HttpContext.Session.GetInt32("DepartmentId");
-        var result = await _ptcServiceDbContext.GetDepartments.FromSqlRaw($"EXEC CrudInfo @InfoName = 'TransferDepartment', @DepartmentId = {dpmId}").ToListAsync();
+        var result = await _ptcServiceDbContext.GetDepartments.FromSqlRaw($"EXEC ShowDepartment @Type = 'Transfer', @DepartmentId = {dpmId}").ToListAsync();
+        return Ok(result);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAssignDepartment()
+    {
+        var dpmId = HttpContext.Session.GetInt32("DepartmentId");
+        var result = await _ptcServiceDbContext.GetDepartments.FromSqlRaw($"EXEC ShowDepartment @Type = 'Assign', @DepartmentId = {dpmId}").ToListAsync();
         return Ok(result);
     }
 
     [HttpPost]
-    public async Task<IActionResult> TicketAccept(TicketAssignOrReject objTk)
+    public async Task<IActionResult> TicketAccept(TicketAcceptOrReject objTk)
     {
         var empId = HttpContext.Session.GetInt32("EmployeeId");
         var dpmId = HttpContext.Session.GetInt32("DepartmentId");
@@ -67,7 +76,7 @@ public class TicketController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> TicketReject(TicketAssignOrReject objTk)
+    public async Task<IActionResult> TicketReject(TicketAcceptOrReject objTk)
     {
         var empId = HttpContext.Session.GetInt32("EmployeeId");
         var dpmId = HttpContext.Session.GetInt32("DepartmentId");
