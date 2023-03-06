@@ -4,4 +4,176 @@
     Layout = "_UserLayout";
 }
 
-<h2>title</h2>
+<div class="row mb-4">
+    <div class="col s12">
+        <div class="container animate fadeLeft">
+            <div class="section">
+                <!-- Page Length Options -->
+                <div class="row">
+                    <div class="col s12">
+                        <table id="table" class="display width-100">
+                            <thead>
+                            <tr>
+                                <th style="min-width: 5px">#</th>
+                                <th>Ticket Code</th>
+                                <th>Comment</th>
+                                <th>Status Name</th>
+                                <th>Created Date</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-overlay"></div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h5>Completed Ticket</h5>
+        
+        <div class="col mt-2 mb-2">
+            <div class="input-field">
+                <input type="hidden" id="tk-id">
+                <textarea class="validate materialize-textarea" id="comment" required="required"></textarea>
+                <small class="errorTxt4">
+                    <div id="type-comment-error" class="error hide">This field is required.</div></small>
+                <label for="comment">Comment</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light modal-close btn-light-red">Cancel
+                    <i class="material-icons left">close</i>
+                </button>
+                <button class="btn waves-effect waves-light green" id="btn-completed">Ok
+                    <i class="material-icons right">done</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/assets/vendors/jquery/jquery-3.6.3.min.js"></script>
+<script type="text/javascript">
+    let liveTicketMainNav = document.querySelectorAll('.liveTicketMainNav');
+            
+    liveTicketMainNav.forEach((item) => {
+        item.classList.add('active');
+    });
+    
+    let table;
+    let list_ticket = [];
+    $(function() {
+        table = $('#table').DataTable({
+            data: list_ticket,
+            columns: [
+                {data: 'no'},
+                {data: 'ticketCode'},
+                {data: 'comments'},
+                {data: 'statusId',
+                    'render': function(data) {
+                        return `<span class="${data === 2 ? 'badge blue' : ''}">${data === 2 ? 'Accepted' : ''}</span>`;
+                    }
+                },
+                {data: 'createdDate'},
+                {data:'ticketId',
+                    'render': function(data) {
+                        return `<a id="${data}" class="mb-6 waves-effect waves-light modal-trigger btn-complete" href="#modal2"><i class="material-icons">check_circle</i></a>`;
+                    }
+                }
+            ]
+        });
+    });
+    
+    // click to show data in modal
+    $(document).on('click', '.btn-complete', function() {
+        let tk_id = $(this).attr('id');
+        
+        $.ajax({
+            url: '@Url.Action("", "")',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {id: tk_id},
+            beforeSend: function() {
+                
+            },
+            success: function(data) {
+                data.forEach(item => {
+                    $('#tk-id').val(item.ticketId);
+                });
+            }
+        });
+    });
+    
+    // validate
+    function validate() {
+        let commentEL = $('#comment');
+        let errorEl = $('#comment-error');
+        
+        if (commentEL.val() === "") {
+            commentEL.focus();
+            errorEl.removeClass('hide');
+            return false;
+        } else {
+            errorEl.addClass('hide');
+        }
+        
+        return true;
+    }
+    
+    // click to completed
+    $('#btn-completed').click(function() {
+        let obj_cmp = {};
+        obj_cmp.TicketId = $('#tk-id').val();
+        obj_cmp.Comment = $('#comment').val();
+        
+        $.ajax({
+            url: '',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objCmp: obj_cmp},
+            beforeSend: function() {
+                
+            },
+            success: function(data) {
+                if (data === 1) {
+                    M.toast({html:"Ticket has been completed!"});
+                    $('#modal2').modal('close');
+                    getByUserTicket();
+                } else {
+                    alert("Failed please try again later!");
+                }
+            }
+        });
+    });
+    
+    // call the function
+    getByUserTicket();
+    function getByUserTicket() {
+        $.ajax({
+            url: '@Url.Action("GetByUserTicket", "Ticket")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                //console.table(data);
+                list_ticket = [];
+                list_ticket = data;
+                list_ticket.rows.add(list_ticket);
+                table.draw();
+            }
+        });
+    }
+</script>

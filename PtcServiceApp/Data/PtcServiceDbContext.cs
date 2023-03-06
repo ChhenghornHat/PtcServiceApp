@@ -27,6 +27,7 @@ public class PtcServiceDbContext : DbContext
     // Employee Db
     public DbSet<Employee> Employees { get; set; }
     public DbSet<GetDepartment> GetDepartments { get; set; }
+    public DbSet<GetAssignDepartment> GetAssignDepartments { get; set; }
     public DbSet<GetJobTitle> GetJobTitles { get; set; }
     public DbSet<GetBranch> GetBranches { get; set; }
     public DbSet<GetRole> GetRoles { get; set; }
@@ -46,8 +47,12 @@ public class PtcServiceDbContext : DbContext
     // Ticket Db
     public DbSet<Ticket> Tickets { get; set; }
     public DbSet<ReportAdmin> ReportAdmins { get; set; }
+    // Manager Ticket
     public DbSet<ManagerTicket> ManagerTickets { get; set; }
     public DbSet<GetTicketById> GetTicketByIds { get; set; }
+    // User Ticket
+    public DbSet<UserTicket> UserTickets { get; set; }
+    public DbSet<GetUserTickById> GetUserTickByIds { get; set; }
     // End
 
     // Event Db

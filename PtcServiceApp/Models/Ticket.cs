@@ -6,9 +6,8 @@ namespace PtcServiceApp.Models;
 [Keyless]
 public class Ticket
 {
-    [Key]
+    public Int64 No { get; set; }
     public int TicketId { get; set; }
-    public int No { get; set; }
     public int TicketCode { get; set; }
     public int StatusId { get; set; }
     public string Name { get; set; }
@@ -18,7 +17,7 @@ public class Ticket
 [Keyless]
 public class ReportAdmin
 {
-    public int No { get; set; }
+    public Int64 No { get; set; }
     public int TicketCode { get; set; }
     public string Name { get; set; }
     public string Subject { get; set; }
@@ -74,4 +73,29 @@ public class TicketTransferOrAssign
     public int DepartmentId { get; set; }
     public int ServiceCallId { get; set; }
     public int AssignId { get; set; }
+}
+
+// User Ticket
+[Keyless]
+public class UserTicket
+{
+    public Int64 No { get; set; }
+    public int TicketId { get; set; }
+    public int TicketCode { get; set; }
+    public int StatusId { get; set; }
+    public string Comments { get; set; }
+    public string CreatedDate { get; set; }
+}
+
+[Keyless]
+public class GetUserTickById
+{
+    public int TicketId { get; set; }
+}
+
+[Keyless]
+public class CompleteTicket
+{
+    public int TicketId { get; set; }
+    public string Comment { get; set; }
 }

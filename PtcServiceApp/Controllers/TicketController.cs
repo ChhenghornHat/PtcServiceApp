@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PtcServiceApp.Data;
 using PtcServiceApp.Models;
@@ -39,7 +38,7 @@ public class TicketController : Controller
     [HttpGet]
     public async Task<IActionResult> GetAllTicket()
     {
-        var result = await _ptcServiceDbContext.Tickets.FromSqlRaw("EXEC LiveTicketAdmin").ToListAsync();
+        var result = await _ptcServiceDbContext.Tickets.FromSqlRaw($"EXEC LiveTicketAdmin").ToListAsync();
         return Ok(result);
     }
 
@@ -62,7 +61,7 @@ public class TicketController : Controller
     public async Task<IActionResult> GetAssignDepartment()
     {
         var dpmId = HttpContext.Session.GetInt32("DepartmentId");
-        var result = await _ptcServiceDbContext.GetDepartments.FromSqlRaw($"EXEC ShowDepartment @Type = 'Assign', @DepartmentId = {dpmId}").ToListAsync();
+        var result = await _ptcServiceDbContext.GetAssignDepartments.FromSqlRaw($"EXEC ShowDepartment @Type = 'Assign', @DepartmentId = {dpmId}").ToListAsync();
         return Ok(result);
     }
 
@@ -83,7 +82,16 @@ public class TicketController : Controller
         await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC RejectTicket @Crud = 'Insert', @Comments = '{objTk.Comment}', @CreatedById = {empId}, @DepartmentId = {dpmId}, @TicketId = {objTk.TicketId}");
         return Ok(1);
     }
-    
+
+    public async Task<IActionResult> TicketAssign(TicketTransferOrAssign objAsn)
+    {
+        var empId = HttpContext.Session.GetInt32("EmployeeId");
+        var dpmId = HttpContext.Session.GetInt32("DepartmentId");
+
+        await _ptcServiceDbContext.Database.ExecuteSqlRawAsync($"EXEC AssignTicket @Crud = 'Insert', @Comments = '{objAsn.Comment}', @TicketId = {objAsn.TicketId}, @ServiceCallId = {objAsn.ServiceCallId}, @AssignToId = {objAsn.AssignId}, @DepartmentId = {dpmId}, @CreatedById = {empId}");
+        return Ok(1);
+    }
+
     // Ticket Report
     public IActionResult AdminTicketReport()
     {
@@ -210,6 +218,22 @@ public class TicketController : Controller
         {
             return RedirectToAction("Login", "Auth");
         }
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetByUserTicket()
+    {
+        var empId = HttpContext.Session.GetInt32("EmployeeId");
+        var dpmId = HttpContext.Session.GetInt32("DepartmentId");
+        var result = await _ptcServiceDbContext.UserTickets.FromSqlRaw($"EXEC LiveTicketEmployee @DepartmentId = {dpmId}, @EmployeeId = {empId}").ToListAsync();
+        return Ok(result);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetUserById(int id)
+    {
+        var result = await _ptcServiceDbContext.GetUserTickByIds.FromSqlRaw($"").ToListAsync();
+        return Ok(result);
     }
     // End User
 }

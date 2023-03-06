@@ -158,8 +158,9 @@
         table = $('#table').DataTable({
             data: list_ticket,
             columns: [
-                {data: 'ticketId'},
+                {data: 'no'},
                 {data: 'ticketCode'},
+                {data: 'name'},
                 {data: 'statusId',
                     'render': function(data) {
                         return `<span class="${data === 1 ? 'badge blue' : data === 2 ? 'badge green': ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : ''}</span>`;

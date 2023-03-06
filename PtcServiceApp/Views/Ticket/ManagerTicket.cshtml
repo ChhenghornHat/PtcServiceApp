@@ -138,10 +138,20 @@
                         <td class="created-date"></td>
                     </tr>
                 </table>
-                <div class="input-field mt-4 hide-comment">
+                <div class="input-field mt-4">
                     <input type="text" class="validate" id="comment" required="required"/>
                     <div id="comment-error" class="error hide">This field is required.</div>
                     <label for="comment">Comments</label>
+                </div>
+                <div class="input-field mt-4 hide hide-service">
+                    <input type="text" class="validate" id="service-call" required="required"/>
+                    <div id="service-error" class="error hide">This field is required.</div>
+                    <label for="service-call">Service call id</label>
+                </div>
+                <div class="input-field mt-4 hide hide-drp-employee">
+                    <select id="employee-name">
+                    </select>
+                    <label for="employee-name">EmployeeName</label>
                 </div>
             </div>
             <div class="col m4 s4">
@@ -239,8 +249,11 @@
                     $('.name').text(item.createdByName);
                     if (item.statusId === 1){
                         statuses.html('<span class="badge orange">Requested</span>');
+                        $('.hide-drp-employee').addClass('hide');
                     } else if (item.statusId === 2) {
                         statuses.html('<span class="badge blue">Accepted</span>');
+                        $('.hide-drp-employee').removeClass('hide');
+                        $('.hide-service').removeClass('hide');
                     }
                     $('#status').val(item.statusId);
                     $('.indidual').text(item.indidual);
@@ -285,7 +298,7 @@
         return true;
     }
     
-    // validate transfer & assign
+    // validate transfer
     function validateType() {
         let commentEL = $('#type-comment');
         let errorEl = $('#type-comment-error');
@@ -300,6 +313,31 @@
         
         return true;
     }
+    
+    // validate  assign
+    function validateAssign() {
+            let commentEL = $('#comment');
+            let serviceEL = $('#service-call');
+            let errorEl = $('#comment-error');
+            let errorEl2 = $('#service-error');
+            
+            if (commentEL.val() === "") {
+                commentEL.focus();
+                errorEl.removeClass('hide');
+                return false;
+            } else {
+                errorEl.addClass('hide');
+            }
+            if (serviceEL.val() === "") {
+                errorEl2.focus();
+                errorEl2.removeClass('hide');
+                return false;
+            } else {
+                errorEl.addClass('hide');
+            }
+            
+            return true;
+        }
     
     // click to accept
     $('#btn-accept').click(function() {
@@ -317,7 +355,7 @@
             dataType: 'JSON',
             data: {objTk: obj_tk},
             beforeSend: function() {
-              
+                
             },
             success: function(data) {
                 if (data === 1) {
@@ -408,12 +446,36 @@
     
     // click to show popup assign
     $('#btn-assign').click(function() {
-        $('#modal2').modal('close');
-        $('#modal3').modal('open');
+        if (!validateAssign()) {
+            return;
+        }
         
-        $('.type').text('Assign To');
-        $('#btn-assign-to').removeClass('hide');
-        $('#btn-transfer-to').addClass('hide');
+        let obj_asn = {};
+        obj_asn.TicketId = $('#tk-id').val();
+        obj_asn.Comment = $('#comment').val();
+        obj_asn.ServiceCallId = $('#service-call').val();
+        obj_asn.AssignId = $('#employee-name').val();
+        
+        console.log(obj_asn);
+        
+        $.ajax({
+            url: '@Url.Action("TicketAssign", "Ticket")',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {objAsn: obj_asn},
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                 if (data === 1) {
+                    M.toast({html:"Ticket has been assign!"});
+                    $('#modal2').modal('close');
+                    getByManagerTicket();
+                } else {
+                    alert("Failed please try again later!");
+                }
+            }
+        });
     });
     
     // click assign to send data to controller
@@ -452,6 +514,10 @@
         $('.is-assign').addClass('hide');
         $('.is-accept').addClass('hide');
         $('.hide-comment').removeClass('hide');
+        $('.hide-drp-employee').addClass('hide');
+        $('.hide-service').addClass('hide');
+        $('#comment-error').addClass('hide');
+        $('#service-error').addClass('hide');
     });
     
     // call the function
@@ -471,7 +537,26 @@
                 });
             }
         });
-    }
+    }// end
+    
+     // call the function
+    getAssignDepartment();
+    // Get data for assign department
+    function getAssignDepartment() {
+        $.ajax({
+            url: '@Url.Action("GetAssignDepartment", "Ticket")',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function() {
+                console.log("Loading...");
+            },
+            success: function(data) {
+                data.forEach((item) => {
+                    $('#employee-name').append(`<option value="${item.employeeId}">${item.employeeName}</option>`);
+                });
+            }
+        });
+    }// end
     
     // call the function
     getByManagerTicket();

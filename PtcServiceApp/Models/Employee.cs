@@ -29,6 +29,14 @@ public class GetDepartment
 }
 
 [Keyless]
+public class GetAssignDepartment
+{
+    [Key]
+    public int EmployeeId { get; set; }
+    public string EmployeeName { get; set; }
+}
+
+[Keyless]
 public class GetJobTitle
 {
     [Key]
