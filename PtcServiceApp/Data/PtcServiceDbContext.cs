@@ -49,9 +49,11 @@ public class PtcServiceDbContext : DbContext
     public DbSet<ReportAdmin> ReportAdmins { get; set; }
     // Manager Ticket
     public DbSet<ManagerTicket> ManagerTickets { get; set; }
+    public DbSet<ReportManager> ReportManagers { get; set; }
     public DbSet<GetTicketById> GetTicketByIds { get; set; }
     // User Ticket
     public DbSet<UserTicket> UserTickets { get; set; }
+    public DbSet<ReportUser> ReportUsers { get; set; }
     public DbSet<GetUserTickById> GetUserTickByIds { get; set; }
     // End
 

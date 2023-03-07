@@ -2,7 +2,7 @@
 
 namespace PtcServiceApp.Controllers;
 
-public class User : Controller
+public class Customer : Controller
 {
     // GET
     public IActionResult Index()

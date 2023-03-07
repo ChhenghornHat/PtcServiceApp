@@ -39,12 +39,12 @@
     <div class="modal-content">
         <h5>Completed Ticket</h5>
         
-        <div class="col mt-2 mb-2">
+        <div class="col mt-3">
             <div class="input-field">
                 <input type="hidden" id="tk-id">
                 <textarea class="validate materialize-textarea" id="comment" required="required"></textarea>
                 <small class="errorTxt4">
-                    <div id="type-comment-error" class="error hide">This field is required.</div></small>
+                    <div id="comment-error" class="error hide">This field is required.</div></small>
                 <label for="comment">Comment</label>
             </div>
         </div>
@@ -100,7 +100,7 @@
         let tk_id = $(this).attr('id');
         
         $.ajax({
-            url: '@Url.Action("", "")',
+            url: '@Url.Action("GetUserById", "Ticket")',
             type: 'GET',
             dataType: 'JSON',
             data: {id: tk_id},
@@ -133,12 +133,16 @@
     
     // click to completed
     $('#btn-completed').click(function() {
+        if (!validate()) {
+            return;
+        }
+        
         let obj_cmp = {};
         obj_cmp.TicketId = $('#tk-id').val();
         obj_cmp.Comment = $('#comment').val();
         
         $.ajax({
-            url: '',
+            url: '@Url.Action("CompleteTicket", "Ticket")',
             type: 'POST',
             dataType: 'JSON',
             data: {objCmp: obj_cmp},
@@ -150,6 +154,7 @@
                     M.toast({html:"Ticket has been completed!"});
                     $('#modal2').modal('close');
                     getByUserTicket();
+                    clearForm();
                 } else {
                     alert("Failed please try again later!");
                 }
@@ -171,9 +176,16 @@
                 //console.table(data);
                 list_ticket = [];
                 list_ticket = data;
-                list_ticket.rows.add(list_ticket);
+                table.clear();
+                table.rows.add(list_ticket);
                 table.draw();
             }
         });
     }
+    
+    // clear form
+    function clearForm() {
+        $('#comment').val('');
+    }
+    
 </script>

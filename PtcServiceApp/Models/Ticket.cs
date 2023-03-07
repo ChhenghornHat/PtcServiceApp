@@ -26,6 +26,17 @@ public class ReportAdmin
 }
 
 [Keyless]
+public class ReportManager
+{
+    public Int64 No { get; set; }
+    public int TicketCode { get; set; }
+    public string UserName { get; set; }
+    public string Subject { get; set; }
+    public int StatusId { get; set; }
+    public string CreatedDate { get; set; }
+}
+
+[Keyless]
 public class GetTicketById
 {
     [Key]
@@ -98,4 +109,14 @@ public class CompleteTicket
 {
     public int TicketId { get; set; }
     public string Comment { get; set; }
+}
+
+[Keyless]
+public class ReportUser
+{
+    public Int64 No { get; set; }
+    public int TicketCode { get; set; }
+    public int StatusId { get; set; }
+    public string Comments { get; set; }
+    public string CreatedDate { get; set; }
 }

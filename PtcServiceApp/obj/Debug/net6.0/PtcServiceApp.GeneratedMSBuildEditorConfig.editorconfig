@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/Dashboard/AdminDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEFkbWluRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -96,16 +100,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XE1hbmFnZXJUaWNrZXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/Ticket/ManagerTicketReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XE1hbmFnZXJUaWNrZXRSZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/Ticket/UserTicket.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XFVzZXJUaWNrZXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/UserRole/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVcSW5kZXguY3NodG1s
+[D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/Ticket/UserTicketReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XFVzZXJUaWNrZXRSZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/User/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+[D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/UserRole/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PTC-Computer/PtcServiceApp/PtcServiceApp/Views/_ViewImports.cshtml]

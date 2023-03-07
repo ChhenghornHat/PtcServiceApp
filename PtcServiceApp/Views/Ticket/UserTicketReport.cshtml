@@ -1,6 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Ticket Report";
-    Layout = "_Layout";
+    ViewBag.Title = "User Ticket Report";
+    Layout = "_UserLayout";
 }
 
 <div class="row">
@@ -29,26 +29,20 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="row">
-                            <div class="input-field col s4">
+                            <div class="input-field col s5">
                                 <i class="material-icons prefix">date_range</i>
                                 <input id="date_from" type="date" class="datepickers">
                                 <label for="date_from">Date From</label>
                             </div>
-                            <div class="input-field col s4">
+                            <div class="input-field col s5">
                                 <i class="material-icons prefix">date_range</i>
                                 <input id="from_to" type="date" class="datepickers">
                                 <label for="from_to">From To</label>
                             </div>
                             <div class="input-field col s2">
-                                <i class="material-icons prefix">checklist</i>
-                                <select id="status">
-                                </select>
-                                <label for="from_to">From To</label>
-                            </div>
-                            <div class="input-field col s2">
-                                  <button class="btn cyan waves-effect waves-light right" type="submit" id="btn-search">Search
+                                <button class="btn cyan waves-effect waves-light right" type="submit" id="btn-search">Search
                                     <i class="material-icons right">search</i>
-                                  </button>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -66,8 +60,7 @@
                                             <tr>
                                                 <th style="min-width: 5px">#</th>
                                                 <th>Ticket Code</th>
-                                                <th>Name</th>
-                                                <th>Subject</th>
+                                                <th>Comment</th>
                                                 <th>Status Name</th>
                                                 <th>Created Date</th>
                                             </tr>
@@ -108,8 +101,7 @@
             columns: [
                 {data: 'no'},
                 {data: 'ticketCode'},
-                {data: 'name'},
-                {data: 'subject'},
+                {data: 'comments'},
                 {data: 'statusId',
                     'render': function(data) {
                         return `<span class="${data === 1 ? 'badge orange' : data === 2 ? 'badge blue' : data === 3 ? 'badge red' : data === 4 ? 'badge red darken-2' : data === 5 ? 'badge green' : ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : data === 3 ? 'Rejected' : data === 4 ? 'Cancelled' : data === 5 ? 'Completed' : ''}</span>`;
@@ -130,7 +122,6 @@
     
     // pass data to controller for the filter by date
     $('#btn-search').click(function() {
-        let statusId = $('#status').val();
         let docDate = $('#date_from').val();
         let dueDate = $('#from_to').val();
         
@@ -140,10 +131,10 @@
         // let newdate2 = date2.split("/").reverse().join("-");
         
         $.ajax({
-            url: '@Url.Action("GetAdminTicketReportFilterBy", "Ticket")',
+            url: '@Url.Action("GetUserTicketReportFilterBy", "Ticket")',
             type: 'GET',
             dataType: 'JSON',
-            data: {statusId: statusId, docDate: docDate, dueDate: dueDate},
+            data: {docDate: docDate, dueDate: dueDate},
             beforeSend: function() {
                 console.log("Loading...");
             },
@@ -158,45 +149,5 @@
         });
     });// end
     
-    // call the function
-    getStatus();
-    // get status from database
-    function getStatus() {
-        $.ajax({
-            url: '@Url.Action("GetStatus", "Ticket")',
-            type: 'GET',
-            dataType: 'JSON',
-            beforeSend: function() {
-                console.log("Loading...");
-            },
-            success: function(data) {
-                data.forEach((item) => {
-                    $('#status').append(`<option value="${item.statusId}">${item.statusName}</option>`);
-                });
-            }
-        });
-    }
-    
-    // call the function
-    getAllTicketReport();
-    // call data from controller
-    function getAllTicketReport() {
-        $.ajax({
-            url: '@Url.Action("GetAdminTicketReport", "Ticket")',
-            type: 'GET',
-            dataType: 'JSON',
-            beforeSend: function() {
-                console.log("Loading...");
-            },
-            success: function(data) {
-                //console.table(data);
-                list_ticket_report = [];
-                list_ticket_report = data;
-                table.clear();
-                table.rows.add(list_ticket_report);
-                table.draw();
-            }
-        });
-    }// end
-    
 </script>
+

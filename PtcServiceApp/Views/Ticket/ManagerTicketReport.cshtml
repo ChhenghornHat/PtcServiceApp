@@ -1,6 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Ticket Report";
-    Layout = "_Layout";
+    ViewBag.Title = "Manager Ticket Report";
+    Layout = "_ManagerLayout";
 }
 
 <div class="row">
@@ -46,9 +46,9 @@
                                 <label for="from_to">From To</label>
                             </div>
                             <div class="input-field col s2">
-                                  <button class="btn cyan waves-effect waves-light right" type="submit" id="btn-search">Search
+                                <button class="btn cyan waves-effect waves-light right" type="submit" id="btn-search">Search
                                     <i class="material-icons right">search</i>
-                                  </button>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                             <tr>
                                                 <th style="min-width: 5px">#</th>
                                                 <th>Ticket Code</th>
-                                                <th>Name</th>
+                                                <th>User Name</th>
                                                 <th>Subject</th>
                                                 <th>Status Name</th>
                                                 <th>Created Date</th>
@@ -108,7 +108,7 @@
             columns: [
                 {data: 'no'},
                 {data: 'ticketCode'},
-                {data: 'name'},
+                {data: 'userName'},
                 {data: 'subject'},
                 {data: 'statusId',
                     'render': function(data) {
@@ -140,7 +140,7 @@
         // let newdate2 = date2.split("/").reverse().join("-");
         
         $.ajax({
-            url: '@Url.Action("GetAdminTicketReportFilterBy", "Ticket")',
+            url: '@Url.Action("GetManagerTicketReportFilterBy", "Ticket")',
             type: 'GET',
             dataType: 'JSON',
             data: {statusId: statusId, docDate: docDate, dueDate: dueDate},
@@ -176,27 +176,5 @@
             }
         });
     }
-    
-    // call the function
-    getAllTicketReport();
-    // call data from controller
-    function getAllTicketReport() {
-        $.ajax({
-            url: '@Url.Action("GetAdminTicketReport", "Ticket")',
-            type: 'GET',
-            dataType: 'JSON',
-            beforeSend: function() {
-                console.log("Loading...");
-            },
-            success: function(data) {
-                //console.table(data);
-                list_ticket_report = [];
-                list_ticket_report = data;
-                table.clear();
-                table.rows.add(list_ticket_report);
-                table.draw();
-            }
-        });
-    }// end
     
 </script>

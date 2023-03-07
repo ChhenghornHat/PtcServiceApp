@@ -316,28 +316,28 @@
     
     // validate  assign
     function validateAssign() {
-            let commentEL = $('#comment');
-            let serviceEL = $('#service-call');
-            let errorEl = $('#comment-error');
-            let errorEl2 = $('#service-error');
-            
-            if (commentEL.val() === "") {
-                commentEL.focus();
-                errorEl.removeClass('hide');
-                return false;
-            } else {
-                errorEl.addClass('hide');
-            }
-            if (serviceEL.val() === "") {
-                errorEl2.focus();
-                errorEl2.removeClass('hide');
-                return false;
-            } else {
-                errorEl.addClass('hide');
-            }
-            
-            return true;
+        let commentEL = $('#comment');
+        let serviceEL = $('#service-call');
+        let errorEl = $('#comment-error');
+        let errorEl2 = $('#service-error');
+        
+        if (commentEL.val() === "") {
+            commentEL.focus();
+            errorEl.removeClass('hide');
+            return false;
+        } else {
+            errorEl.addClass('hide');
         }
+        if (serviceEL.val() === "") {
+            serviceEL.focus();
+            errorEl2.removeClass('hide');
+            return false;
+        } else {
+            errorEl.addClass('hide');
+        }
+        
+        return true;
+    }
     
     // click to accept
     $('#btn-accept').click(function() {
@@ -361,7 +361,7 @@
                 if (data === 1) {
                     M.toast({html:"Ticket has been accepted!"});
                     $('#modal2').modal('close');
-                    $('#comment-error').removeClass('hide');
+                    $('#comment-error').addClass('hide');
                     getByManagerTicket();
                     clearForm();
                 } else {
@@ -456,8 +456,6 @@
         obj_asn.ServiceCallId = $('#service-call').val();
         obj_asn.AssignId = $('#employee-name').val();
         
-        console.log(obj_asn);
-        
         $.ajax({
             url: '@Url.Action("TicketAssign", "Ticket")',
             type: 'POST',
@@ -501,6 +499,10 @@
                  if (data === 1) {
                     M.toast({html:"Ticket has been assign!"});
                     $('#modal3').modal('close');
+                    $('.is-assign').addClass('hide');
+                    $('.is-accept').addClass('hide');
+                    $('.hide-comment').removeClass('hide');
+                    clearForm();
                     getByManagerTicket();
                 } else {
                     alert("Failed please try again later!");
@@ -583,6 +585,7 @@
     // clear form
     function clearForm() {
         $('#comment').val('');
+        $('#service-call').val('');
     }
     
     var swiper = new Swiper(".mySwiper", {
