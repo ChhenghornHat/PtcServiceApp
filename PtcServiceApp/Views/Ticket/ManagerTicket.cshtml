@@ -5,22 +5,22 @@
 
 <div class="row mb-4">
     <div class="col s12">
-        <div class="container animate fadeLeft">
+        <div class="container">
             <div class="section">
                 <!-- Page Length Options -->
                 <div class="row">
                     <div class="col s12">
                         <table id="table" class="display width-100">
                             <thead>
-                                <tr>
-                                    <th style="min-width: 5px">#</th>
-                                    <th>Ticket Code</th>
-                                    <th>User Name</th>
-                                    <th>Subject</th>
-                                    <th>Status Name</th>
-                                    <th>Created Date</th>
-                                    <th>Action</th>
-                                </tr>
+                            <tr>
+                                <th style="min-width: 5px">#</th>
+                                <th>Ticket Code</th>
+                                <th>User Name</th>
+                                <th>Subject</th>
+                                <th>Status Name</th>
+                                <th>Created Date</th>
+                                <th>Action</th>
+                            </tr>
                             </thead>
                             <tbody>
 
@@ -37,8 +37,7 @@
 <!-- Modal Structure -->
 <div id="modal3" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <h5 class="type"></h5>
-        
+        <h5>Transfer</h5>
         <div class="col mt-2 mb-2">
             <div class="input-field">
                 <textarea class="validate materialize-textarea" id="type-comment" required="required"></textarea>
@@ -59,9 +58,6 @@
                 <button class="btn waves-effect waves-light modal-close btn-light-red">Cancel
                     <i class="material-icons left">close</i>
                 </button>
-                <button class="btn waves-effect waves-light cyan hide" id="btn-assign-to">Assign
-                    <i class="material-icons right">arrow_outward</i>
-                </button>
                 <button class="btn waves-effect waves-light cyan hide" id="btn-transfer-to">Transfer
                     <i class="material-icons right">arrow_outward</i>
                 </button>
@@ -72,6 +68,58 @@
 
 <!-- Modal Structure -->
 <div id="modal2" class="modal modal-fixed-footer">
+    
+    <div class="modal-loading">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+    
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+    
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+    
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal-header">
         <h5>View Details</h5>
@@ -234,7 +282,7 @@
             dataType: 'JSON',
             data: {id: tk_id},
             beforeSend: function() {
-                console.log("Loading...");
+                createLoading();
             },
             success: function(data) {
                 //console.table(data);
@@ -278,6 +326,9 @@
                     isAccept.addClass('hide');
                     $('.hide-comment').addClass('hide');
                 }
+            },
+            complete: function() {
+                removeLoading();
             }
         });
     });// end
@@ -438,8 +489,6 @@
     $('#btn-transfer').click(function() {
         $('#modal2').modal('close');
         $('#modal3').modal('open');
-        
-        $('.type').text('Transfer To');
         $('#btn-transfer-to').removeClass('hide');
         $('#btn-assign-to').addClass('hide');
     });
@@ -468,40 +517,6 @@
                  if (data === 1) {
                     M.toast({html:"Ticket has been assign!"});
                     $('#modal2').modal('close');
-                    getByManagerTicket();
-                } else {
-                    alert("Failed please try again later!");
-                }
-            }
-        });
-    });
-    
-    // click assign to send data to controller
-    $('#btn-assign-to').click(function() {
-        if (!validateType()) {
-            return;
-        }
-        
-        let obj_asn = {};
-        obj_asn.TicketId = $('#tk-id').val();
-        obj_asn.Comment = $('#type-comment').val();
-        obj_asn.DepartmentId = $('#department').val();
-        
-        $.ajax({
-            url: '@Url.Action("AssignTo", "Ticket")',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {objAsn: obj_asn},
-            beforeSend: function() {
-                console.log("Loading...");
-            },
-            success: function(data) {
-                 if (data === 1) {
-                    M.toast({html:"Ticket has been assign!"});
-                    $('#modal3').modal('close');
-                    $('.is-assign').addClass('hide');
-                    $('.is-accept').addClass('hide');
-                    $('.hide-comment').removeClass('hide');
                     clearForm();
                     getByManagerTicket();
                 } else {
@@ -530,9 +545,6 @@
             url: '@Url.Action("GetTransferDepartment", "Ticket")',
             type: 'GET',
             dataType: 'JSON',
-            beforeSend: function() {
-                console.log("Loading...");
-            },
             success: function(data) {
                 data.forEach((item) => {
                     $('#department').append(`<option value="${item.departmentId}">${item.departmentName}</option>`);
@@ -549,9 +561,6 @@
             url: '@Url.Action("GetAssignDepartment", "Ticket")',
             type: 'GET',
             dataType: 'JSON',
-            beforeSend: function() {
-                console.log("Loading...");
-            },
             success: function(data) {
                 data.forEach((item) => {
                     $('#employee-name').append(`<option value="${item.employeeId}">${item.employeeName}</option>`);
@@ -568,9 +577,6 @@
             url: '@Url.Action("GetByManagerTicket", "Ticket")',
             type: 'GET',
             dataType: 'JSON',
-            beforeSend: function() {
-                console.log("Loading...");
-            },
             success: function(data) {
                 //console.table(data);
                 list_ticket = [];

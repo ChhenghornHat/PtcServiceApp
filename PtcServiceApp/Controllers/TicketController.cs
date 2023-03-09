@@ -45,7 +45,7 @@ public class TicketController : Controller
     [HttpGet]
     public async Task<IActionResult> GetTicketById(int id)
     {
-        var result = await _ptcServiceDbContext.GetTicketByIds.FromSqlRaw($"EXEC LiveTicketManager @Id = {id}").ToListAsync();
+        var result = await _ptcServiceDbContext.GetTicketByIds.FromSqlRaw($"EXEC LiveTicketAdmin @Id = {id}").ToListAsync();
         return Ok(result);
     }
 

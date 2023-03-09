@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZRoiQXpdNIVv3uD+CoutXzd+cAd3W+sYnftWtf1GjQE=",
+  "Hash": "fIVEiHocS8UmkFxKZcH/EBUnWv6Oa1FkmgV3nFR16OU=",
   "Source": "PtcServiceApp",
   "BasePath": "_content/PtcServiceApp",
   "Mode": "Default",
@@ -882,6 +882,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\material-design-icons\\icon"
+    },
+    {
+      "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\fonts\\material-design-icons\\MaterialIcons-Regular.ttf",
+      "SourceId": "PtcServiceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\",
+      "BasePath": "_content/PtcServiceApp",
+      "RelativePath": "assets/fonts/material-design-icons/MaterialIcons-Regular.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\fonts\\material-design-icons\\MaterialIcons-Regular.ttf"
     },
     {
       "Identity": "D:\\PTC-Computer\\PtcServiceApp\\PtcServiceApp\\wwwroot\\assets\\images\\avatar\\avatar-1.png",

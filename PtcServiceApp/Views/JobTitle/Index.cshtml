@@ -270,7 +270,6 @@
     $(document).on('click', '.edit-active', function() {
         let col_id = $(this).closest('tr');
         let jtl_id = col_id.find('td:eq(0)').text();
-        alert(jtl_id)
         let active;
         $(this).is(':checked') ? active = 1 : active = 0;
         

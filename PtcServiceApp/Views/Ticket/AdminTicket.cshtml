@@ -38,8 +38,8 @@
                                             <tr>
                                                 <th style="min-width: 5px">#</th>
                                                 <th>Ticket Code</th>
-                                                <th>Status Name</th>
                                                 <th>Name</th>
+                                                <th>Status Name</th>
                                                 <th>Created Date</th>
                                                 <th>Action</th>
                                             </tr>
@@ -62,82 +62,83 @@
 
 <!-- Modal Structure -->
 <div id="modal2" class="modal modal-fixed-footer">
+
+    <div class="modal-header">
+        <h5>View Details</h5>
+        <a class="modal-close display-flex justify-content-center">
+            <i class="material-icons">close</i>
+        </a>
+    </div>
+
     <div class="modal-content pt-2">
         <div class="row" id="product-one">
-            <div class="col s12">
-                <a class="modal-close right">
-                    <i class="material-icons">close</i>
-                </a>
-            </div>
-            <div class="col m12 s12">
+            <div class="col m8 s8">
                 <!-- Swiper -->
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-                <h5>View Details</h5>
-                <hr class="mb-1">
                 <table>
                     <tr>
                         <input type="hidden" id="tk-id">
-                        <th>Ticket Code<span>:</span></th>
+                        <th>Ticket Code</th>
+                        <td>:</td>
                         <td class="ticket-code"></td>
                     </tr>
                     <tr>
-                        <th>Customer Name<span>:</span></th>
+                        <th>Customer Name</th>
+                        <td>:</td>
                         <td class="name"></td>
                     </tr>
                     <tr>
-                        <th>Status<span>:</span></th>
+                        <th>Status</th>
+                        <td>:</td>
                         <td class="status"></td>
+                        <input type="hidden" id="status"/>
                     </tr>
                     <tr>
-                        <th>Request Type<span>:</span></th>
+                        <th>Request Type</th>
+                        <td>:</td>
                         <td class="indidual"></td>
                     </tr>
                     <tr>
-                        <th>Subject<span>:</span></th>
+                        <th>Subject</th>
+                        <td>:</td>
                         <td class="subject"></td>
                     </tr>
                     <tr>
-                        <th>Description<span>:</span></th>
+                        <th>Description</th>
+                        <td>:</td>
                         <td class="description"></td>
                     </tr>
                     <tr>
-                        <th>Phone<span>:</span></th>
+                        <th>Phone</th>
+                        <td>:</td>
                         <td class="phone"></td>
                     </tr>
                     <tr>
-                        <th>Address<span>:</span></th>
+                        <th>Address</th>
+                        <td>:</td>
                         <td class="address"></td>
                     </tr>
                     <tr>
-                        <th>Created By<span>:</span></th>
-                        <td class="created-by"></td>
-                    </tr>
-                    <tr>
-                        <th>Created Date<span>:</span></th>
+                        <th>Created Date</th>
+                        <td>:</td>
                         <td class="created-date"></td>
                     </tr>
                 </table>
-                <div class="input-field">
-                    <input type="text" class="validate" id="comment" required="required"/>
-                    <label for="comment">Comments</label>
-                </div>
+            </div>
+            <div class="col m4 s4">
+                hi thear
             </div>
         </div>
     </div>
     <div class="modal-footer">
         <div class="row">
-            <div class="col s12">
-                <button class="btn waves-effect waves-light btn-light-red">Reject
-                    <i class="material-icons left">close</i>
-                </button>
-                <button class="btn waves-effect waves-light blue" type="submit" id="btn-accept">Accept
-                    <i class="material-icons right">check</i>
-                </button>
-            </div>
+            <button class="btn waves-effect waves-light modal-close btn-light-red">Close
+                <i class="material-icons left">close</i>
+            </button>
         </div>
     </div>
 </div>
@@ -163,13 +164,13 @@
                 {data: 'name'},
                 {data: 'statusId',
                     'render': function(data) {
-                        return `<span class="${data === 1 ? 'badge blue' : data === 2 ? 'badge green': ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : ''}</span>`;
+                        return `<span class="${data === 1 ? 'badge orange' : data === 2 ? 'badge blue': ''}">${data === 1 ? 'Requested' : data === 2 ? 'Accepted' : ''}</span>`;
                     }
                 },
                 {data: 'createdDate'},
                 {data: 'ticketId',
                     'render': function(data) {
-                        return `<a id="${data}" class="mb-6 waves-effect waves-light modal-trigger btn-edit-tk" href="#modal2"><i class="material-icons">remove_red_eye</i></a>`;
+                        return `<a id="${data}" class="mb-6 waves-effect waves-light modal-trigger btn-view-tk" href="#modal2"><i class="material-icons">remove_red_eye</i></a>`;
                     }
                 }
             ],
@@ -184,8 +185,8 @@
         });
     });// end
     
-    // click to call data from database
-    $(document).on('click', '.btn-edit-tk', function() {
+     // click to call data from database
+    $(document).on('click', '.btn-view-tk', function() {
         let tk_id = $(this).attr('id');
         
         $.ajax({
@@ -194,10 +195,11 @@
             dataType: 'JSON',
             data: {id: tk_id},
             beforeSend: function() {
-              
+                console.log("Loading...");
             },
             success: function(data) {
                 //console.table(data);
+                let statuses = $('.status');
                 $('.swiper-slide').remove();
                 data.forEach((item) => {
                     $(`<div class="swiper-slide">
@@ -206,12 +208,17 @@
                     $('#tk-id').val(item.ticketId);
                     $('.ticket-code').text(item.ticketCode);
                     $('.name').text(item.createdByName);
-                    $('.status').text(item.statusName);
+                    if (item.statusId === 1){
+                        statuses.html('<span class="badge orange">Requested</span>');
+                    } else if (item.statusId === 2) {
+                        statuses.html('<span class="badge blue">Accepted</span>');
+                    }
+                    $('#status').val(item.statusId);
                     $('.indidual').text(item.indidual);
                     $('.subject').text(item.subject);
                     $('.description').text(item.description);
+                    $('.phone').text(item.phone);
                     $('.address').text(item.userAddress);
-                    $('.created-by').text(item.createdBy);
                     $('.created-date').text(item.createdDate);
                 });
             }
